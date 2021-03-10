@@ -76,22 +76,5 @@ canvas{
     height: 600px;
     background-color: rgb(84 65 173);
     position: relative;
-    margin-top: 600px;
-}
-
-.button {
-    width: 100px;
-    
-    height: 35px;
-    font-size: 18px;
-    text-align: center;
-    padding-top: 10px;
-    background-color: rgb(84 65 173);
-    color: white;
-    border-radius: 5000px;
-    border: 2px solid rgb(84 65 173);
-}
-
-#buttonContact {
-    margin-top: 20px;
+    margin-top: 700px;
 }

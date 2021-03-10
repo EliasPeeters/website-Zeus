@@ -6,10 +6,10 @@
     </head>
     
     <body>
-        
-        <div id="welcomeBar">
-            <div id="particles-js"></div> <!-- stats - count particles --> <div class="count-particles"> <span class="js-count-particles"></span> </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-                
+        <!-- particles.js container --> <div id="particles-js"></div> <!-- stats - count particles --> <div class="count-particles"> <span class="js-count-particles">--</span> </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+        <!--
+        <div id="particles-js"></div> stats - count particles  <div class="count-particles"> <span class="js-count-particles"></span> </div> particles.js lib - https://github.com/VincentGarreau/particles.js <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> stats.js lib <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+                -->
         <script>
             particlesJS("particles-js", 
                             {
@@ -123,21 +123,44 @@
               "retina_detect": true
             });
             </script>
-            
-            <div id="welcomeLeft">
-                <h1>I'm <span style="color: rgb(84 65 173);"> Elias <br> Peeters </span> </h1>
+        
+        
+        
+        <div id="welcomeBar">
+            <div id="wrapper">
+                <div id="welcomeLeft">
+                <h1>I'm <span style="color: rgb(84 65 173);"> Elias <br> Peeters</span>
+                    <span class="blinking-cursor" style="color: rgb(84 65 173);">|</span></h1>
                 <h3>The Programmer with benefits</h3>
+                
+                <div class="button blueButton" style="margin-top: 20px; float: left">
+                    Contact
+                </div>
+                <div class="button" style="width: 140px; margin-top: 20px; margin-left: 20px; float: left">
+                    View Projects
+                </div>
             </div>
+            </div>
+            
             
             <div id="welcomeRight"> 
                 <img src="portrait.png">
             </div>
         </div>
         
-        <div id="aboutMe">
-            <div id="aboutMeDiv">
-            
-            </div>
+        <div id="spacer"></div>
+        
+        <div id="aboutMe">            
+            <div class="wrapper">
+                <div id="aboutMeLeft">
+                    <img src="portrait2.png">
+                </div>
+
+                <div id="aboutMeRight">
+
+                    <h1>About Me</h1>
+                </div>
+        </div>
         </div>
         
         <p>Test</p>
