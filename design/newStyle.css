@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#welcomeBar {
+    width: 100%;
+    position: relative;
+    max-width: 1200px;
+}
+
+canvas {
+    position: fixed;
+}
+
+#welcomeLeft {
+    width: calc(50% - 100px);
+    padding-top: 200px;
+    height: 400px;
+    padding-left: 100px;
+    float: left;
+}
+
+#welcomeLeft h1 {
+    font-size: 44px;
+    letter-spacing: 1.5;
+    font-weight: 700;
+}
+
+#welcomeLeft h3 {
+    font-size: 24px;
+    color: rgba(0,0,0,0.8);
+}
+
+#welcomeRight {
+    float: left;
+    width: 50%;
+    height: 600px;
+    position: relative;
+}
+
+#welcomeRight img {
+    height: 500px;
+    margin-left: 100px;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 0 auto;
+}
+
+#aboutMe {
+    width: 100%;
+    height: 300px;
+    padding-top: 600;
+}
+
+#aboutMeDiv {
+    background-color: rgb(84 65 173);
+}
