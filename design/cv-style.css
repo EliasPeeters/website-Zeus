@@ -1,0 +1,101 @@
+#content {
+    padding-top: 100px;
+    height: calc(100% - 50px);
+}
+
+#content h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+#contentLeft {
+    width: 40%;
+    float: left;
+    background-color: inherit;
+    height: 100%;
+    position: fixed;
+}
+
+#contentLeft img {
+    width: 300px;
+    position: relative;
+    left: calc(50% - 150px);
+    margin: 0 auto;
+}
+
+#contentLeft h1 {
+    font-size: 30px;
+    margin-top: 13px;
+}
+
+#contentRight h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#greenLine {
+    width: 5px;
+    position: absolute;
+    background-color: #81B29A;
+    height: 200px;
+    left: 70%;
+    z-index: -1;
+}
+
+#contentRight {
+    width: 60%;
+    margin-left: 40%;
+}
+
+.cvBlockHeadingBlock {
+    
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 15px 15px 0 0;
+}
+
+.cvBlock p {
+    margin-left: 10px;
+}
+
+.cvBlockHeadingBlock p {
+    color: white;
+    font-size: 17px;
+    padding-top: 8px;
+    margin-left: 10px;
+}
+
+.cvBlock {
+    width: 70%;
+    margin-left: 15%;
+    height: 130px;
+    
+    border-radius: 20px;
+    background-color: #F4F1DE;
+    margin-bottom: 20px;
+}
+
+.cvRed {
+    border: #E07A5F 3px solid;
+}
+
+.cvRedHeading {
+    background-color: #E07A5F;
+}
+
+.cvGreen {
+    border: #81B29A 3px solid;
+}
+
+.cvGreenHeading {
+    background-color: #81B29A;
+}
+
+
+.cvDescrip {
+    color: rgb(0,0,0,0.6);
+    margin-top: 5px;
+    font-style: italic;
+}
+
