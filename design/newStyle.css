@@ -17,6 +17,40 @@ body {
     z-index: 0;
 }
 
+#navigationBar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    color: rgb(84 65 173);
+    transition: 300ms;
+}
+
+
+
+#navigationBar ul {
+    float: right;
+    margin-right: 50px;
+}
+
+#navigationBar li {
+    float: left;
+    text-decoration: none;
+    list-style: none;
+    margin-top: 15px;
+}
+
+#navigationBar a {
+    margin-left: 20px;
+    color: inherit;
+    text-decoration: none;
+    transition: 300ms;
+}
+
+#navigationBar a:Hover {
+    text-decoration: underline;
+}
+
 @media only screen
     (min-device-width 1200px) {
         #welcomeBar {
@@ -108,6 +142,29 @@ canvas {
     font-size: 50px;   
 }
 
+#aboutMeRight p {
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.firstRow {
+    width: 200px;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+}
+
+.secondRow {
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: left;
+}
+
+th {
+    
+}
+
 .button {
     width: 100px;
     border-radius: 1000px;
@@ -120,8 +177,7 @@ canvas {
 
 .button:Hover {
     cursor: pointer;
-    background-color: rgb(84 65 173);
-    color: white;
+    
 }
 
 .blueButton {
@@ -137,12 +193,6 @@ canvas {
     color: rgb(84 65 173);
 }
 
-.wrapper {
-    background-color: aqua;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 #spacer {
     padding-top: 580;
@@ -210,6 +260,10 @@ canvas {
   }
 }
 
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 
 

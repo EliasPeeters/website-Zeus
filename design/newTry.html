@@ -5,11 +5,60 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
     
-    <body>
+    <body id="body">
+        
+        <div id="navigationBar">
+            <div class="wrapper">
+                <ul>
+                  <li><a id="home" href="default.html">Home</a></li>
+                  <li><a href="news.html">News</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
         <!-- particles.js container --> <div id="particles-js"></div> <!-- stats - count particles --> <div class="count-particles"> <span class="js-count-particles">--</span> </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
         <!--
         <div id="particles-js"></div> stats - count particles  <div class="count-particles"> <span class="js-count-particles"></span> </div> particles.js lib - https://github.com/VincentGarreau/particles.js <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> stats.js lib <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
                 -->
+        
+        <script>
+            
+        
+            window.addEventListener("scroll", (event) => {
+                let scroll = this.scrollY;
+                //document.getElementById('navigationBar').style.color = 'white';
+                let navbar = document.getElementById('navigationBar').style
+                console.log(navbar.color)
+                if (scroll > 200) {
+                    //navbar.backgroundColor = 'rgb(84 65 173)';
+                    navbar.backgroundColor = 'rgba(0,0,0,0)';
+                    //document.getElementById('navigationBar').style.color = 'white';
+                    
+                } else {
+                    //navbar.backgroundColor = 'rgba(0,0,0,0)';
+                    navbar.backgroundColor = 'inherit';
+                    //document.getElementById('navigationBar').style.color = 'rgb(84 65 173)';
+                }
+            });
+            
+            document.getScroll = function() {
+                if (window.pageYOffset != undefined) {
+                    return [pageXOffset, pageYOffset];
+                } else {
+                    var sx, sy, d = document,
+                        r = d.documentElement,
+                        b = d.body;
+                    sx = r.scrollLeft || b.scrollLeft || 0;
+                    sy = r.scrollTop || b.scrollTop || 0;
+                    return [sx, sy];
+                }
+            }
+            document.getElementById('body').addEventListener("scroll", console.log(document.getScroll()));
+            
+        </script>
         <script>
             particlesJS("particles-js", 
                             {
@@ -159,11 +208,31 @@
                 <div id="aboutMeRight">
 
                     <h1>About Me</h1>
+                    
+                    <p>Hi, my Name ist Elias Peeters and I am a programmer, designer and much more...</p>
+                    
+                    <table>
+                        <tr>
+                            <th class="firstRow">Name:</th>
+                            <th class="secondRow">Elias Peeters</th>
+                        </tr>
+                        
+                        <tr>
+                            <th class="firstRow">Birthday:</th>
+                            <th class="secondRow">26.12.2001</th>
+                        </tr>
+                        
+                        <tr>
+                            <th class="firstRow">Town:</th>
+                            <th class="secondRow">Hamburg</th>
+                        </tr>
+                    </table>
+                    
+                    
                 </div>
         </div>
         </div>
         
-        <p>Test</p>
     
     </body>
 
