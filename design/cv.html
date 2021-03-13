@@ -3,6 +3,8 @@
         <link rel="stylesheet" href="generalStyle.css">
         <link rel="stylesheet" href="cv-style.css">
         
+        
+        
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
@@ -12,8 +14,10 @@
         <!--
         <div id="particles-js"></div> stats - count particles  <div class="count-particles"> <span class="js-count-particles"></span> </div> particles.js lib - https://github.com/VincentGarreau/particles.js <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> stats.js lib <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
                 -->
+        
+        
         <div id="navBar">
-            <a href="/newTry2.html"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
+            <a id="navBarTitle" href="/newTry2.html"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
             
             <ul>
                  <li><a id="home" href="default.html">CV</a></li>
@@ -23,6 +27,8 @@
             </ul>
             
             <script>
+                
+                window.onscroll
             
         
             window.addEventListener("scroll", (event) => {
@@ -34,7 +40,14 @@
                 } else {
                     navbar.boxShadow = '0px 0px 4px rgba(0,0,0,0.4)';
                 }
-            });    
+            });  
+                
+            window.addEventListener("resize", (event) => {
+                let leftContent = document.getElementById('contentLeft');
+                let rightContent = document.getElementById('contentRight');
+                
+                leftContent.style.width = (rightContent.offsetWidth / 60) * 40
+            });  
         </script>
         </div>
         
@@ -48,29 +61,41 @@
             <div id="contentRight">
                 <h1>CV</h1>
                 
-                <h3>Education</h3>
+                <h3 scrollFade>Education</h3>
                 
-                <div id="greenLine"></div>
+                <!--<div id="greenLine"></div> -->
                 
-                <div class="cvBlock cvGreen">
+                <div class="cvBlock cvGreen scrollFade scrollFocus">
                     <div class="cvBlockHeadingBlock cvGreenHeading">
-                        <p>Internship: Vegansnacks.de</p>
+                        <p>Primary School: Silberbergschule Geesthacht</p>
                     </div>
-                    <p>2018 (2 weeks)</p>
+                    <p>2008-2012</p>
                     <p class="cvDescrip">I supported the onlineshop vegansnacks.de for 2 weeks and learned a lot about the ecommerce.</p>
                 </div>
+                <div class="greenLine2 scrollFade"></div>
                 
-                <div class="cvBlock cvGreen">
+                <div class="cvBlock cvGreen scrollFade scrollFocus">
                     <div class="cvBlockHeadingBlock cvGreenHeading">
-                        <p>Business informatics: OTTO GmbH</p>
+                        <p>Secondary School: Otto-Hahn-Gymnasium</p>
                     </div>
-                    <p>2020-Present</p>
+                    <p>2010-2020</p>
                     <p class="cvDescrip">I started my study business informatics in cooperation with OTTO 2020.</p>
                 </div>
                 
-                <h3>Experience</h3>
+                <div class="greenLine2 scrollFade"></div>
                 
-                <div class="cvBlock cvRed">
+                <div class="cvBlock cvGreen scrollFade scrollFocus">
+                    <div class="cvBlockHeadingBlock cvGreenHeading">
+                        <p>B.S in Computer Science and Economics</p>
+                    </div>
+                    <p>2020-Present</p>
+                    <p class="cvDescrip">2020 I started my study at the NORDAKADEMIE in Elmshorn in cooperation with the OTTO GmbH</p>
+                </div>
+                
+                <h3 scrollFade>Experience</h3>
+                
+                
+                <div class="cvBlock cvRed scrollFade scrollFocus">
                     <div class="cvBlockHeadingBlock cvRedHeading">
                         <p>Internship: Vegansnacks.de</p>
                     </div>
@@ -78,7 +103,9 @@
                     <p class="cvDescrip">I supported the onlineshop vegansnacks.de for 2 weeks and learned a lot about the ecommerce.</p>
                 </div>
                 
-                <div class="cvBlock cvRed">
+                <div class="redLine2 scrollFade"></div>
+                
+                <div class="cvBlock cvRed scrollFade scrollFocus">
                     <div class="cvBlockHeadingBlock cvRedHeading">
                         <p>Business informatics: OTTO GmbH</p>
                     </div>
@@ -86,7 +113,32 @@
                     <p class="cvDescrip">I started my study business informatics in cooperation with OTTO 2020.</p>
                 </div>
                 
-                <div></div>
+                <h3>Languages</h3>
+                <div id="languageCardsDiv">
+                    
+                    <div class="languageCard scrollFade scrollFocus">
+                            <p>German</p>
+                        <p class="languageDescrip ">Nativ</p>
+                    </div> 
+
+                    <div class="languageCard scrollFade scrollFocus">                
+                        <p>English</p>
+                        <p class="languageDescrip">Very good</p>
+                    </div>
+
+                    <div class="languageCard scrollFade scrollFocus">
+                        <p>Latin</p>
+                        <p class="languageDescrip">Middle latinum</p>
+                    </div>
+
+                    <div class="languageCard scrollFade scrollFocus">
+                        <p>Chinese</p>
+                        <p class="languageDescrip">Basic Knowledge</p>
+                    </div>
+                </div>
+                
+                
+                
                 
                 <h3>Dies ist ein Test</h3>
                 
@@ -108,8 +160,8 @@ Cursus turpis massa tincidunt dui ut ornare lectus sit. Ac feugiat sed lectus ve
             Mail: elias.peeters@icloud.com
         </div>
         
-        <script src="config.js">
-            </script>
+        <script src="config.js"></script>
+        <script src="fade.js"></script>
     </body>
     
     

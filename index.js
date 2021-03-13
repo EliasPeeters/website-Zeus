@@ -1,4 +1,5 @@
 const express = require('express');
+const geoip = require('geoip-lite');
 
 app = express();
 
@@ -8,5 +9,13 @@ app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 
 app.get('/', function(req,  res){
-    res.render('main')
+    console.log(req);
+    console.log(req.connection.remoteAddress)
+    res.render('main');
 });
+
+app.get('/cv', function(req,  res){
+    res.render('cv')
+});
+
+console.log('Running on 8080')

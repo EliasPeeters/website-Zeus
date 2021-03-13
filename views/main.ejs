@@ -1,1 +1,32 @@
-test
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/mainStyle.css">
+        <link rel="stylesheet" href="assets/generalStyle.css">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <%- include ("partials/animation") %>                
+        <%- include ("partials/navBar") %>
+        
+        <div id="content">
+            <div id="contentLeft">
+                <img src="assets/portrait.png">
+            </div>
+            <div id="contentRight">
+                <h1>Elias Peeters</h1>
+                <h3>A quick introduction</h3>
+                
+                <p>Hi, I am professional programmer working at OTTO. Awesome that you found your way here to my personal website. You can find here my projects, papers and CV. Also a Blog may be part of it in the future so be strechted. </p>
+                
+                <div class="button firstButton">CV</div>
+                <div class="button secondButton">Blog</div>
+                <div class="button thirdButton">Papers</div>
+            </div>
+        </div>
+
+        <%- include ("partials/footer") %>
+    </body>    
+</html>
