@@ -1,0 +1,127 @@
+#content {
+    padding-top: 100px;
+    min-height: calc(100% - 50px);
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#content h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+#contentLeft {
+    width: 50%;
+    float: left;
+    height: 100%;
+}
+
+#contentRight {
+    width: 50%;
+    height: 200px;
+    float: left;
+}
+
+
+.contactBox {
+    width: 70%;
+    margin-left: 15%;
+    min-height: 30px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    background-color: #FCFBF6;
+    transition: 300ms;
+    transition: box-shadow 10s;
+    margin-top: 20px;
+}
+
+.contactBox p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contactBoxHeadingBlock {
+    min-height: 20px;
+    margin-bottom: 10px;
+    border-radius: 11px 11px 0 0;
+    padding-bottom: 5px;
+}
+
+.contactBoxHeadingBlock p {
+    color: white;
+    font-size: 15px;
+    padding-top: 3px;
+    margin-left: 10px;
+}
+
+.contactBoxRedHeading {
+    background-color: #E07A5F;
+    color: white;
+}
+
+.contactBoxRed {
+    border: #E07A5F 3px solid;
+}
+
+.redLine2 {
+    width: 5px;
+    background-color: #E07A5F;
+    height: 30px;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.inputDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.inputDiv p {
+    width: 48%;
+    margin-top: -8px;
+    margin-bottom: 15px;
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+    font-size: 14px;
+}
+
+.inputText {
+    border-radius: 5px;
+    height: 40px;
+    margin-bottom: 10px;
+    width: 48%;
+    border: 2px solid #e2e0cd;
+    background-color: #FCFBF6;
+    padding-left: 5px;
+}
+
+textarea {
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 5px;
+    border: 2px solid #e2e0cd;
+    background-color: #FCFBF6;
+}
+
+.inputText:focus {
+    outline: none;
+    border: 2px solid #E07A5F;
+    transition: 300ms;
+}
+
+form {
+    margin-top: 75px;
+}
+
+.submitButton {
+    float: right;
+    margin-right: 5%;
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    padding-top: 0px
+}

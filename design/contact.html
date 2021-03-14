@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="generalStyle.css">
+        <link rel="stylesheet" href="contactstyle.css">
+        
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <!-- particles.js container --> <div id="particles-js"></div> <!-- stats - count particles --> <div class="count-particles"> <span class="js-count-particles"></span> </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+        <!--
+        <div id="particles-js"></div> stats - count particles  <div class="count-particles"> <span class="js-count-particles"></span> </div> particles.js lib - https://github.com/VincentGarreau/particles.js <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> stats.js lib <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+                -->
+        
+        
+        <div id="navBar">
+            <a id="navBarTitle" href="/newTry2.html"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
+            
+            <ul>
+                 <li><a id="home" href="default.html">CV</a></li>
+                  <li><a href="news.html">Blog</a></li>
+                  <li><a href="contact.html">Papers</a></li>
+                  <li><a href="about.html">Contact</a></li>
+            </ul>
+            
+            <script>
+                
+                window.onscroll
+            
+        
+            window.addEventListener("scroll", (event) => {
+                let scroll = this.scrollY;
+                //document.getElementById('navigationBar').style.color = 'white';
+                let navbar = document.getElementById('navBar').style
+                if (scroll > 1) {
+                    navbar.boxShadow = '0px 0px 4px rgba(0,0,0,0.4)';
+                } else {
+                    navbar.boxShadow = '0px 0px 4px rgba(0,0,0,0.4)';
+                }
+            });  
+                
+
+        </script>
+        </div>
+        
+        <div id="content">
+            
+            <div id="contentLeft">
+                <h1>Contact</h1>
+                <div class="contactBox contactBoxRed">
+                    <div class="contactBoxHeadingBlock contactBoxRedHeading">
+                        <p>Mail</p>
+                    </div>
+                    <p>elias.peeters@icloud.com</p>
+                    <p>elias.peeters@otto.de</p>
+                </div>
+                
+                <div class="contactBox contactBoxRed">
+                    <div class="contactBoxHeadingBlock contactBoxRedHeading">
+                        <p>Phone</p>
+                    </div>
+                    <p>+49 (0) 172 3445175</p>
+                </div>
+                
+                <div class="contactBox contactBoxRed">
+                    <div class="contactBoxHeadingBlock contactBoxRedHeading">
+                        <p>Location</p>
+                    </div>
+                    <p>Hamburg, Germany</p>
+                </div>
+                
+                <div class="contactBox">
+                </div>
+            </div>
+            
+            <div id="contentRight">
+                <form action="/contact" method="post">
+                    <div class="inputDiv">
+                        <input type="text" class="inputText">
+                        <input type="text" class="inputText"> 
+                    </div>
+                    
+                    <div class="inputDiv">
+                        <p>First Name</p>
+                        <p>Last Name</p>
+                    </div>
+                    
+                    <div class="inputDiv">
+                        <input type="text" class="inputText">
+                        <input type="text" class="inputText">
+                    </div>
+                    
+                    <div class="inputDiv">
+                        <p>Mail</p>
+                        <p>Subject</p>
+                    </div>
+                    
+                    <textarea name="Text1" cols="40" rows="5"></textarea>
+                    
+                    <input class="button secondButton submitButton" type="submit" value="Send">
+                    
+                </form>    
+            </div>
+                
+            
+        </div>
+        
+        <div id="footer">
+            <div id="footerLine"></div>
+            <div id="footerContent">
+                <p> Mail: elias.peeters@icloud.com</p>
+                <p> Elias Peeters</p>
+                <p> © 2021, All Rights reserved </p>
+            </div>
+        </div>
+        
+        <script src="config.js"></script>
+        <script src="fade.js"></script>
+    </body>
+    
+    
+</html> 

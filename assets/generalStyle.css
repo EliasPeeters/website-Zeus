@@ -103,14 +103,21 @@ canvas {
 }
 
 #footer {
-    width: 100%;
-    height: 70px;
+    width: 90%;
+    height: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #footerLine {
-    width: 95%;
-    margin-left: 2.5%;
+    width: 100%;
     height: 3px;
     background-color: #e2e0cd;
+}
+
+#footerContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 0 20px;
 }
 
