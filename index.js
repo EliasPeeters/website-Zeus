@@ -1,6 +1,9 @@
 const express = require('express');
 const mysql = require('mysql')
 const util2 = require('util');
+const bodyparser = require('body-parser');
+
+urlencodedparser = bodyparser.urlencoded({extended: false});
 
 let logger = require('./logger.js')
 
@@ -36,6 +39,7 @@ app.use(express.urlencoded());
 let home = require('./routes/home')
 let cv = require('./routes/cv.js');
 let contact = require('./routes/contact.js');
+let blog = require('./routes/blog.js')
 
 console.log('Running on 8080')
 
