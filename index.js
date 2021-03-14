@@ -32,6 +32,8 @@ connection.asyncquery = util2.promisify(connection.query).bind(connection);
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
+
+app.use(express.static('blog'));
 app.use(express.urlencoded());
 
 //routes
