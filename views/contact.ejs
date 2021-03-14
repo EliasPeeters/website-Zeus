@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="generalStyle.css">
-        <link rel="stylesheet" href="contactstyle.css">
+        <link rel="stylesheet" href="assets/generalStyle.css">
+        <link rel="stylesheet" href="assets/contactstyle.css">
         
         
         
@@ -10,24 +10,9 @@
     </head>
     
     <body>
-        <!-- particles.js container --> <div id="particles-js"></div> <!-- stats - count particles --> <div class="count-particles"> <span class="js-count-particles"></span> </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-        <!--
-        <div id="particles-js"></div> stats - count particles  <div class="count-particles"> <span class="js-count-particles"></span> </div> particles.js lib - https://github.com/VincentGarreau/particles.js <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> stats.js lib <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-                -->
+        <%- include ("partials/animation") %>                
+        <%- include ("partials/navBar") %>
         
-        
-        <div id="navBar">
-            <a id="navBarTitle" href="/newTry2.html"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
-            
-            <ul>
-                 <li><a id="home" href="default.html">CV</a></li>
-                  <li><a href="news.html">Blog</a></li>
-                  <li><a href="contact.html">Papers</a></li>
-                  <li><a href="about.html">Contact</a></li>
-            </ul>
-            
-             
-        </div>
         
         <script>
             function elementLeft(input) {
@@ -70,12 +55,13 @@
                 <div class="contactBox">
                 </div>
             </div>
+
             
             <div id="contentRight">
                 <form action="/contact" method="post">
                     <div class="inputDiv">
-                        <input id="firstName" type="text" class="inputText" onfocusout="elementLeft('firstName')" onkeyup="elementLeft('firstName')">
-                        <input id="lastname" type="text" class="inputText" onfocusout="elementLeft('lastname')" onkeyup="elementLeft('lastname')"> 
+                        <input name="firstName" id="firstName" type="text" class="inputText" onfocusout="elementLeft('firstName')" onkeyup="elementLeft('firstName')">
+                        <input name="lastName" id="lastname" type="text" class="inputText" onfocusout="elementLeft('lastname')" onkeyup="elementLeft('lastname')"> 
                     </div>
                     
                     <div class="inputDiv">
@@ -84,8 +70,8 @@
                     </div>
                     
                     <div class="inputDiv">
-                        <input type="text" class="inputText">
-                        <input id="subject" type="text" class="inputText" onfocusout="elementLeft('subject')"
+                        <input name="mail" type="text" class="inputText">
+                        <input name="subject" id="subject" type="text" class="inputText" onfocusout="elementLeft('subject')"
                         onkeyup="elementLeft('subject')">
                     </div>
                     
@@ -94,7 +80,7 @@
                         <p>Subject*</p>
                     </div>
                     
-                    <textarea name="Text1" cols="40" rows="5"></textarea>
+                    <textarea name="message" cols="40" rows="5"></textarea>
                     
                     <input class="button secondButton submitButton" type="submit" value="Send">
                     
@@ -103,18 +89,12 @@
                 
             
         </div>
+
+
+        <%- include ("partials/footer") %>
         
-        <div id="footer">
-            <div id="footerLine"></div>
-            <div id="footerContent">
-                <p> Mail: elias.peeters@icloud.com</p>
-                <p> Elias Peeters</p>
-                <p> © 2021, All Rights reserved </p>
-            </div>
-        </div>
-        
-        <script src="config.js"></script>
-        <script src="fade.js"></script>
+        <script src="assets/config.js"></script>
+        <script src="assets/fade.js"></script>
     </body>
     
     

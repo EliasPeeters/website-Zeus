@@ -29,11 +29,13 @@ connection.asyncquery = util2.promisify(connection.query).bind(connection);
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
+app.use(express.urlencoded());
 
 //routes
 
 let home = require('./routes/home')
-let cv = require('./routes/cv.js')
+let cv = require('./routes/cv.js');
+let contact = require('./routes/contact.js');
 
 console.log('Running on 8080')
 
