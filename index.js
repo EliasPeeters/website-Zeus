@@ -30,16 +30,10 @@ connection.asyncquery = util2.promisify(connection.query).bind(connection);
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 
-app.get('/', function(req,  res){
-    //console.log(req);
-    logger.log(req)
-    res.render('main');
-});
+//routes
 
-app.get('/cv', async function(req,  res){
-    res.render('cv');
-    logger.log(req)
-});
+let home = require('./routes/home')
+let cv = require('./routes/cv.js')
 
 console.log('Running on 8080')
 
