@@ -36,3 +36,43 @@
     background-color: #FCFBF6;
 }
 
+@media only screen and (max-width: 600px) {
+    #content {
+        height: auto;
+        margin-bottom: 40px;
+    }
+
+    #contentLeft {
+        float: inherit;
+        width: 100%;
+        height: auto;
+    }
+    
+    #contentLeft img {
+        float: inherit;
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 30px;
+    }
+
+    #contentRight {
+        width: calc(100% - 10%);
+        padding-right: 5%;
+        padding-left: 5%;
+        height: 400px;
+        text-align: center;
+        margin-top: 30px;
+    }
+    #contentRight p {
+        width: 100%;
+        margin: 0;
+        max-width: none;
+        margin-bottom: 30px;
+    }
+
+    .buttonMain {
+        width: 70% !important;
+        margin-left: 15%;
+        float: none;
+    }
+}
