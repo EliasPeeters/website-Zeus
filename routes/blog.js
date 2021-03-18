@@ -1,6 +1,8 @@
 const fs = require('fs')
 const path = require('path');
 const Showdown = require('showdown');
+let logger = require('../logger.js')
+
 
 
 let converter = new Showdown.Converter()
@@ -10,7 +12,15 @@ const articlePath = './blog'
 function readAllArticles() {
     let articles = fs.readdirSync(articlePath)
     for (let i = 0; i < articles.length; i++) {
-        articles[i] = articles[i].replace('.md', '')
+        let ending = articles[i].slice(-2);
+        console.log(ending)
+        if (ending == 'md') {
+            articles[i] = articles[i].replace('.md', '');
+        } else {
+            articles.splice(i, 1)
+            i = i - 1
+        }        
+        console.log(articles)
     }
     return articles
 }
@@ -65,9 +75,15 @@ let articleAttributes = readAllAttributes();
 console.log(articleAttributes)
 console.log(readArticle[articles[0]])
 
+function getRawData(data) {
+    let closingBracket = data.indexOf('}');
+    let attributes = data.substring(0, closingBracket + 1);
+    return data.replace(attributes, '')
+}
 
 
 app.get('/blog', urlencodedparser, async function(req, res) {
+    logger.log(req)
     console.log(articleAttributes)
     //console.log(req.query.article)
     if (req.query.article == undefined) {
@@ -85,7 +101,7 @@ app.get('/blog', urlencodedparser, async function(req, res) {
                 }
                 console.log(data)
 
-                let articleHTML = converter.makeHtml(data)
+                let articleHTML = converter.makeHtml(getRawData(data))
                 res.render('article', {content: articleHTML})
               })
             

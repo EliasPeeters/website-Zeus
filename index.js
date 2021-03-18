@@ -41,7 +41,8 @@ app.use(express.urlencoded());
 let home = require('./routes/home')
 let cv = require('./routes/cv.js');
 let contact = require('./routes/contact.js');
-let blog = require('./routes/blog.js')
+let blog = require('./routes/blog.js');
+let Page404 = require('./routes/404.js')
 
 console.log('Running on 8081')
 
