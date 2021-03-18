@@ -165,6 +165,19 @@ canvas {
     #mobileMenuButton {
         visibility: visible;
     }
+
+    #footerContent {
+        display: inherit;
+        margin-bottom: 10px;
+    }
+
+    #footerContent p {
+        margin-bottom: 5px;
+    }
+
+    #footer {
+        height: 100px;
+    }
     
 }
 
