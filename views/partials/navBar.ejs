@@ -1,10 +1,45 @@
-<div id="navBar">
+<div id="navBar" class="stop-scrolling">
     <a id="navBarTitle" href="/"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
     
     <ul>
          <li><a id="home" href="/cv">CV</a></li>
-          <li><a href="news.html">Blog</a></li>
-          <li><a href="">Papers</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/paper">Papers</a></li>
           <li><a href="/contact">Contact</a></li>
     </ul>
+
+    <div id="mobileMenu">
+        <div class="mobileMenuItem"><a href="/cv">CV</a></div>
+        <div class="mobileMenuItem"><a href="/blog">Blog</a></div>
+        <div class="mobileMenuItem"><a href="/paper">Papers</a></div>
+        <div class="mobileMenuItem"><a href="/contact">Contact</a></div>
+    </div>
+
+    <div id="mobileMenuButton" onmousedown="toggleMobileMenu()">
+        Menu
+    </div>
 </div>
+
+<script>
+    function noScroll() {
+        window.scrollTo(0, 0);
+    }
+    let MenuOpened = false;
+
+    function toggleMobileMenu() {
+        MenuOpened = !MenuOpened;
+        let navBar = document.getElementById('navBar')
+        let mobileMenu = document.getElementById('mobileMenu')
+        if (MenuOpened) {
+            navBar.style.height = '100%';
+            mobileMenu.style.visibility = 'visible';
+            document.getElementById('body').style.overflow = 'hidden'
+        } else {
+            navBar.style.height = '50px';
+            mobileMenu.style.visibility = 'hidden';
+            window.removeEventListener('scroll', noScroll);
+            document.getElementById('body').style.overflow = 'auto'
+        }
+    }
+
+</script>

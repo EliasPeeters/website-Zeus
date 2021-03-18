@@ -1,0 +1,49 @@
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="assets/blogstyle.css">
+                
+        <%- include ("partials/header") %>
+    </head>
+    
+    <body>
+        <%- include ("partials/animation") %>                
+        <%- include ("partials/navBar") %>
+        
+        
+        <div id="content">
+            
+            <h1>Blog</h1>
+            
+            <div id="articles">
+                
+                <% articleAttributes.forEach(element => { %>
+                    <div class="article">
+                        <div class="articleHeader">
+                            <h2><%= element.title %> </h2>
+                        </div>
+                        
+                        <div class="artcileImage">
+                            <img src="<%= element.image %>">
+                        </div>
+                        
+                        <div class="articleText">
+                            <p><%= element.description %> </p>
+                            
+                        </div>
+                        <div class="button secondButton buttonReading" onmousedown="window.location = '/blog?article=<%= element.name %>'">Continue Reading</div>
+                    </div>
+
+                <% }) %>
+            </div>
+            
+        </div>
+        
+        <%- include ("partials/footer") %>
+        
+        <script src="assets/config.js"></script>
+        <script src="assets/fade.js"></script>
+    </body>
+    
+    
+</html> 

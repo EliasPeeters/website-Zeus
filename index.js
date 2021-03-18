@@ -9,7 +9,7 @@ let logger = require('./logger.js')
 
 app = express();
 
-app.listen('8080');
+app.listen('8081');
 
 connection = mysql.createConnection({
 	host: 'server.eliaspeeters.de',
@@ -43,6 +43,6 @@ let cv = require('./routes/cv.js');
 let contact = require('./routes/contact.js');
 let blog = require('./routes/blog.js')
 
-console.log('Running on 8080')
+console.log('Running on 8081')
 
 module.exports = {connection}

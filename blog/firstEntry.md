@@ -1,3 +1,9 @@
+{
+    "title": "firstEntry",
+    "image": "test.jpeg",
+    "description": "Dies ist ein kurzer Text"
+}
+
 # Title
 
 Dies ist ein Test

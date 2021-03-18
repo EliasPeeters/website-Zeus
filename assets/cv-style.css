@@ -24,7 +24,7 @@
 }
 
 #contentLeft img {
-    width: 300px;
+    max-width: 300px;
     position: relative;
     left: calc(50% - 150px);
     margin: 0 auto;
@@ -171,3 +171,30 @@
     width: 100%;
    
 }
+
+@media only screen and (max-width: 600px) {
+    #contentLeft {
+        position: absolute;
+        float: none;
+        width: 100%;
+        z-index: -1;
+        height: 540px;
+        visibility: hidden;
+    }
+
+    #contentRight {
+        width: 100%;
+        margin-left: 0px;
+        margin-top: -0px;
+    }
+
+    .cvBlock {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #languageCardsDiv {
+        width: 90%;
+        margin-left: 5%;
+    }
+  }

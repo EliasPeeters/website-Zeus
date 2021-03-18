@@ -26,14 +26,52 @@ async function readArticle(name) {
       })
 }
 
+function extractAttributes(data, name) {
+    let closingBracket = data.indexOf('}');
+    if (closingBracket == -1) {
+        console.error('In der Datei ' + name + '.md fehlen die Attribute')
+        return {}
+    } else {
+        let attributes = data.substring(0, closingBracket + 1);
+
+        attributes = attributes.replace(/(\r\n|\n|\r)/gm, "");
+        //console.log(attributes)
+        let json = JSON.parse(attributes)
+        return json
+    }
+}
+
+function readAllAttributes() {
+    let output = []
+    for (let i = 0; i < articles.length; i++) {
+        fs.readFile('./blog/' + articles[i] + '.md', 'utf8' , async function(err, data) {
+            if (err) {
+              console.error(err)
+              return
+            }
+            let attributes = extractAttributes(data, articles[i])
+            attributes.name = articles[i]
+            output.push(attributes)
+          })
+    }
+    return output
+}
+
+// articles is a array with all article names without the ending (.md)
+// artcileAttributes is a array with json objects containing all attributes in the markdown file
+
 let articles = readAllArticles();
+let articleAttributes = readAllAttributes();
+console.log(articleAttributes)
 console.log(readArticle[articles[0]])
 
-app.get('/blog', urlencodedparser, async function(req, res) {
 
+
+app.get('/blog', urlencodedparser, async function(req, res) {
+    console.log(articleAttributes)
     //console.log(req.query.article)
     if (req.query.article == undefined) {
-        res.send('test')
+        res.render('blog', {articleAttributes: articleAttributes})
     } else {
         let searchResult = articles.find(element => element == req.query.article)
         console.log(searchResult)
@@ -45,15 +83,14 @@ app.get('/blog', urlencodedparser, async function(req, res) {
                   console.error(err)
                   return
                 }
+                console.log(data)
+
                 let articleHTML = converter.makeHtml(data)
-                res.send(articleHTML)
+                res.render('article', {content: articleHTML})
               })
-    
             
         }
         
     }
-    //console.log()
-    
-    
+        
 });

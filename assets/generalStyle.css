@@ -20,6 +20,7 @@ canvas {
     height: 50px;
     box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
     transition: 300ms;
+    z-index: 20;
 }
 
 #navBarTitle {
@@ -31,8 +32,8 @@ canvas {
     font-weight: 500;
     margin-top: 10px;
     margin-left: 30px;
+    width: 150px;
 }
-
 #subTitleNavBar {
     font-size: 15px;
     position: absolute;
@@ -119,5 +120,51 @@ canvas {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px 0 20px;
+}
+
+#mobileMenu {
+    visibility: hidden;
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+}
+#mobileMenu .mobileMenuItem {
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#mobileMenuButton {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    height: 35px;
+    padding-top: 15px;
+    text-align: center;
+    width: 50px;
+    visibility: hidden;
+}
+
+#mobileMenuButton:Hover {
+    cursor: pointer;
+}
+
+.stop-scrolling {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    #subTitleNavBar {
+        visibility: hidden;
+    }
+
+    #navbar ul {
+        visibility: hidden;
+    }
+    #mobileMenuButton {
+        visibility: visible;
+    }
+    
 }
 
