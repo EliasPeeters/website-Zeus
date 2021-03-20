@@ -38,7 +38,6 @@
 .articleHeader {
     background-color: #3D405B;
     min-height: 35px;
-    width: calc(100% - 20px);
     border-radius: 10px 10px 0 0px;
     padding: 10px;
 }
