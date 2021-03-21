@@ -1,8 +1,8 @@
 {
-    "title": "tester"
+    "title": "Schnuggi ist der Beste",
+    "image": "profile.jpeg",
+    "description": "Dies ist eyhin kurzer Text",
+    "date": "26-12-2001"
 }
 
-# Penis
-
-Dies ist ein Test Penis
-s
+# Lorem ipsum dhuh hhjk
