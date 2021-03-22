@@ -89,6 +89,7 @@ function getRawData(data) {
 app.get('/blog', urlencodedparser, async function(req, res) {
     logger.log(req)
     articleAttributes.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
+    articleAttributes.reverse()
     console.log(articleAttributes)
     //console.log(req.query.article)
     if (req.query.article === undefined) {
