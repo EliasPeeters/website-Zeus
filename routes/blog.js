@@ -19,7 +19,7 @@ function readAllArticles() {
         } else {
             articles.splice(i, 1)
             i = i - 1
-        }        
+        }
         console.log(articles)
     }
     return articles

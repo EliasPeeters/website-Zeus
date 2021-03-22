@@ -36,6 +36,8 @@
     margin: 20px;
     margin-bottom: 20px;
     position: relative;   
+    opacity: 0;
+    transition: 300ms;
 }
 
 #articles {
@@ -119,6 +121,7 @@
         height: 230px;
         min-height: 230px;
         margin-bottom: 5px;
+        
     }
     .article img {
         height: 100px;
