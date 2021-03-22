@@ -2,7 +2,7 @@
     "title": "This is my site",
     "image": "profile.jpeg",
     "description": "Dies ist ein kurzer Text",
-    "date": "26-12-2001"
+    "date": "2021-03-22"
 }
 
 # Lorem ipsum dolor sit amet,

@@ -67,10 +67,26 @@ function readAllAttributes() {
     return output
 }
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+  
 // articles is a array with all article names without the ending (.md)
 // artcileAttributes is a array with json objects containing all attributes in the markdown file
 
-let articles = readAllArticles();
+let articlesUnsorted = readAllArticles();
+let articles = articlesUnsorted.sort(dynamicSort("date"))
 let articleAttributes = readAllAttributes();
 console.log(articleAttributes)
 console.log(readArticle[articles[0]])
