@@ -116,10 +116,19 @@
         width: 100%;
         margin-left: 0;
         margin-right: 0;
+        height: 230px;
+        min-height: 230px;
+        margin-bottom: 5px;
     }
     .article img {
-        height: 150px;
+        height: 100px;
         width: 200px;
+    }
+
+    .articleHeader {
+        padding: 0;
+        padding-left: 10px;
+        font-size: 24px;
     }
 
     .article .buttonReading {
