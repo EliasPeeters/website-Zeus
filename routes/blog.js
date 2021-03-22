@@ -61,33 +61,21 @@ function readAllAttributes() {
             }
             let attributes = extractAttributes(data, articles[i])
             attributes.name = articles[i]
+            attributes.dateUTC = new Date(attributes.date)
             output.push(attributes)
           })
     }
-    return output
+    return output.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
 }
 
-function dynamicSort(property) {
-    var sortOrder = 1;
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-    return function (a,b) {
-        /* next line works with strings and numbers, 
-         * and you may want to customize it to your needs
-         */
-        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-        return result * sortOrder;
-    }
-}
   
 // articles is a array with all article names without the ending (.md)
 // artcileAttributes is a array with json objects containing all attributes in the markdown file
 
-let articlesUnsorted = readAllArticles();
-let articles = articlesUnsorted.sort(dynamicSort("date"))
+let articles = readAllArticles();
 let articleAttributes = readAllAttributes();
+
+
 console.log(articleAttributes)
 console.log(readArticle[articles[0]])
 
@@ -100,14 +88,15 @@ function getRawData(data) {
 
 app.get('/blog', urlencodedparser, async function(req, res) {
     logger.log(req)
+    articleAttributes.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
     console.log(articleAttributes)
     //console.log(req.query.article)
-    if (req.query.article == undefined) {
+    if (req.query.article === undefined) {
         res.render('blog', {articleAttributes: articleAttributes})
     } else {
         let searchResult = articles.find(element => element == req.query.article)
         console.log(searchResult)
-        if (searchResult == undefined) {
+        if (searchResult === undefined) {
             res.send('Sorry but your article does not exist')
         } else {
             fs.readFile('./blog/' + req.query.article + '.md', 'utf8' , async function(err, data) {
