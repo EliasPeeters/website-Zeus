@@ -53,8 +53,9 @@
 
             
             <div id="contentRight">
+                <p style="color: red;"><%= error %></p>
                 <form action="/contact" method="post">
-                    <div class="inputDiv">
+                    <div class="inputDiv"> 
                         <input name="firstName" id="firstName" type="text" class="inputText" onfocusout="elementLeft('firstName')" onkeyup="elementLeft('firstName')">
                         <input name="lastName" id="lastname" type="text" class="inputText" onfocusout="elementLeft('lastname')" onkeyup="elementLeft('lastname')"> 
                     </div>

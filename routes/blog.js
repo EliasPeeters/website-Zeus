@@ -13,14 +13,12 @@ function readAllArticles() {
     let articles = fs.readdirSync(articlePath)
     for (let i = 0; i < articles.length; i++) {
         let ending = articles[i].slice(-2);
-        console.log(ending)
         if (ending == 'md') {
             articles[i] = articles[i].replace('.md', '');
         } else {
             articles.splice(i, 1)
             i = i - 1
         }
-        console.log(articles)
     }
     return articles
 }
@@ -31,7 +29,6 @@ async function readArticle(name) {
           console.error(err)
           return
         }
-        console.log(converter.makeHtml(data))
         return converter.makeHtml(data)
       })
 }
@@ -45,7 +42,6 @@ function extractAttributes(data, name) {
         let attributes = data.substring(0, closingBracket + 1);
 
         attributes = attributes.replace(/(\r\n|\n|\r)/gm, "");
-        //console.log(attributes)
         let json = JSON.parse(attributes)
         return json
     }
@@ -76,9 +72,6 @@ let articles = readAllArticles();
 let articleAttributes = readAllAttributes();
 
 
-console.log(articleAttributes)
-console.log(readArticle[articles[0]])
-
 function getRawData(data) {
     let closingBracket = data.indexOf('}');
     let attributes = data.substring(0, closingBracket + 1);
@@ -90,7 +83,6 @@ app.get('/blog', urlencodedparser, async function(req, res) {
     logger.log(req)
     articleAttributes.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
     articleAttributes.reverse()
-    console.log(articleAttributes)
     //console.log(req.query.article)
     if (req.query.article === undefined) {
         res.render('blog', {articleAttributes: articleAttributes})
