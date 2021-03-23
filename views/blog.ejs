@@ -28,7 +28,8 @@
                         </div>
                         
                         <div class="articleText">
-                            <p><%= element.description %> </p>
+                            <p class="articleDate"><%= element.date%></p>
+                            <p class="articleDescription line-clamp"><%= element.description %> </p>
                             
                         </div>
                         <div class="button secondButton buttonReading" onmousedown="window.location = '/blog?article=<%= element.name %>'">Continue Reading</div>

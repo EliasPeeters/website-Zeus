@@ -15,7 +15,7 @@
 #contentLeft {
     width: 50%;
     float: left;
-    height: 100%;
+    height: calc(100% - 50px);
 }
 
 #contentRight {
@@ -99,12 +99,18 @@
     padding-left: 5px;
 }
 
-textarea {
+.contactTextArea {
     width: 90%;
     margin-left: 5%;
     border-radius: 5px;
     border: 2px solid #e2e0cd;
     background-color: #FCFBF6;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.contactTextArea:focus {
+    outline: none;
 }
 
 .inputText:focus {
@@ -124,3 +130,4 @@ form {
     height: 40px;
     padding-top: 0px
 }
+

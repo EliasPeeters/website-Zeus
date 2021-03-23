@@ -48,6 +48,7 @@
     padding: 20px;
     margin: 0 auto;
     z-index: -1;
+    margin-bottom: 70px;
 }
 
 .articleHeader {
@@ -100,6 +101,31 @@
     position: relative;
 }
 
+.articleDate {
+    margin-bottom: 10px;
+}
+
+.articleDescription {
+    font-style: italic;
+    color: rgb(0,0,0,0.6);
+    overflow: hidden;
+    height: 120px;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+  }
+
+#content p {
+    background-color: #FCFBF6;
+}
+
+#content p h1 {
+    background-color: #FCFBF6;
+}
+
 
 @media only screen and (max-width: 600px) {
     #content {
@@ -137,6 +163,15 @@
     .article .buttonReading {
         width: 90%;
         right: 5%;
+    }
+
+    .articleText {
+        padding-top: 15px;
+        margin-top: 0;
+    }
+
+    .articleDescription {
+        height: 60px;
     }
   }
 

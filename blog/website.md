@@ -1,7 +1,7 @@
 {
     "title": "This is my site",
     "image": "profile.jpeg",
-    "description": "Dies ist ein kurzer Text",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore",
     "date": "2021-03-22"
 }
 
