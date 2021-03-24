@@ -28,6 +28,41 @@ connection.connect((err) => {
 
 connection.asyncquery = util2.promisify(connection.query).bind(connection);
 
+connection.removeTableNameFromArray = function(inputArray) {
+    for (let i = 0; i < inputArray.length; i++) {
+        if (inputArray[i] == 'table') {
+            inputArray.splice(i, 1)
+        }
+    }
+    return inputArray
+}
+
+connection.createQueryStringFromObject = function(inputObject) {
+    let allKeys = connection.removeTableNameFromArray(Object.keys(inputObject));
+
+    let query = '';
+    query += 'INSERT INTO ';
+    query += inputObject.table;
+    query += ' ('
+    for (let i = 0; i < allKeys.length; i++) {
+        if (i == allKeys.length - 1) {
+            query += allKeys[i] + ')'
+        } else {
+            query += allKeys[i] + ', '
+        }
+    }
+    query += ' VALUES '
+    query += '('
+    for (let i = 0; i < allKeys.length; i++) {
+        if (i == allKeys.length - 1) {
+            query += mysql.escape(inputObject[allKeys[i]]) + ')'
+        } else {
+            query += mysql.escape(inputObject[allKeys[i]]) + ', '
+        }
+    }
+    return query
+}
+
 
 
 app.set('view engine', 'ejs');
