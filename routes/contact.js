@@ -8,16 +8,14 @@ urlencodedparser = bodyparser.urlencoded({extended: false});
 
 app.get('/contact', urlencodedparser, async function(req,  res){
     let error = req.query.error == undefined ? '' : req.query.error; 
-    console.log(error)
-    console.log(req.query)
-    res.render('contact', {error: error});
+    let success = req.query.success == undefined ? '' : req.query.success; 
+    res.render('contact', {error: error, success: success});
     logger.log(req)
 });
 
 function sendError(errorType, res, req) {
     res.redirect('/contact?error=Looks like you missed the ' + errorType)
     let contactResult = req.body;
-
 }
 
 app.post('/contact', async function(req, res){
@@ -36,8 +34,17 @@ app.post('/contact', async function(req, res){
         message_subject: contactResult.subject,
         message_success: true
     }
+
     let query = connection.createQueryStringFromObject(data);
-    console.log(query)
-    connection.asyncquery(query)
-    console.log(contactResult)
+
+    connection.query(query, function(err, result, fields) {
+        if (err) {
+          console.log(err);
+          res.redirect('/contact?success=false')
+        }
+        logger.log(req, result.insertId)
+        console.log(result.insertId);
+    });
+    res.redirect('/contact?success=The message has successfully been sent')
+    //connection.asyncquery(query)
 });

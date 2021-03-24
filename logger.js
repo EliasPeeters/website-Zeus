@@ -6,7 +6,7 @@ const main = require('./index.js');
 const sniffr = require('sniffr')
 
 
-async function log(req, page, messageID = -1) {
+async function log(req, messageID = -1) {
     
     if (loggerEnable) {
         let ip = req.connection.remoteAddress;
@@ -38,7 +38,7 @@ async function log(req, page, messageID = -1) {
             data.articleName = articleName
         }
         if (messageID != -1) {
-            data.messageID = messageID;
+            data.message_id = messageID;
         }
 
         let query = connection.createQueryStringFromObject(data)
