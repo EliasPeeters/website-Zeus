@@ -12,14 +12,14 @@
 
 #contentLeft img {
     width: 300px;
-    margin-top: 30%;
     float: right;
     transition: 300ms;
+    transform: translate(0%, 50%);
 }
 
 #contentRight {
     width: 40%;
-    margin-top: 15%;
+    transform: translate(0%, 70%);
     padding-left: 52.5%;
 }
 
@@ -53,6 +53,8 @@
         width: 60%;
         margin-left: 20%;
         margin-top: 30px;
+        transform: none;
+        -webkit-transform: none;
     }
 
     #contentRight {
@@ -62,7 +64,10 @@
         height: 400px;
         text-align: center;
         margin-top: 30px;
+        transform: none;
+        -webkit-transform: none;
     }
+    
     #contentRight p {
         width: 100%;
         margin: 0;
