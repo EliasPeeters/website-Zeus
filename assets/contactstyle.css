@@ -40,6 +40,7 @@
 .contactBox p {
     margin-left: 10px;
     margin-right: 10px;
+    transition: 300ms;
 }
 
 .contactBoxHeadingBlock {
@@ -136,3 +137,18 @@ form {
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+    #contentLeft {
+        width: 100%;
+        height: auto;
+    }
+
+    #contentLeft h1 {
+        text-align: center;
+    }
+
+    .contactBox {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
