@@ -2,6 +2,9 @@
     <head>
         
         <link rel="stylesheet" href="assets/blogstyle.css">
+        <link rel="stylesheet" href="assets/articlestyle.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/railscasts.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>        
                 
         <%- include ("partials/header") %>
     </head>
@@ -12,7 +15,7 @@
         
         
         <div id="content">
-            
+            <p class="date"><%= attributes.dateReadable %> </p>
             <%- content %>
             
         </div>
@@ -21,6 +24,7 @@
         
         <script src="assets/config.js"></script>
         <script src="assets/fade.js"></script>
+        <script>hljs.highlightAll();</script>
     </body>
     
     

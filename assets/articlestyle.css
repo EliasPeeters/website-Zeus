@@ -1,0 +1,25 @@
+#content {
+    max-width: 700px;
+    position: relative;
+    padding: 0;
+    padding-top: 100px;
+}
+
+#content h1 {
+    margin-bottom: 50px;
+}
+
+
+.date {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-style: italic;
+    color: rgb(0,0,0,0.6);
+    position: absolute;
+}
+
+code {
+    padding: 15px !important;
+    margin: 20 0;
+}

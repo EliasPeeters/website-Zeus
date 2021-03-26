@@ -47,6 +47,32 @@ function extractAttributes(data, name) {
     }
 }
 
+function returnMonth(month) {
+    switch (month){
+        case 0: return 'Jan';
+        case 1: return 'Feb';
+        case 2: return 'Mar';
+        case 3: return 'Apr';
+        case 4: return 'May';
+        case 5: return 'Jun';
+        case 6: return 'Jul';
+        case 7: return 'Aug';
+        case 8: return 'Sep';
+        case 9: return 'Oct';
+        case 10: return 'Nov';
+        case 11: return 'Dec';
+    }
+}
+
+function formatDate(date) {
+    let dateString = '';
+    dateString += returnMonth(date.getMonth());
+    dateString += ' ' + date.getDate();
+    dateString += '. ' + date.getFullYear();
+    return dateString
+}
+
+
 function readAllAttributes() {
     let output = []
     for (let i = 0; i < articles.length; i++) {
@@ -58,6 +84,7 @@ function readAllAttributes() {
             let attributes = extractAttributes(data, articles[i])
             attributes.name = articles[i]
             attributes.dateUTC = new Date(attributes.date)
+            attributes.dateReadable = formatDate(attributes.dateUTC)
             output.push(attributes)
           })
     }
@@ -78,6 +105,14 @@ function getRawData(data) {
     return data.replace(attributes, '')
 }
 
+function getArticleAttributes(articleName) {
+    for (let i = 0; i < articleAttributes.length; i++) {
+        if (articleAttributes[i].name == articleName) {
+            return articleAttributes[i]
+        }
+    }
+    return 'Does not exist'
+}
 
 app.get('/blog', urlencodedparser, async function(req, res) {
     logger.log(req)
@@ -97,10 +132,12 @@ app.get('/blog', urlencodedparser, async function(req, res) {
                   console.error(err)
                   return
                 }
-                console.log(data)
-
+                //console.log(articleAttributes)
+                let attributes = getArticleAttributes(searchResult)
+                console.log(attributes.dateUTC.getMonth())
+                console.log(attributes)
                 let articleHTML = converter.makeHtml(getRawData(data))
-                res.render('article', {content: articleHTML})
+                res.render('article', {content: articleHTML, attributes: attributes})
               })
             
         }
