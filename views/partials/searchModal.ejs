@@ -1,18 +1,46 @@
 <div id="blackBox" onmousedown="toggleSearch(false)"></div>
 
-<div class="searchBox">
-
+<div id="searchBox">
+	<input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" />
+	<div id="searchBoxLine"></div>
 </div>
 
 <script>
     function toggleSearch(open) {
+    	let blackBox = document.getElementById('blackBox');
+    	let searchBox = document.getElementById('searchBox');
+    	let searchBar = document.getElementById('searchBar');
+		let body = document.getElementById('body');    	
+		
         if (open) {
-            document.getElementById('blackBox').style.opacity = '1';
-            document.getElementById('blackBox').style.pointerEvents = 'inherit'
+            blackBox.style.opacity = '1';
+            blackBox.style.pointerEvents = 'inherit';
+            searchBox.style.opacity = '1';
+            searchBox.style.pointerEvents = 'inherit';
+            searchBox.style.width = '50%';
+            searchBar.focus();
+            searchBar.select();
+            searchBar.color = 'green';
+        	body.classList.add('disableScroll');    
         } else {
-            document.getElementById('blackBox').style.opacity = '0'
-            document.getElementById('blackBox').style.pointerEvents = 'none'
-        
+			blackBox.style.opacity = '0'
+            blackBox.style.pointerEvents = 'none'
+            searchBox.style.opacity = '0';
+            searchBox.style.pointerEvents = 'none';
+            searchBox.style.width = '0%';
+        	body.classList.remove('disableScroll');
         }
     }
+    
+    function inputSend() {
+    	let searchString = document.getElementById('searchBar').value
+        let url = '/search?text=' + searchString;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+        alert(xmlHttp.responseText);
+        document.getElementById('output').outerHTML = xmlHttp.responseText;
+        console.log(xmlHttp.responseText);
+    }
+    
 </script>

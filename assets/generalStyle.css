@@ -3,6 +3,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.disableScroll {
+	overflow: hidden;
+}
+
 body {
     background-color: #FCFBF6;
 }
@@ -34,6 +38,7 @@ canvas {
     margin-left: 30px;
     width: 150px;
 }
+
 #subTitleNavBar {
     font-size: 15px;
     position: absolute;
