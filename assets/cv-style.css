@@ -119,8 +119,8 @@
 
 .scrollFade {
     opacity: 0;
-    transition: 300ms;
-    transition: box-shadow 200ms, opacity 300ms;
+    transition: 100ms;
+    transition: box-shadow 200ms, opacity 200ms;
 }
 
 .languageCard {

@@ -11,9 +11,16 @@ function fadeAllElements(scroll) {
     for (let i = 0; i < fadeElements.length; i++) {
         var rect = fadeElements[i].getBoundingClientRect();
         //console.log(rect.top);
+        //fadeElements[i].innerHTML = (rect.top - window.innerHeight + 100) + '.px' + (window.innerHeight + rect.top - 250) + ', ' + (rect.top)
         if (rect.top - window.innerHeight + 100 < 0) {
             fadeElements[i].style.opacity = 1;
             //console.log('now')
+        } else {
+            fadeElements[i].style.opacity = 0;
+        }
+
+        if (rect.top < 30) {
+            fadeElements[i].style.opacity = 0;
         }
         //isVisible();
         //console.log(fadeElements[i].style.top)
