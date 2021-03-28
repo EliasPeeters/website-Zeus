@@ -1,0 +1,10 @@
+#blackBox {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    opacity: 0;
+    z-index: 200;
+    transition: 300ms;
+    pointer-events: none;
+}

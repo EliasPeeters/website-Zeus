@@ -1,7 +1,12 @@
 <div id="navBar" class="stop-scrolling">
     <a id="navBarTitle" href="/"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
+    <div id="searchIcon" onmousedown="toggleSearch(true)">
+        <img src="assets/search.svg">
+    </div>
+
     
     <ul>
+        
          <li><a id="home" href="/cv">CV</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/paper">Papers</a></li>
@@ -43,3 +48,5 @@
     }
 
 </script>
+<%- include ("searchModal") %>
+
