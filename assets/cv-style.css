@@ -83,7 +83,7 @@
 .cvBlock {
     width: 70%;
     margin-left: 15%;
-    min-height: 120px;
+    min-height: 60px;
     padding-bottom: 10px;
     border-radius: 20px;
     background-color: #FCFBF6;
@@ -103,16 +103,18 @@
     border: #81B29A 3px solid;
 }
 
-
 .cvGreenHeading {
     background-color: #81B29A;
 }
-
 
 .cvDescrip {
     color: rgb(0,0,0,0.6);
     margin-top: 5px;
     font-style: italic;
+}
+
+.cvTime {
+    margin-top: 10px;
 }
 
 .scrollFade {
@@ -139,6 +141,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: flex-start;
+    margin-bottom: 35px;
 }
 
 .languageDescrip {
