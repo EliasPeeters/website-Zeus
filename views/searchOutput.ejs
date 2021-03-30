@@ -1,0 +1,18 @@
+
+<% if (blogSearch.length > 0) { %>
+    <h3>Blog</h3>
+    <% blogSearch.forEach(function(item, index) { %>
+        <div class="searchItem">
+            <p><%= item.item.name %></p>
+        </div>
+    <% });  %> 
+<% } %>
+
+<% if (cvSearch.length > 0) { %>
+    <h3>CV</h3>
+    <% cvSearch.forEach(function(item, index) { %>
+        <div class="searchItem">
+            <p><%= item.item.element %></p>
+        </div>
+    <% });  %> 
+<% } %>

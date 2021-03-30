@@ -1,17 +1,22 @@
 <div id="blackBox" onmousedown="toggleSearch(false)"></div>
 
 <div id="searchBox">
+    <img src="assets/search.svg">
 	<input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" />
 	<div id="searchBoxLine"></div>
+    <div id="output">
+    </div>
 </div>
 
 <script>
+    
     function toggleSearch(open) {
     	let blackBox = document.getElementById('blackBox');
     	let searchBox = document.getElementById('searchBox');
     	let searchBar = document.getElementById('searchBar');
 		let body = document.getElementById('body');    	
-		
+		searchBar.focus();
+        searchBar.select();
         if (open) {
             blackBox.style.opacity = '1';
             blackBox.style.pointerEvents = 'inherit';
@@ -33,14 +38,21 @@
     }
     
     function inputSend() {
-    	let searchString = document.getElementById('searchBar').value
+    	let searchString = document.getElementById('searchBar').value;
+        if (searchString != '') {
+            document.getElementById('searchBoxLine').style.opacity = '1';
+            document.getElementById('output').style.padding = '0 20px 20px 20px';
+        } else {
+            document.getElementById('searchBoxLine').style.opacity = '0';
+            document.getElementById('output').style.padding = '0';
+        }
+        let outputObject = document.getElementById('output')
         let url = '/search?text=' + searchString;
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", url, false);
         xmlHttp.send(null);
-        alert(xmlHttp.responseText);
-        document.getElementById('output').outerHTML = xmlHttp.responseText;
-        console.log(xmlHttp.responseText);
+        outputObject.innerHTML = xmlHttp.responseText;
+
     }
     
 </script>

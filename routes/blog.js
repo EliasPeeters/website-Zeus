@@ -1,15 +1,21 @@
 const fs = require('fs')
 const path = require('path');
 const Showdown = require('showdown');
-let logger = require('../logger.js')
+let logger = require('../logger.js');
+let util = require('util');
 
+fs.asyncRead = util.promisify(fs.readFile).bind(fs)
 
+async function getStuff() {
+  await console.log(fs.asyncRead('./blog/website.md'))
+}
+getStuff()
 
 let converter = new Showdown.Converter()
 
 const articlePath = './blog'
 
-function readAllArticles() {
+async function readAllArticles() {
     let articles = fs.readdirSync(articlePath)
     for (let i = 0; i < articles.length; i++) {
         let ending = articles[i].slice(-2);
@@ -73,7 +79,7 @@ function formatDate(date) {
 }
 
 
-function readAllAttributes() {
+async function readAllAttributes() {
     let output = []
     for (let i = 0; i < articles.length; i++) {
         fs.readFile('./blog/' + articles[i] + '.md', 'utf8' , async function(err, data) {
