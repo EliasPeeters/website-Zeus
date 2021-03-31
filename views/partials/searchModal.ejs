@@ -54,5 +54,21 @@
         outputObject.innerHTML = xmlHttp.responseText;
 
     }
+
+    var first_press = false;
+    function key_press(event) {
+        console.log(event)
+        if(first_press) {
+            // they have already clicked once, we have a double
+            do_double_press();
+            first_press = false;
+        } else {
+            // this is their first key press
+            first_press = true;
+
+            // if they don't click again in half a second, reset
+            window.setTimeout(function() { first_press = false; }, 500);
+        }
+    }
     
 </script>

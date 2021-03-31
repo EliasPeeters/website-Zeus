@@ -24,6 +24,7 @@
     "fuse.js": "^6.4.6",
     "fuzzy-search": "^3.2.1",
     "geoip-lite": "^1.4.2",
+    "html-to-json": "^0.6.0",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
     "sendmail": "^1.6.1",

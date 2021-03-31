@@ -4,18 +4,11 @@ const Showdown = require('showdown');
 let logger = require('../logger.js');
 let util = require('util');
 
-fs.asyncRead = util.promisify(fs.readFile).bind(fs)
-
-async function getStuff() {
-  await console.log(fs.asyncRead('./blog/website.md'))
-}
-getStuff()
-
 let converter = new Showdown.Converter()
 
 const articlePath = './blog'
 
-async function readAllArticles() {
+function readAllArticles() {
     let articles = fs.readdirSync(articlePath)
     for (let i = 0; i < articles.length; i++) {
         let ending = articles[i].slice(-2);
@@ -78,21 +71,16 @@ function formatDate(date) {
     return dateString
 }
 
-
-async function readAllAttributes() {
+function readAllAttributes() {
     let output = []
     for (let i = 0; i < articles.length; i++) {
-        fs.readFile('./blog/' + articles[i] + '.md', 'utf8' , async function(err, data) {
-            if (err) {
-              console.error(err)
-              return
-            }
-            let attributes = extractAttributes(data, articles[i])
-            attributes.name = articles[i]
-            attributes.dateUTC = new Date(attributes.date)
-            attributes.dateReadable = formatDate(attributes.dateUTC)
-            output.push(attributes)
-          })
+        let data = fs.readFileSync('./blog/' + articles[i] + '.md', {encoding:'utf8', flag:'r'});
+        let attributes = extractAttributes(data, articles[i])
+        attributes.name = articles[i]
+        attributes.dateUTC = new Date(attributes.date)
+        attributes.dateReadable = formatDate(attributes.dateUTC)
+        output.push(attributes)
+
     }
     return output.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
 }
@@ -102,6 +90,8 @@ async function readAllAttributes() {
 // artcileAttributes is a array with json objects containing all attributes in the markdown file
 
 let articles = readAllArticles();
+//articles = fs.readdirSync(articlePath)
+
 let articleAttributes = readAllAttributes();
 
 
@@ -151,3 +141,5 @@ app.get('/blog', urlencodedparser, async function(req, res) {
     }
         
 });
+
+module.exports = {articleAttributes}
