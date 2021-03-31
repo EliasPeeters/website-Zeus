@@ -114,3 +114,5 @@ app.get('/searchTest', urlencodedparser, function(req, res){
 
     res.send(req.query.text)
 });
+
+module.exports = {app}

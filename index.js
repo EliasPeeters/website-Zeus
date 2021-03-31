@@ -21,12 +21,23 @@ connection = mysql.createConnection({
 connection.connect((err) => {
 	if (err) {
 		console.log(err)
+        return false
 	} else {
 		console.log('Conntected to Database');
+        return true
 	}
 });
 
 connection.asyncquery = util2.promisify(connection.query).bind(connection);
+
+async function checkMYSQLConnection() {
+    let result = await connection.asyncquery('SHOW DATABASES;')
+    if (result != undefined) {
+        return true
+    } else {
+        return false
+    }
+}
 
 connection.removeTableNameFromArray = function(inputArray) {
     for (let i = 0; i < inputArray.length; i++) {
@@ -84,4 +95,5 @@ let Page404 = require('./routes/404.js');
 
 console.log('Running on 8081')
 
-module.exports = {connection}
+
+module.exports = {connection, checkMYSQLConnection}
