@@ -6,18 +6,18 @@ jobs:
     steps: 
       - checkout
       - run:
-        name: Install npm dependencies
-        command:|
+          name: Install npm dependencies
+          command:|
           npm install --save
       - run: 
-        name: Run Unit Tests
-          command:|
-            ./node_modules/mocha/bin/mocha --test/ --reporter mochawesome --reporter-options reportDir=test-results, reportFilename=test-results
+          name: Run Unit Tests
+            command:|
+              ./node_modules/mocha/bin/mocha --test/ --reporter mochawesome --reporter-options reportDir=test-results, reportFilename=test-results
       - store_test_results:
-        path: test-results
+          path: test-results
       - store_artifacts:
-        path: test-results
+          path: test-results
 workflows:
   build_test:
     jobs:
-      - run_tests
+        - run_tests
