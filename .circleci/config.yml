@@ -7,11 +7,11 @@ jobs:
       - checkout
       - run:
           name: Install npm dependencies
-          command:|
+          command:
             npm install --save
       - run: 
           name: Run Unit Tests
-            command:|
+            command:
               ./node_modules/mocha/bin/mocha --test/ --reporter mochawesome --reporter-options reportDir=test-results, reportFilename=test-results
       - store_test_results:
           path: test-results
