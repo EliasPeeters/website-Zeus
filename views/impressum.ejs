@@ -1,0 +1,63 @@
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="assets/blogstyle.css">
+        <link rel="stylesheet" href="assets/imprintstyle.css">
+                
+        <%- include ("partials/header") %>
+    </head>
+    
+    <body>
+        <%- include ("partials/animation") %>                
+        <%- include ("partials/navBar") %>
+        
+        
+        <div id="content">
+            
+            <h1>Imprint</h1>
+            
+            <table class="imprintTable">
+                <tr>
+                    <td class="firstRow">Name:</td>
+                    <td class="secondRow">Elias Peeters</td>
+                </tr>
+
+                <tr>
+                    <td class="firstRow">Tel:</td>
+                    <td>+49 (0) 172 3445175</td>
+                </tr>
+
+                <tr>
+                    <td class="firstRow">Mail:</td>
+                    <td>elias.peeters@icloud.com</td>
+                </tr>
+                <tr>
+                    <td class="firstRow">Anschrift:</td>
+                    <td>
+                        <ul>
+                            <li>Wilmersdorfer Str. 1</li>
+                            <li>21502</li>
+                            <li>Geesthacht</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+        
+        <%- include ("partials/footer") %>
+        
+        <script src="assets/config.js"></script>
+        <script src="assets/fade.js"></script>
+
+        <style>
+            #content {
+                padding: 0px;
+                padding-top: 100px;
+            }
+            
+        </style>
+    </body>
+    
+    
+</html> 

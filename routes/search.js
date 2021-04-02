@@ -59,7 +59,7 @@ const options = {
     // includeMatches: false,
     findAllMatches: true,
     minMatchCharLength: 1,
-    // location: 0,
+    location: 0,
     threshold: 0.3,
     // distance: 100,
     // useExtendedSearch: false,
@@ -80,6 +80,7 @@ const options = {
 app.get('/search', urlencodedparser, function(req,  res){
     let searchString = req.query.text
     const cvSearch = new Fuse(cvArray, options).search(searchString);
+    
     const blogSearch = new Fuse(blogArray, options).search(searchString);
     const pagesSearch = new Fuse(pagesArray, options).search(searchString);
     const contentSearch = new Fuse(blogContentArray, options).search(searchString);
