@@ -119,7 +119,6 @@ app.get('/blog', urlencodedparser, async function(req, res) {
         res.render('blog', {articleAttributes: articleAttributes})
     } else {
         let searchResult = articles.find(element => element == req.query.article)
-        console.log(searchResult)
         if (searchResult === undefined) {
             res.send('Sorry but your article does not exist')
         } else {
@@ -130,8 +129,6 @@ app.get('/blog', urlencodedparser, async function(req, res) {
                 }
                 //console.log(articleAttributes)
                 let attributes = getArticleAttributes(searchResult)
-                console.log(attributes.dateUTC.getMonth())
-                console.log(attributes)
                 let articleHTML = converter.makeHtml(getRawData(data))
                 res.render('article', {content: articleHTML, attributes: attributes})
               })
