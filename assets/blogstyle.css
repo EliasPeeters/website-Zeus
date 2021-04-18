@@ -38,12 +38,12 @@
     position: relative;   
     opacity: 0;
     transition: 300ms;
+    margin: 20px auto;
 }
 
 #articles {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: auto auto;
     flex-wrap: wrap;
     padding: 20px;
     margin: 0 auto;
@@ -137,6 +137,7 @@
     #articles {
         z-index: -1;
         padding: 0;
+        grid-template-columns: auto;
     }
 
     .article {
