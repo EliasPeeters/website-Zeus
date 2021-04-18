@@ -15,6 +15,7 @@
     float: right;
     transition: 300ms;
     transform: translate(0%, 50%);
+    clip-path: circle(150px at center);
 }
 
 #contentRight {
