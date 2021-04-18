@@ -2,7 +2,7 @@
 
 <div id="searchBox">
     <img src="assets/search.svg">
-	<input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" />
+	<input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" autofocus />
 	<div id="searchBoxLine"></div>
     <div id="output">
     </div>
@@ -22,7 +22,15 @@
             blackBox.style.pointerEvents = 'inherit';
             searchBox.style.opacity = '1';
             searchBox.style.pointerEvents = 'inherit';
-            searchBox.style.width = '50%';
+            if (window.innerWidth < 600) {
+                searchBox.style.width = '98%';
+                searchBox.style.height = 'none';
+                searchBox.style.top = '1%';
+                searchBox.style.marginTop = '1%';
+            } else {
+                searchBox.style.width = '50%';
+            }
+            
             searchBar.focus();
             searchBar.select();
             searchBar.color = 'green';
@@ -32,6 +40,10 @@
             blackBox.style.pointerEvents = 'none'
             searchBox.style.opacity = '0';
             searchBox.style.pointerEvents = 'none';
+            if (window.innerWidth < 600) {
+                searchBox.style.top = 'none';
+                searchBox.style.marginTop = '100px';
+            }
             searchBox.style.width = '0%';
         	body.classList.remove('disableScroll');
         }
