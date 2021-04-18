@@ -19,7 +19,7 @@ function fadeAllElements(scroll) {
             fadeElements[i].style.opacity = 0;
         }
 
-        if (rect.top < 30) {
+        if (rect.bottom < 100) {
             fadeElements[i].style.opacity = 0;
         }
         //isVisible();
@@ -33,7 +33,6 @@ function fadeAllElements(scroll) {
             focusElements[i].style.boxShadow = '5px 5px 5px rgba(0,0,0,0.4)';
             used = true;
             if (focusElements[i + 1].getBoundingClientRect().top == rect.top) {
-                console.log('now');
                 focusElements[i + 1].style.boxShadow = '5px 5px 5px rgba(0,0,0,0.4)';
                 i++;
             }
