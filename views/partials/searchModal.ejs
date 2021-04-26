@@ -2,7 +2,10 @@
 
 <div id="searchBox">
     <img src="assets/search.svg">
-	<input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" autofocus />
+    <form id="searchForm">
+        <input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" autofocus />
+    </form>
+	
 	<div id="searchBoxLine"></div>
     <div id="output">
     </div>
@@ -14,10 +17,13 @@
     	let blackBox = document.getElementById('blackBox');
     	let searchBox = document.getElementById('searchBox');
     	let searchBar = document.getElementById('searchBar');
-		let body = document.getElementById('body');    	
-		searchBar.focus();
-        searchBar.select();
+		let body = document.getElementById('body');    
+
+		document.getElementById(searchBar.id).focus();
+        document.getElementById(searchBar.id).select();
         if (open) {
+            //document.searchForm.searchBar.focus();
+            //document.getElementById(searchForm.searchBar).focus()
             blackBox.style.opacity = '1';
             blackBox.style.pointerEvents = 'inherit';
             searchBox.style.opacity = '1';

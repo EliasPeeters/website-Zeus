@@ -14,8 +14,11 @@
         <div id="content">
             
             <h1>Blog</h1>
-            
+            <% if (articleAttributes == 0) { %>
+                <p style="text-align: center; width: 100%">Sorry, but here are no posts yet</p> 
+             <% } %>
             <div id="articles">
+
                 
                 <% articleAttributes.forEach(element => { %>
                     <div class="article scrollFade scrollFocus">

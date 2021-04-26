@@ -5,6 +5,19 @@ const bodyparser = require('body-parser');
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
 
+var sendmail = require('sendmail')({silent: true})
+
+sendmail({
+  from: 'test@yourdomain.com',
+  to: 'elias.peeters@icloud.com',
+  replyTo: 'jason@yourdomain.com',
+  subject: 'MailComposer sendmail',
+  html: 'Mail of test sendmail '
+}, function (err, reply) {
+  console.log(err && err.stack)
+  console.dir(reply)
+})
+
 let logger = require('./logger.js')
 
 app = express();
