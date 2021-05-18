@@ -95,19 +95,9 @@ let search = require('./routes/search.js');
 
 let Page404 = require('./routes/404.js');
 
-const sslServer = https.createServer(
-    {
-        key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-        cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
-    },
-    app
-)
 
 let port = 8081
-
-sslServer.listen(port, () => {
-    console.log(`Running on ${port}`)
-})
+app.listen(port)
 
 
 module.exports = {connection, checkMYSQLConnection}
