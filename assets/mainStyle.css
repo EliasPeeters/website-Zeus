@@ -81,4 +81,12 @@
         margin-left: 15%;
         float: none;
     }
+
+    .introduction {
+        font-size: 15px;
+    }
+
+    #contentRight .nameHeading {
+        font-size: 40px;
+    }
 }
