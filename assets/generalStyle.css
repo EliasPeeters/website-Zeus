@@ -201,9 +201,10 @@ canvas {
         visibility: hidden;
     }
 
-    #navbar ul {
+    #navBar ul {
         visibility: hidden;
     }
+
     #mobileMenuButton {
         visibility: visible;
     }
