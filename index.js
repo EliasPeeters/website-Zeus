@@ -2,27 +2,16 @@ const express = require('express');
 const mysql = require('mysql')
 const util2 = require('util');
 const bodyparser = require('body-parser');
+const path = require('path')
+const fs = require('fs')
+var https = require('https');
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
-
-var sendmail = require('sendmail')({silent: true})
-
-sendmail({
-  from: 'test@yourdomain.com',
-  to: 'elias.peeters@icloud.com',
-  replyTo: 'jason@yourdomain.com',
-  subject: 'MailComposer sendmail',
-  html: 'Mail of test sendmail '
-}, function (err, reply) {
-  console.log(err && err.stack)
-  console.dir(reply)
-})
 
 let logger = require('./logger.js')
 
 app = express();
 
-app.listen('8081');
 
 connection = mysql.createConnection({
 	host: 'server.eliaspeeters.de',
@@ -106,7 +95,19 @@ let search = require('./routes/search.js');
 
 let Page404 = require('./routes/404.js');
 
-console.log('Running on 8081')
+const sslServer = https.createServer(
+    {
+        key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+        cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
+    },
+    app
+)
+
+let port = 8081
+
+sslServer.listen(port, () => {
+    console.log(`Running on ${port}`)
+})
 
 
 module.exports = {connection, checkMYSQLConnection}
