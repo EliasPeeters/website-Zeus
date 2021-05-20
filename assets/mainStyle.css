@@ -1,5 +1,4 @@
 #content {
-    height: calc(100% - 50px);
     min-height: 600px;
     padding-top: 50px;
 }

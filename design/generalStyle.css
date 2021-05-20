@@ -121,5 +121,8 @@ canvas {
     padding: 10px 20px 0 20px;
 }
 
+#content {
+    min-height: calc(100vh - 120px);
+}
 
 

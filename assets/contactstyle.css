@@ -1,9 +1,10 @@
 #content {
     padding-top: 100px;
-    min-height: calc(100% - 50px);
     width: 100%;
     margin: 0 auto;
     max-width: 1200px;
+    min-height: calc(100vh - 150px);
+    
 }
 
 #content h1 {
@@ -92,7 +93,7 @@
     border-radius: 5px;
     height: 40px;
     margin-bottom: 10px;
-    width: 48%;
+    width: 46%;
     border: 2px solid #e2e0cd;
     background-color: #FCFBF6;
     padding-left: 5px;
@@ -100,7 +101,7 @@
 }
 
 .contactTextArea {
-    width: 90%;
+    width: calc(90% - 9px);
     margin-left: 5%;
     border-radius: 5px;
     border: 2px solid #e2e0cd;

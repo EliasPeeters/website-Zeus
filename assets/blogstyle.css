@@ -1,7 +1,6 @@
 #content {
     padding: 40px;
     padding-top: 100px;
-    min-height: calc(100% - 50px);
     width: calc(100% - 80px);
     margin: 0 auto;
     max-width: 1200px;
