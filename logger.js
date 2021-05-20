@@ -1,4 +1,4 @@
-let loggerEnable = false;
+let loggerEnable = true;
 
 const geoip = require('geoip-lite');
 const mysql = require('mysql');
@@ -10,19 +10,13 @@ async function log(req, messageID = -1) {
     
     if (loggerEnable) {
         let ip = req.connection.remoteAddress;
-
-        ip = '37.4.252.185'
+        
+        //ip = '37.4.252.185'
         let geodata = geoip.lookup(ip)
         const s = new sniffr().sniff(req.headers['user-agent']);
 
         let data = {
             table: 'log',
-            ip: ip,
-            city: geodata.city,
-            timezone: geodata.timezone,
-            area: geodata.area,
-            region: geodata.region,
-            country: geodata.country,
             browserName: s.browser.name,
             browserVersion: s.browser.versionString,
             osName: s.os.name,
@@ -32,6 +26,16 @@ async function log(req, messageID = -1) {
             referer: req.headers.referer,
             pageVisited: req.route.path
         }
+        
+        if (geodata != null) {
+            data.ip = ip;
+            data.city = geodata.city;
+            data.timezone = geodata.timezone;
+            data.area = geodata.area;
+            data.region = geodata.region;
+            data.country = geodata.country;
+        }
+
         let articleName = req.query.article;
 
         if (articleName != undefined) {
