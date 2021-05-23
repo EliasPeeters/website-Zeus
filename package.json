@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "sass": "node-sass ./sass -o ./assets/css/",
+    "start": "node-sass ./sass -o ./assets/css/; node index.js"
   },
   "repository": {
     "type": "git",

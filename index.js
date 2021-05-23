@@ -82,6 +82,8 @@ app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 
 app.use(express.static('blog'));
+
+app.use('/static', express.static('public'))
 app.use(express.urlencoded());
 
 //routes
@@ -92,9 +94,12 @@ let contact = require('./routes/contact.js');
 let blog = require('./routes/blog.js');
 let imprint = require('./routes/impressum.js');
 let search = require('./routes/search.js');
+let sitemap = require('./routes/sitemap.js')
 
 let Page404 = require('./routes/404.js');
 
+let sitemapCreator = require('./sitemapCreator.js')
+sitemapCreator.createSitemap();
 
 let port = 8081
 app.listen(port)
