@@ -165,12 +165,13 @@ canvas {
     float: left;
     width: 100%;
     margin-top: 50px;
-}
-#mobileMenu .mobileMenuItem {
-    width: 100%;
-    font-size: 22px;
-    text-align: center;
-    margin-top: 10px;
+    
+    .mobileMenuItem {
+        width: 100%;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 10px;
+    }
 }
 
 #mobileMenuButton {
@@ -182,10 +183,10 @@ canvas {
     text-align: center;
     width: 50px;
     visibility: hidden;
-}
 
-#mobileMenuButton:Hover {
-    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .stop-scrolling {
