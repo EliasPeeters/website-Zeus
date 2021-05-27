@@ -1,40 +1,47 @@
 #content {
     min-height: 600px;
     padding-top: 50px;
+
+    #contentLeft {
+        float: left;
+        width: 50%;
+        height: 100%;
+
+        img {
+            width: 300px;
+            float: right;
+            transition: 300ms;
+            transform: translate(0%, 50%);
+            clip-path: circle(150px at center);
+        }
+    }
+
+    #contentRight {
+        width: 40%;
+        transform: translate(0%, 70%);
+        padding-left: 52.5%;
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-top: 5px;
+            max-width: 300px;
+            margin-bottom: 20px;
+            width: 600px;
+            background-color: #FCFBF6;
+        }
+    }
+
+    .contentWrapper {
+        min-height: 700px;
+    }
 }
 
-#contentLeft {
-    float: left;
-    width: 50%;
-    height: 100%;
-}
 
-#contentLeft img {
-    width: 300px;
-    float: right;
-    transition: 300ms;
-    transform: translate(0%, 50%);
-    clip-path: circle(150px at center);
-}
 
-#contentRight {
-    width: 40%;
-    transform: translate(0%, 70%);
-    padding-left: 52.5%;
-}
-
-#contentRight h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-#contentRight p {
-    margin-top: 5px;
-    max-width: 300px;
-    margin-bottom: 20px;
-    width: 600px;
-    background-color: #FCFBF6;
-}
 
 @media only screen and (max-width: 600px) {
     #content {
