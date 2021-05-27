@@ -1,4 +1,4 @@
-let loggerEnable = true;
+let loggerEnable = false;
 
 const geoip = require('geoip-lite');
 const mysql = require('mysql');
