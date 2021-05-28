@@ -11,6 +11,19 @@
       transition: 300ms;
       transform: translate(0%, 50%);
       clip-path: circle(150px at center); }
+      @media (max-width: 600px) {
+        #content #contentLeft img {
+          float: inherit;
+          width: 60%;
+          margin-left: 20%;
+          margin-top: 30px;
+          transform: none;
+          -webkit-transform: none; } }
+    @media (max-width: 600px) {
+      #content #contentLeft {
+        float: inherit;
+        width: 100%;
+        height: auto; } }
   #content #contentRight {
     width: 40%;
     transform: translate(0%, 70%);
@@ -24,43 +37,33 @@
       margin-bottom: 20px;
       width: 600px;
       background-color: #FCFBF6; }
+      @media (max-width: 600px) {
+        #content #contentRight p {
+          width: 100%;
+          margin: 0;
+          max-width: none;
+          margin-bottom: 30px; } }
+    @media (max-width: 600px) {
+      #content #contentRight {
+        width: calc(100% - 10%);
+        padding-right: 5%;
+        padding-left: 5%;
+        height: 400px;
+        text-align: center;
+        margin-top: 30px;
+        transform: none;
+        -webkit-transform: none; }
+        #content #contentRight .introduction {
+          font-size: 15px; }
+        #content #contentRight .nameHeading {
+          font-size: 40px; }
+        #content #contentRight .buttonMain {
+          width: 70% !important;
+          margin-left: 15%;
+          float: none; } }
   #content .contentWrapper {
     min-height: 700px; }
-
-@media only screen and (max-width: 600px) {
-  #content {
-    height: auto;
-    margin-bottom: 40px; }
-  #contentLeft {
-    float: inherit;
-    width: 100%;
-    height: auto; }
-  #contentLeft img {
-    float: inherit;
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 30px;
-    transform: none;
-    -webkit-transform: none; }
-  #contentRight {
-    width: calc(100% - 10%);
-    padding-right: 5%;
-    padding-left: 5%;
-    height: 400px;
-    text-align: center;
-    margin-top: 30px;
-    transform: none;
-    -webkit-transform: none; }
-  #contentRight p {
-    width: 100%;
-    margin: 0;
-    max-width: none;
-    margin-bottom: 30px; }
-  .buttonMain {
-    width: 70% !important;
-    margin-left: 15%;
-    float: none; }
-  .introduction {
-    font-size: 15px; }
-  #contentRight .nameHeading {
-    font-size: 40px; } }
+  @media (max-width: 600px) {
+    #content {
+      height: auto;
+      margin-bottom: 40px; } }
