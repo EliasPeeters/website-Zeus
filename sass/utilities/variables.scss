@@ -1,3 +1,6 @@
+$backgroundColorSecond: #e2e0cd;
+$backgroundColor: #FCFBF6;
+
 @mixin mobile {
     @media (max-width: 600px) {
         @content;
