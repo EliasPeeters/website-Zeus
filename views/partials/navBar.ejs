@@ -1,16 +1,29 @@
 <div id="navBar" class="stop-scrolling searchVisible">
+    
     <a id="navBarTitle" href="/"><h1>Elias Peeters <span id="subTitleNavBar">Programmer</span></h1></a>
+    
     <div id="searchIcon" onmousedown="toggleSearch(true)">
         <img src="assets/search.svg">
     </div>
     
-    <ul>
+    <ul class="menuItemsDesktop">
+        <li class="homeItem menuItemLi"><a class="menuItem" href="/">Home</a></li>
+        <li class="cvItem menuItemLi"><a class="menuItem" id="home" href="/cv">CV</a></li>
+        <li class="blogItem menuItemLi"><a class="menuItem" href="/blog">Blog</a></li>
+        <li class="contactItem menuItemLi"><a class="menuItem" href="/contact">Contact</a></li>
+        <li class="imprintItem menuItemLi"><a class="menuItem" href="/imprint">Imprint</a></li>
+        <li class="dropDownLi"><div class="dropDown" onmousedown="toggleDropDown()">Menu <img src="assets/icons/arrowDown.svg"></div></li>
+    </ul>
+
+    <div class="horizLine"></div>
+
+    <div class="dropDownMenu">
         <li><a class="menuItem" href="/">Home</a></li>
         <li><a class="menuItem" id="home" href="/cv">CV</a></li>
         <li><a class="menuItem" href="/blog">Blog</a></li>
         <li><a class="menuItem" href="/contact">Contact</a></li>
         <li><a class="menuItem" href="/imprint">Imprint</a></li>
-    </ul>
+    </div>
 
     <div id="mobileMenu">
         <div class="mobileMenuItem"><a href="/">Home</a></div>
@@ -47,6 +60,63 @@
         }
     }
 
+    function showDropDown() {
+        let dropDown = document.getElementsByClassName('dropDownLi')[0];
+        let menuItems = document.getElementsByClassName('menuItemLi');
+
+        if (window.innerWidth > 750) {
+            dropDown.style.display = 'none'
+            for (let item of menuItems) {
+                item.style.display = 'block'
+            }
+        } else {
+            dropDown.style.display = 'block'
+            for (let item of menuItems) {
+                item.style.display = 'none'
+            }
+        }
+    }
+
+    window.onresize = function() {
+        showDropDown();
+
+        if (window.innerWidth < 600) {
+            MenuOpened = true;
+            toggleMobileMenu()
+        }
+        if (window.innerWidth > 750) {
+            document.getElementById('navBar').style.height = '50px'
+        }
+    }
+
+    let dropDownState = 0
+    // 0 = closed
+    // 1 = opened
+
+    function toggleDropDown() {
+        var navBar = document.getElementById('navBar')
+
+        function openDropDown() {  
+            navBar.style.height = '105px'
+        }
+
+        function closeDropDown() {
+            navBar.style.height = '50px'
+        }
+
+        if (dropDownState === 0) {
+            openDropDown();
+            dropDownState = 1;
+        } else {
+            closeDropDown();
+            dropDownState = 0;
+        }
+    }
+
+    function init() {
+        showDropDown()
+    }
+    init()
 </script>
 
 <script type="text/javascript">
