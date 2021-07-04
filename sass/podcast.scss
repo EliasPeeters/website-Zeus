@@ -1,0 +1,80 @@
+@import "utilities/variables.scss";
+
+.embedded-showplayer {
+    background-color: aqua !important;
+}
+
+.contentWrapper {
+    display: flex;
+
+    .content {
+        padding: 40px;
+        padding-top: 100px;
+        width: calc(100% - 80px);
+        min-height: calc(100vh - 200px);
+        margin: 0 auto;
+        max-width: 1200px;
+        float: left;
+        
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+    
+        h2 {
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+    
+        img {
+            width: 70%;
+            margin-left: 15%;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+    
+        p {
+            background-color: #FCFBF6;
+        }
+    
+        @include mobile {
+            padding: 20px;
+            padding-top: 100px;
+            width: calc(100% - 50px);
+        }
+    
+        .contentLeft {
+            width: 40%;
+            float: left;
+            @include mobile {
+                width: 100%;
+            }
+        }
+    
+        .contentRight {
+            width: 60%;
+            float: left;
+    
+            @include mobile {
+                width: 100%;
+            }
+    
+            iframe {
+                height: 400px;
+            }
+    
+            .embedded-showplayer {
+                background-color: $backgroundColor !important;
+                background: $backgroundColor !important;
+            }
+    
+            body {
+                background-color: rgba(0,0,0,0);
+            }
+            
+    
+        }
+    }
+    
+}

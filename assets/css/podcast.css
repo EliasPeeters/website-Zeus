@@ -1,0 +1,51 @@
+.embedded-showplayer {
+  background-color: aqua !important; }
+
+.contentWrapper {
+  display: flex; }
+  .contentWrapper .content {
+    padding: 40px;
+    padding-top: 100px;
+    width: calc(100% - 80px);
+    min-height: calc(100vh - 200px);
+    margin: 0 auto;
+    max-width: 1200px;
+    float: left; }
+    .contentWrapper .content h1 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 30px; }
+    .contentWrapper .content h2 {
+      margin-bottom: 15px;
+      margin-top: 30px; }
+    .contentWrapper .content img {
+      width: 70%;
+      margin-left: 15%;
+      margin-bottom: 15px;
+      margin-top: 15px; }
+    .contentWrapper .content p {
+      background-color: #FCFBF6; }
+    @media (max-width: 600px) {
+      .contentWrapper .content {
+        padding: 20px;
+        padding-top: 100px;
+        width: calc(100% - 50px); } }
+    .contentWrapper .content .contentLeft {
+      width: 40%;
+      float: left; }
+      @media (max-width: 600px) {
+        .contentWrapper .content .contentLeft {
+          width: 100%; } }
+    .contentWrapper .content .contentRight {
+      width: 60%;
+      float: left; }
+      @media (max-width: 600px) {
+        .contentWrapper .content .contentRight {
+          width: 100%; } }
+      .contentWrapper .content .contentRight iframe {
+        height: 400px; }
+      .contentWrapper .content .contentRight .embedded-showplayer {
+        background-color: #FCFBF6 !important;
+        background: #FCFBF6 !important; }
+      .contentWrapper .content .contentRight body {
+        background-color: rgba(0, 0, 0, 0); }

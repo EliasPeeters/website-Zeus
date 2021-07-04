@@ -93,8 +93,11 @@ let cv = require('./routes/cv.js');
 let contact = require('./routes/contact.js');
 let blog = require('./routes/blog.js');
 let imprint = require('./routes/impressum.js');
+let podcast = require('./routes/podcast.js');
+
 let search = require('./routes/search.js');
-let sitemap = require('./routes/sitemap.js')
+let sitemap = require('./routes/sitemap.js');
+
 
 let Page404 = require('./routes/404.js');
 
