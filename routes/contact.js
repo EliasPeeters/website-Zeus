@@ -1,6 +1,6 @@
 let logger = require('../logger.js')
 const mysql = require('mysql');
-const main = require('../index.js');
+const main = require('../website.js');
 const bodyparser = require('body-parser');
 
 urlencodedparser = bodyparser.urlencoded({extended: false});

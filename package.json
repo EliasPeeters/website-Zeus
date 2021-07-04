@@ -2,11 +2,11 @@
   "name": "customwebsite",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "website.js",
   "scripts": {
     "test": "mocha --exit",
     "sass2": "node-sass ./sass -o ./assets/css/",
-    "start": "node-sass ./sass -o ./assets/css/; node index.js"
+    "start": "node-sass ./sass -o ./assets/css/; node website.js"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@ let loggerEnable = false;
 
 const geoip = require('geoip-lite');
 const mysql = require('mysql');
-const main = require('./index.js');
+const main = require('./website.js');
 const sniffr = require('sniffr')
 
 
