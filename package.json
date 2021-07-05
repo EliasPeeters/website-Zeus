@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --exit",
     "sass2": "node-sass ./sass -o ./assets/css/",
-    "start": "node-sass ./sass -o ./assets/css/; node website.js"
+    "start-local": "node-sass ./sass -o ./assets/css/; LOGGER=false node website.js",
+    "start-live": "node-sass ./sass -o ./assets/css/; LOGGER=true node website.js"
   },
   "repository": {
     "type": "git",

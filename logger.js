@@ -1,4 +1,10 @@
-let loggerEnable = false;
+let loggerEnable = (process.env.LOGGER=="true") ? true : false;
+
+if (loggerEnable) {
+    console.log('Logger enabled')
+} else {
+    console.log('Logger disabled')
+}
 
 const geoip = require('geoip-lite');
 const mysql = require('mysql');
