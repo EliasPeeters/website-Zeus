@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha --exit",
     "sass2": "node-sass ./sass -o ./assets/css/",
-    "start-local": "node-sass ./sass -o ./assets/css/; LOGGER=false node website.js",
-    "start-live": "git pull; node-sass ./sass -o ./assets/css/; LOGGER=true forever restart website.js"
+    "start-local": "npm run sass2; LOGGER=false node website.js",
+    "start-live": "npm run sass2; LOGGER=true forever restart website.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "chai": "^4.3.4",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-status-monitor": "^1.3.3",
     "fs": "^0.0.1-security",
     "fuse.js": "^6.4.6",
     "fuzzy-search": "^3.2.1",

@@ -3,19 +3,28 @@
 #content {
     min-height: 600px;
     padding-top: 50px;
+    display: flex;
+
+    @include mobile {
+        display: block;
+    }
 
     #contentLeft {
-        float: left;
         width: 50%;
-        height: 100%;
-
+        display: flex;
+        align-items: center;
+        justify-content:  flex-end;
+       
+        @include mobile {
+            min-height: 0;
+            justify-content:  center;
+        }
+        
         img {
             width: 300px;
-            float: right;
             transition: 300ms;
-            transform: translate(0%, 50%);
             clip-path: circle(150px at center);
-
+            
             @include mobile {
                 float: inherit;
                 width: 60%;
@@ -33,30 +42,34 @@
         }
     }
 
-    #contentRight {
-        width: 40%;
-        transform: translate(0%, 70%);
-        padding-left: 52.5%;
+    .contentRight {    
+        width: 50%;
+        display: flex;
+        align-items: center;
 
-        h1 {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-        
-        p {
-            margin-top: 5px;
-            max-width: 300px;
-            margin-bottom: 20px;
-            width: 600px;
-            background-color: #FCFBF6;
-
-            @include mobile {
-                width: 100%;
-                margin: 0;
-                max-width: none;
-                margin-bottom: 30px;
+        .contentRightWrapper {
+            margin-left: 20px;
+            h1 {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+            
+            p {
+                margin-top: 5px;
+                max-width: 300px;
+                margin-bottom: 20px;
+                background-color: #FCFBF6;
+    
+                @include mobile {
+                    width: 100%;
+                    margin: 0;
+                    max-width: none;
+                    margin-bottom: 30px;
+                }
             }
         }
+        
+        
 
         @include mobile {
             width: calc(100% - 10%);
@@ -82,10 +95,6 @@
                 float: none;
             }
         }
-    }
-
-    .contentWrapper {
-        min-height: 700px;
     }
 
     @include mobile {

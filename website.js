@@ -10,9 +10,9 @@ urlencodedparser = bodyparser.urlencoded({extended: false});
 
 let logger = require('./logger.js')
 
-
 app = express();
 
+app.use(require('express-status-monitor')());
 
 connection = mysql.createConnection({
 	host: 'server.eliaspeeters.de',
@@ -106,7 +106,9 @@ let sitemapCreator = require('./sitemapCreator.js')
 sitemapCreator.createSitemap();
 
 let port = 8081
-app.listen(port)
+app.listen(port, () => {
+    console.log(`Running on ${port}`)
+})
 
 
 module.exports = {connection, checkMYSQLConnection}
