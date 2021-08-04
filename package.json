@@ -7,7 +7,7 @@
     "test": "mocha --exit",
     "sass2": "node-sass ./sass -o ./assets/css/",
     "start-local": "npm run sass2; LOGGER=false node website.js",
-    "start-live": "npm run sass2; LOGGER=true forever restart website.js"
+    "start-live": "npm i; npm run sass2; LOGGER=true forever restart website.js"
   },
   "repository": {
     "type": "git",
