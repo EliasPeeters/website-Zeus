@@ -1,6 +1,6 @@
 let logger = require('../logger.js')
 const mysql = require('mysql');
-const main = require('../website.js');
+const main = require('../website-zeus.js');
 const bodyparser = require('body-parser');
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
