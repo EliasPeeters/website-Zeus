@@ -23,8 +23,10 @@ if (process.env.ENV=="LOCAL") {
     }
     
 } else {
-    serverConnections = serverConnectionsAll.interal
+    serverConnections = serverConnectionsAll.internal;   
 }
+
+console.table(serverConnections)
 
 request(serverConnections.blogServer, (err, res, body) => {
   if (err) { return console.log(err); }
