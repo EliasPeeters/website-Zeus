@@ -4,6 +4,9 @@ const Showdown = require('showdown');
 let logger = require('../logger.js');
 let util = require('util');
 var request = require('request');
+const { app } = require('./search.js');
+const { urlencoded } = require('body-parser');
+const bodyParser = require('body-parser');
 
 let converter = new Showdown.Converter()
 
@@ -137,20 +140,36 @@ function getArticleAttributes(articleName) {
 //     }   
 // });
 
-app.get('/blog', urlencodedparser, async function(req, res) {
-    articleAttributes.sort((a, b) => (a.dateUTC < b.dateUTC) ? 1 : -1)
-    
-//     articleAttributes.reverse()
-    if (req.query.article === undefined) {
-        res.render('blog', {articleAttributes: articleAttributes})
-    } else {
-        request(`${serverConnections.blogServer}/article/${req.query.article}`, (err, body) => {
-            let attributes = getArticleAttributes('rekursion')
-            // res.send(body.body)
-            res.render('article', {content: body.body, attributes: attributes})
+// app.get('/blog', urlencodedparser, async function(req, res) {
+//     articleAttributes.sort((a, b) => (a.dateUTC < b.dateUTC) ? 1 : -1)
+// //     articleAttributes.reverse()
+//     if (req.query.article === undefined) {
+//         res.render('blog', {articleAttributes: articleAttributes})
+//     } else {
+//         request(`${serverConnections.blogServer}/article/${req.query.article}`, (err, body) => {
+//             let attributes = getArticleAttributes('rekursion')
+//             // res.send(body.body)
+//             res.render('article', {content: body.body, attributes: attributes})
             
-        });
-    }
+//         });
+//     }
+// })
+
+app.get('/blog', async function(req, res) {
+    request(`${serverConnections.blogServer.address}/attributes?server=${serverConnections.blogServer.position}`, (err, body) => {
+        let articleAttributes = JSON.parse(body.body);
+        res.render('blog', {articleAttributes: articleAttributes.articles})
+        // res.send(articleAttributes)
+    });
+})
+
+app.get('/article', urlencodedparser, async function(req, res) {
+    request(`${serverConnections.blogServer.address}/article/${req.query.name}`, (err, body) => {
+        let attributes = getArticleAttributes('rekursion')
+        // res.send(body.body)
+        res.render('article', {content: body.body, attributes: attributes})
+        
+    });
 })
 
 module.exports = {articleAttributes}

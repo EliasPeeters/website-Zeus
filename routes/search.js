@@ -23,8 +23,10 @@ function createBlogContentArray() {
     return articles
 }
 
-let blogArray = createBlogArray();
-let blogContentArray = createBlogContentArray();
+// let blogArray = createBlogArray();
+// let blogContentArray = createBlogContentArray();
+let blogContentArray = []
+let blogArray = []
 
 //blogArrayconsole.log(blogArray)
 

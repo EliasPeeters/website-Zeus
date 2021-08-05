@@ -16,19 +16,32 @@ serverConnectionsAll = JSON.parse(fs.readFileSync('./private/connections.json'))
 if (process.env.ENV=="LOCAL") {
     let localConfig = JSON.parse(fs.readFileSync('./private/localConfig.json'))
     serverConnections = serverConnectionsAll.external
+    for (connection in serverConnections) {
+        serverConnections[connection] = {address: serverConnections[connection]}
+    }
+
 
     for (connection in localConfig) {
-        serverConnections[connection] = serverConnectionsAll[localConfig[connection]][connection]
+        serverConnections[connection] = {
+            address: serverConnectionsAll[localConfig[connection]][connection],
+            position: localConfig[connection]
+        }
         console.log('\x1b[33m%s\x1b[0m', `Using ${connection} ${localConfig[connection]}`)
     }
     
 } else {
     serverConnections = serverConnectionsAll.internal;   
+    for (connection in serverConnections) {
+        serverConnections[connection] = {
+            address: serverConnections[connection],
+            position: 'internal'
+        }
+    }
 }
 
 console.table(serverConnections)
 
-request(serverConnections.blogServer, (err, res, body) => {
+request(serverConnections.blogServer.address, (err, res, body) => {
   if (err) { return console.log(err); }
   if (body == 'Success') {
       console.log('\x1b[36m%s\x1b[0m', `Connected to blogServer `)
@@ -39,11 +52,12 @@ request(serverConnections.blogServer, (err, res, body) => {
 app = express();
 
 connection = mysql.createConnection({
-	host: 'server.eliaspeeters.de',
+	host: serverConnections.database.address,
 	user: 'root',
 	password: 'TXvyjXz9AoNPbDg',
 	database: 'website'
 });
+
 
 connection.connect((err) => {
 	if (err) {

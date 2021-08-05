@@ -21,25 +21,25 @@
             <div id="articles">
 
                 
-                <% articleAttributes.forEach(element => { %>
+                <% for (article in articleAttributes) { %>
                     <div class="article scrollFade scrollFocus">
                         <div class="articleHeaderWrapper">
-                            <h2><%= element.title %> </h2>
+                            <h2><%= articleAttributes[article].heading %> </h2>
                         </div>
                         
                         <div class="artcileImageWrapper">
-                            <img src="<%= element.image %>">
+                            <img src="<%= articleAttributes[article].image %>">
                         </div>
                         
                         <div class="articleText">
-                            <p class="articleDate"><%= element.date%></p>
-                            <p class="articleDescription line-clamp"><%= element.description %> </p>
+                            <p class="articleDate"><%= articleAttributes[article].date%></p>
+                            <p class="articleDescription line-clamp"><%=  articleAttributes[article].description%></p>
                             
                         </div>
-                        <div class="button secondButton buttonReading" onmousedown="window.location = '/blog?article=<%= element.name %>'">Continue Reading</div>
+                        <div class="button secondButton buttonReading" onmousedown="window.location = '/article?name=<%= articleAttributes[article].name %>'">Continue Reading</div>
                     </div>
 
-                <% }) %>
+                <% } %>
             </div>
             
         </div>

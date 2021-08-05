@@ -1,8 +1,10 @@
 {
     "internal": {
-        "blogServer": "http://localhost:8083"
+        "blogServer": "http://localhost:8083",
+        "database": "server.eliaspeeters.de"
     },
     "external": {
-        "blogServer": "http://185.183.157.185:8083"
+        "blogServer": "http://185.183.157.185:8083",
+        "database": "server.eliaspeeters.de"
     }
 }
