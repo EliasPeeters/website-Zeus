@@ -13,13 +13,22 @@ let logger = require('./logger.js')
 
 serverConnectionsAll = JSON.parse(fs.readFileSync('./private/connections.json'))
 
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+
 if (process.env.ENV=="LOCAL") {
     let localConfig = JSON.parse(fs.readFileSync('./private/localConfig.json'))
-    serverConnections = serverConnectionsAll.external
+    serverConnections = clone(serverConnectionsAll.external)
+
     for (connection in serverConnections) {
         serverConnections[connection] = {address: serverConnections[connection]}
     }
-
 
     for (connection in localConfig) {
         serverConnections[connection] = {
