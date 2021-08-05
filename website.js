@@ -38,8 +38,6 @@ request(serverConnections.blogServer, (err, res, body) => {
 
 app = express();
 
-app.use(require('express-status-monitor')());
-
 connection = mysql.createConnection({
 	host: 'server.eliaspeeters.de',
 	user: 'root',
