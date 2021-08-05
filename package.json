@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha --exit",
     "sass2": "node-sass ./sass -o ./assets/css/",
-    "start-local": "npm run sass2; LOGGER=false node website.js",
-    "start-live": "git pull; npm i; npm run sass2; LOGGER=true forever restart website.js"
+    "start-local": "npm run sass2; LOGGER=false ENV=LOCAL node website.js",
+    "start-live": "git pull; npm i; npm run sass2; LOGGER=true ENV=LIVE forever restart website.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "sendmail": "^1.6.1",
     "showdown": "^1.9.1",
     "sniffr": "^1.2.0",
+    "sync-request": "^6.1.0",
     "util": "^0.12.3"
   }
 }

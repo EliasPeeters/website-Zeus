@@ -1,6 +1,6 @@
 { 
     "title": "A list of example programms that use rekursion",  
-    "image": "profile.jpeg",
+    "image": "racket.jpg",
     "description": "Dies ist eyhin kurzer Text", 
     "date": "2021-02-20" 
 }

@@ -3,6 +3,7 @@ const path = require('path');
 const Showdown = require('showdown');
 let logger = require('../logger.js');
 let util = require('util');
+var request = require('request');
 
 let converter = new Showdown.Converter()
 
@@ -110,33 +111,46 @@ function getArticleAttributes(articleName) {
     return 'Does not exist'
 }
 
+// app.get('/blog', urlencodedparser, async function(req, res) {
+//     logger.log(req)
+//     articleAttributes.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
+//     articleAttributes.reverse()
+//     //console.log(req.query.article)
+//     if (req.query.article === undefined) {
+//         res.render('blog', {articleAttributes: articleAttributes})
+//     } else {
+//         let searchResult = articles.find(element => element == req.query.article)
+//         if (searchResult === undefined) {
+//             res.send('Sorry but your article does not exist')
+//         } else {
+//             fs.readFile('./blog/' + req.query.article + '.md', 'utf8' , async function(err, data) {
+//                 if (err) {
+//                   console.error(err)
+//                   return
+//                 }
+//                 //console.log(articleAttributes)
+//                 let attributes = getArticleAttributes(searchResult)
+//                 let articleHTML = converter.makeHtml(getRawData(data))
+//                 res.render('article', {content: articleHTML, attributes: attributes})
+//               })   
+//         }   
+//     }   
+// });
+
 app.get('/blog', urlencodedparser, async function(req, res) {
-    logger.log(req)
-    articleAttributes.sort((a, b) => (a.dateUTC > b.dateUTC) ? 1 : -1)
-    articleAttributes.reverse()
-    //console.log(req.query.article)
+    articleAttributes.sort((a, b) => (a.dateUTC < b.dateUTC) ? 1 : -1)
+    
+//     articleAttributes.reverse()
     if (req.query.article === undefined) {
         res.render('blog', {articleAttributes: articleAttributes})
     } else {
-        let searchResult = articles.find(element => element == req.query.article)
-        if (searchResult === undefined) {
-            res.send('Sorry but your article does not exist')
-        } else {
-            fs.readFile('./blog/' + req.query.article + '.md', 'utf8' , async function(err, data) {
-                if (err) {
-                  console.error(err)
-                  return
-                }
-                //console.log(articleAttributes)
-                let attributes = getArticleAttributes(searchResult)
-                let articleHTML = converter.makeHtml(getRawData(data))
-                res.render('article', {content: articleHTML, attributes: attributes})
-              })
+        request(`${serverConnections.blogServer}/article/${req.query.article}`, (err, body) => {
+            let attributes = getArticleAttributes('rekursion')
+            // res.send(body.body)
+            res.render('article', {content: body.body, attributes: attributes})
             
-        }
-        
+        });
     }
-        
-});
+})
 
 module.exports = {articleAttributes}

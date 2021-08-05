@@ -1,0 +1,8 @@
+{
+    "internal": {
+        "blogServer": "http://localhost:8083"
+    },
+    "external": {
+        "blogServer": "http://185.183.157.185:8083"
+    }
+}

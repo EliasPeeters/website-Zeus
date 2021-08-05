@@ -5,10 +5,34 @@ const bodyparser = require('body-parser');
 const path = require('path')
 const fs = require('fs')
 var https = require('https');
+var request = require('request');
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
 
 let logger = require('./logger.js')
+
+serverConnectionsAll = JSON.parse(fs.readFileSync('./private/connections.json'))
+
+if (process.env.ENV=="LOCAL") {
+    let localConfig = JSON.parse(fs.readFileSync('./private/localConfig.json'))
+    serverConnections = serverConnectionsAll.external
+
+    for (connection in localConfig) {
+        serverConnections[connection] = serverConnectionsAll[localConfig[connection]][connection]
+        console.log('\x1b[33m%s\x1b[0m', `Using ${connection} ${localConfig[connection]}`)
+    }
+    
+} else {
+    serverConnections = serverConnectionsAll.interal
+}
+
+request(serverConnections.blogServer, (err, res, body) => {
+  if (err) { return console.log(err); }
+  if (body == 'Success') {
+      console.log('\x1b[36m%s\x1b[0m', `Connected to blogServer `)
+  }
+//   console.log(body.explanation);
+});
 
 app = express();
 
@@ -26,7 +50,7 @@ connection.connect((err) => {
 		console.log(err)
         return false
 	} else {
-		console.log('Conntected to Database');
+		console.log('\x1b[36m%s\x1b[0m', 'Conntected to Database');
         return true
 	}
 });
