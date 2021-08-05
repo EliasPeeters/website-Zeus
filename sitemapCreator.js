@@ -20,21 +20,6 @@ function getExpressRoutes() {
     return expressRoutes;
 }
 
-function getArticles() {
-    let minifiedArticles = []
-    blog.articleAttributes.forEach(function (article) {
-        minifiedArticles.push(
-            {
-                url: url + '/blog?article=' + article.name,
-                lastUpdate: date
-            }
-        )
-    })
-
-    return minifiedArticles
-}
-
-
 function createSitemapStringFormArray(inputArray) {
     let outputString = ''
     for(let i = 0; i < inputArray.length; i++) {
@@ -64,7 +49,7 @@ function createSitemap() {
     let expressRoutesString = createSitemapStringFormArray(expressRoutes);
     xml += expressRoutesString;
 
-    let articlesRoutes = getArticles();
+    let articlesRoutes = ''
     let articlesRoutesString = createSitemapStringFormArray(articlesRoutes);
     xml += articlesRoutesString;
 

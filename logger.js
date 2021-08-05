@@ -13,7 +13,6 @@ const sniffr = require('sniffr')
 
 
 async function log(req, messageID = -1) {
-    
     if (loggerEnable) {
         let ip = req.connection.remoteAddress;
         
