@@ -1,5 +1,7 @@
 const fs = require('fs');
-const blog = require('./routes/blog')
+const blog = require('./routes/blog');
+var request = require('request');
+var requestSync = require('sync-request');
 
 let url = 'https://eliaspeeters.de'
 const sitemapPath = 'public/sitemap.xml'
@@ -40,6 +42,23 @@ function removeOldSitemap() {
     }
 }
 
+function getArticles() {
+    
+    let urlAttributes = `${serverConnections.blogServer.address}/attributes?server=${serverConnections.blogServer.position}`;
+    let articleAttributes = JSON.parse(requestSync('GET', urlAttributes).getBody('utf8')).articles;
+    
+    let articles = []
+    for (let i = 0; i < articleAttributes.length; i++) {
+        articles.push({
+            url: url + '/article?name=' + articleAttributes[i].name,
+            lastUpdate: date
+        })
+    }
+    return articles;
+
+}
+
+
 function createSitemap() {
     removeOldSitemap();
     let xml = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>'
@@ -49,7 +68,7 @@ function createSitemap() {
     let expressRoutesString = createSitemapStringFormArray(expressRoutes);
     xml += expressRoutesString;
 
-    let articlesRoutes = ''
+    let articlesRoutes = getArticles();
     let articlesRoutesString = createSitemapStringFormArray(articlesRoutes);
     xml += articlesRoutesString;
 
