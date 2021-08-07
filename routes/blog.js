@@ -18,7 +18,7 @@ app.get('/article', urlencodedparser, async function(req, res) {
     logger.log(req)
     request(`${serverConnections.blogServer.address}/article/${req.query.name}`, (err, body) => {
         // res.send(body.body)
-        res.render('article', {content: body.body})
+        res.render('article', {article: JSON.parse(body.body)})
     });
 })
 

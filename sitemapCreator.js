@@ -43,7 +43,6 @@ function removeOldSitemap() {
 }
 
 function getArticles() {
-    
     let urlAttributes = `${serverConnections.blogServer.address}/attributes?server=${serverConnections.blogServer.position}`;
     let articleAttributes = JSON.parse(requestSync('GET', urlAttributes).getBody('utf8')).articles;
     
@@ -55,7 +54,6 @@ function getArticles() {
         })
     }
     return articles;
-
 }
 
 

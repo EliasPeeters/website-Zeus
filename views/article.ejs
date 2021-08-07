@@ -16,9 +16,13 @@
         
         
         <div id="content">
-            <%- content %>
+            <p class="date"><%= article.date %></p>
+            <h1><%= article.heading %></h1>
+            
+            <%- article.html %>
         </div>
-        
+       
+
         <%- include ("partials/footer") %>
         
         <script src="assets/config.js"></script>
