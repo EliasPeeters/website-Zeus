@@ -8,6 +8,10 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>        
                 
         <%- include ("partials/header") %>
+
+        <% article.css.forEach(function(item) { %> 
+            <link rel="stylesheet" href="<%= item %>">
+        <% }); %> 
     </head>
     
     <body>
