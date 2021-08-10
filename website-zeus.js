@@ -43,7 +43,7 @@ if (process.env.ENV=="LOCAL") {
     for (connection in serverConnections) {
         serverConnections[connection] = {
             address: serverConnections[connection],
-            position: 'internal'
+            position: 'external'
         }
     }
 }
