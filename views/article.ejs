@@ -14,7 +14,7 @@
         <%- include ("partials/header") %>
 
         <% article.css.forEach(function(item) { %> 
-            <link rel="stylesheet" href="<%= item %>" crossorigin>
+            <link rel="stylesheet" href="<%= item %>">
         <% }); %> 
     </head>
     
@@ -34,7 +34,7 @@
         <%- include ("partials/footer") %>
         
         <% article.js.forEach(function(item) { %> 
-            <script src="<%= item %>" crossorigin>
+            <script src="<%= item %>"></script>
         <% }); %> 
 
         <script src="assets/config.js"></script>
