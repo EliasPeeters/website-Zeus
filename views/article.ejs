@@ -10,11 +10,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-        
+
         <%- include ("partials/header") %>
 
         <% article.css.forEach(function(item) { %> 
-            <link rel="stylesheet" href="<%= item %>">
+            <link rel="stylesheet" href="<%= item %>" crossorigin>
         <% }); %> 
     </head>
     
@@ -34,7 +34,7 @@
         <%- include ("partials/footer") %>
         
         <% article.js.forEach(function(item) { %> 
-            <script src="<%= item %>">
+            <script src="<%= item %>" crossorigin>
         <% }); %> 
 
         <script src="assets/config.js"></script>
