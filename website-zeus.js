@@ -142,6 +142,8 @@ let contact = require('./routes/contact.js');
 let blog = require('./routes/blog.js');
 let imprint = require('./routes/impressum.js');
 let podcast = require('./routes/podcast.js');
+let heraConnection = require('./routes/heraConnection');
+
 
 let search = require('./routes/search.js');
 let sitemap = require('./routes/sitemap.js');
