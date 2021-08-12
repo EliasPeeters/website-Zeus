@@ -7,6 +7,6 @@
     "external": {
         "blogServer": "http://185.183.157.185:8083",
         "database": "server.eliaspeeters.de",
-        "hera": "http://hera.eliaspeeters.de"
+        "hera": "https://hera.eliaspeeters.de"
     }
 }
