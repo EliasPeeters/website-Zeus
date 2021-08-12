@@ -16,7 +16,12 @@ app.get('/blog', async function(req, res) {
 
 app.get('/article', urlencodedparser, async function(req, res) {
     logger.log(req)
-    request(`${serverConnections.blogServer.address}/article/${req.query.name}?server=${serverConnections.blogServer.position}`, (err, body) => {
+    let queryString = ''
+    for (element in req.query) {
+        queryString += `&${element}=${req.query[element]}`;
+    }
+
+    request(`${serverConnections.blogServer.address}/article/${req.query.name}?server=${serverConnections.blogServer.position}${queryString}`, (err, body) => {
         // res.send(body.body)
         res.render('article', {article: JSON.parse(body.body)})
     });

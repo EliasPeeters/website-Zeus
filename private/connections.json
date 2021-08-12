@@ -2,11 +2,11 @@
     "internal": {
         "blogServer": "http://localhost:8083",
         "database": "server.eliaspeeters.de",
-        "zeus": "https://eliaspeeters.de"
+        "hera": "http://localhost:8084"
     },
     "external": {
         "blogServer": "http://185.183.157.185:8083",
         "database": "server.eliaspeeters.de",
-        "zeus": "http://localhost:8081"
+        "hera": "http://hera.eliaspeeters.de"
     }
 }
