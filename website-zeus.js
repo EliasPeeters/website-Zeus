@@ -6,6 +6,7 @@ const path = require('path')
 const fs = require('fs')
 var https = require('https');
 var request = require('request');
+const checkConnections = require('./connections/checkConnections')
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
 
@@ -50,13 +51,9 @@ if (process.env.ENV=="LOCAL") {
 
 console.table(serverConnections)
 
-request(serverConnections.blogServer.address, (err, res, body) => {
-  if (err) { return console.log(err); }
-  if (body == 'Success') {
-      console.log('\x1b[36m%s\x1b[0m', `Connected to blogServer `)
-  }
-//   console.log(body.explanation);
-});
+checkConnections.checkAllConnections();
+
+
 
 app = express();
 
