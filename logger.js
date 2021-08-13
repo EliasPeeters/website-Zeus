@@ -33,8 +33,6 @@ async function log(req, messageID = -1) {
         }
         
         if (geodata != null) {
-            data.ip = ip;
-            data.city = geodata.city;
             data.timezone = geodata.timezone;
             data.area = geodata.area;
             data.region = geodata.region;
