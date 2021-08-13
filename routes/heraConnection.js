@@ -4,7 +4,12 @@ var request = require('sync-request');
 
 app.post('/heraCreatePdf', (req, res) => {
     console.log(req.body)
-    var result = JSON.parse(request('GET', `${serverConnections.hera.address}/createpdf`).getBody('utf-8'));
+    let queryString = '?';
+    for (element in req.body) {
+        queryString += `${element}=${req.body[element]}&`
+    }
+    console.log(queryString)
+    var result = JSON.parse(request('GET', `${serverConnections.hera.address}/createpdf${queryString}`).getBody('utf-8'));
     res.redirect(`/article?name=${req.query.name}&task=${result.task}&solution=${result.solution}`)
 })
 
