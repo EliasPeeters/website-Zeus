@@ -1,7 +1,7 @@
 <div id="blackBox" onmousedown="toggleSearch(false)"></div>
 
 <div id="searchBox">
-    <img src="assets/search.svg">
+    <img src="assets/search.svg" onclick="selectSearchBar()">
     <form id="searchForm">
         <input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" autofocus />
     </form>
@@ -12,6 +12,13 @@
 </div>
 
 <script>
+
+    function selectSearchBar() {
+        let id = "searchBar";
+        document.getElementById(id).setSelectionRange(0, 9999);
+        document.getElementById(id).focus();
+        document.getElementById(id).select();    
+    }
     
     function toggleSearch(open) {
     	let blackBox = document.getElementById('blackBox');
@@ -37,10 +44,10 @@
                 searchBox.style.width = '50%';
             }
             
-            searchBar.focus();
-            searchBar.select();
             searchBar.color = 'green';
-        	body.classList.add('disableScroll');    
+        	body.classList.add('disableScroll');
+            setTimeout(function(){ selectSearchBar(); }, 100);    
+
         } else {
 			blackBox.style.opacity = '0'
             blackBox.style.pointerEvents = 'none'
