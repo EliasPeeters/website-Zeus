@@ -77,4 +77,4 @@ function createSitemap() {
     console.log('Sitemap has been updated')
 }
 
-module.exports = {createSitemap}
+module.exports = {createSitemap, getExpressRoutes}

@@ -67,7 +67,7 @@ connection = mysql.createConnection({
 
 connection.connect((err) => {
 	if (err) {
-		console.log(err)
+        console.log('\x1b[33m%s\x1b[0m', `NOT CONNECTED TO DATABASE!`);
         return false
 	} else {
 		console.log('\x1b[36m%s\x1b[0m', 'Conntected to Database');

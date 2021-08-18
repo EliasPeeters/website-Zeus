@@ -2,6 +2,7 @@ let logger = require('../logger.js')
 let Fuse = require('fuse.js');
 let fs = require('fs');
 let htmltojson = require('html-to-json')
+const request = require('request');
 
 let blog = require('./blog.js')
 
@@ -97,25 +98,18 @@ app.get('/search', urlencodedparser, function(req,  res){
     logger.log(req);
 });
 
-app.get('/searchTest', urlencodedparser, function(req, res){
-    let data = fs.readFileSync('./blog/website.md', {encoding:'utf8', flag:'r'})
-    //console.log(data);
-    let data2= htmltojson.parse('<h1>Test</h1>');
+app.get('/searchNew', urlencodedparser, function(req, res) {
+    if (req.query.text == '') {
+        res.send('');
+        return;
+    }
 
-    data2.done(function (result){
-        console.log(result)
-    })
-
-    var promise = htmltojson.parse(data, {
-        'text': function ($doc) {
-          return $doc.find('div').text();
+    request(`${serverConnections.hermes.address}/search/${req.query.text}`, (err, result, body) => {
+        if (err) { 
+            return console.log(err); 
         }
-      }, function (err, result) {
-        console.log(result);
-      });
-       
-
-    res.send(req.query.text)
-});
+        res.send(body)
+    });
+})
 
 module.exports = {app}

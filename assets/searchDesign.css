@@ -87,6 +87,24 @@
 	cursor: pointer;
 }
 
+.searchTopHit {
+	min-height: 54px;
+	height: auto;
+}
+
+.searchItem.selected {
+	border: 2px solid #E07A5F;
+	background-color: rgba(100,100,100,0.1);
+	cursor: pointer;
+}
+
+
+.searchDescription {
+	color: #a8a799;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 @media only screen and (max-width: 600px) {
 	
 }
