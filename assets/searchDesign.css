@@ -14,6 +14,7 @@
 	z-index: 201;
 	width: 0%;
 	min-width: 100px;
+	max-width: 600px;
 	background-color: #FCFBF6;
 	pointer-events: none;
 	opacity: 0;
@@ -92,6 +93,7 @@
 .searchTopHit {
 	min-height: 54px;
 	height: auto;
+	margin-bottom: 10px;
 }
 
 .searchItem.selected {
