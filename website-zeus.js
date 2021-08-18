@@ -140,6 +140,7 @@ let blog = require('./routes/blog.js');
 let imprint = require('./routes/impressum.js');
 let podcast = require('./routes/podcast.js');
 let heraConnection = require('./routes/heraConnection');
+let expressRoutes = require('./routes/expressRoutes');
 
 
 let search = require('./routes/search.js');
