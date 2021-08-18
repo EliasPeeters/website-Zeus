@@ -64,20 +64,33 @@
     
     function inputSend() {
     	let searchString = document.getElementById('searchBar').value;
-        if (searchString != '') {
-            document.getElementById('searchBoxLine').style.opacity = '1';
-            document.getElementById('output').style.padding = '0 20px 20px 20px';
-        } else {
+        let outputObject = document.getElementById('output');
+
+        if (searchString == '') {
             document.getElementById('searchBoxLine').style.opacity = '0';
             document.getElementById('output').style.padding = '0';
-        }
-        let outputObject = document.getElementById('output')
-        let url = '/search?text=' + searchString;
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", url, false);
-        xmlHttp.send(null);
-        outputObject.innerHTML = xmlHttp.responseText;
+            outputObject.innerHTML = ''
+        } else {
+            document.getElementById('searchBoxLine').style.opacity = '1';
+            document.getElementById('output').style.padding = '0 20px 20px 20px';
 
+
+            
+            let url = '/search/' + searchString;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", url, false);
+            xmlHttp.send(null);
+            if (searchString != '' && xmlHttp.responseText != '') {
+                document.getElementById('searchBoxLine').style.opacity = '1';
+                document.getElementById('output').style.padding = '0 20px 20px 20px';
+            } else {
+                document.getElementById('searchBoxLine').style.opacity = '0';
+                document.getElementById('output').style.padding = '0';
+            }
+            outputObject.innerHTML = xmlHttp.responseText;
+
+        }
+        
     }
 
     var first_press = false;

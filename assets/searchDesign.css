@@ -59,8 +59,10 @@
 	margin-top: 60px;
 }
 
-#output {
+#searchBox #output {
 	padding: 0;
+	max-height: 400px;
+	overflow: scroll;
 	
 }
 
@@ -103,6 +105,13 @@
 	color: #a8a799;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.searchNoResult {
+	text-align: center;
+	padding: 10px;
+	color: #a8a799;
+	padding-top: 20px;
 }
 
 @media only screen and (max-width: 600px) {

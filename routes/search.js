@@ -80,31 +80,14 @@ const options = {
     ]
 };
 
-app.get('/search', urlencodedparser, function(req,  res){
-    let searchString = req.query.text
-    const cvSearch = new Fuse(cvArray, options).search(searchString);
-    
-    const blogSearch = new Fuse(blogArray, options).search(searchString);
-    const pagesSearch = new Fuse(pagesArray, options).search(searchString);
-    const contentSearch = new Fuse(blogContentArray, options).search(searchString);
 
-    res.render('searchOutput', 
-    {
-        blogSearch: blogSearch, 
-        cvSearch: cvSearch,
-        pagesSearch: pagesSearch,
-        contentSearch: contentSearch,
-    })
-    logger.log(req);
-});
-
-app.get('/searchNew', urlencodedparser, function(req, res) {
-    if (req.query.text == '') {
+app.get('/search/:text', urlencodedparser, function(req, res) {
+    if (req.params.text == '') {
         res.send('');
         return;
     }
 
-    request(`${serverConnections.hermes.address}/search/${req.query.text}`, (err, result, body) => {
+    request(`${serverConnections.hermes.address}/search/${req.params.text}`, (err, result, body) => {
         if (err) { 
             return console.log(err); 
         }
