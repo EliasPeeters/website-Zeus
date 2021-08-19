@@ -64,8 +64,9 @@
 	padding: 0;
 	max-height: 400px;
 	overflow: scroll;
-	
+	width: calc(100% - 40px);
 }
+
 
 #searchBox h3 {
 	font-weight: 200;
