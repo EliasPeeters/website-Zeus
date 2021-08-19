@@ -1,10 +1,9 @@
-<div id="blackBox" onmousedown="toggleSearch(false)"></div>
+<div id="blackBox" class="disableScroll" onmousedown="toggleSearch(false)"></div>
 
 <div id="searchBox">
     <img src="assets/search.svg" onclick="selectSearchBar()">
-    <form id="searchForm">
-        <input onkeyup="inputSend()" id="searchBar" type="text" placeholder="Type to search" autocomplete="off" autofocus />
-    </form>
+    <input id="searchBar" type="text" placeholder="Type to search" autocomplete="off" autofocus />
+    
 	
 	<div id="searchBoxLine"></div>
     <div id="output">
@@ -12,6 +11,8 @@
 </div>
 
 <script>
+
+    let searchOpen = false;
 
     function selectSearchBar() {
         let id = "searchBar";
@@ -29,6 +30,7 @@
 		document.getElementById(searchBar.id).focus();
         document.getElementById(searchBar.id).select();
         if (open) {
+            searchOpen = true;
             //document.searchForm.searchBar.focus();
             //document.getElementById(searchForm.searchBar).focus()
             blackBox.style.opacity = '1';
@@ -49,6 +51,7 @@
             setTimeout(function(){ selectSearchBar(); }, 100);    
 
         } else {
+            searchOpen = false;
 			blackBox.style.opacity = '0'
             blackBox.style.pointerEvents = 'none'
             searchBox.style.opacity = '0';
@@ -61,8 +64,19 @@
         	body.classList.remove('disableScroll');
         }
     }
+
+    document.getElementById("searchBar").addEventListener("keyup", (e) => {
+        inputSend(e)
+    })
+
     
-    function inputSend() {
+    function inputSend(e) {
+        // enter Key == 13
+        if (e.keyCode == 13) {
+            let page = document.getElementsByClassName('selected')[0].getAttribute('page');
+            window.location = page
+        }
+
     	let searchString = document.getElementById('searchBar').value;
         let outputObject = document.getElementById('output');
 
@@ -91,21 +105,6 @@
 
         }
         
-    }
-
-    var first_press = false;
-    function key_press(event) {
-        console.log(event)
-        if(first_press) {
-            // they have already clicked once, we have a double
-            first_press = false;
-        } else {
-            // this is their first key press
-            first_press = true;
-
-            // if they don't click again in half a second, reset
-            window.setTimeout(function() { first_press = false; }, 500);
-        }
     }
     
 </script>

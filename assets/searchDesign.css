@@ -27,6 +27,15 @@
 	border-radius: 10px;
 }
 
+@media only screen and (min-width: 600px) {
+	#searchBox {
+		min-width: 500px;
+	}
+}
+
+
+
+
 #searchBox img {
 	float: left;
 	width: 30px;
