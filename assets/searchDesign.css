@@ -127,7 +127,10 @@
 }
 
 @media only screen and (max-width: 600px) {
-	
+	.mobileWrapper {
+		height: 400px;
+		width: calc(100% - 40px);
+	}
 }
 
 
