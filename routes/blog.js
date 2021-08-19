@@ -23,6 +23,10 @@ app.get('/article', urlencodedparser, async function(req, res) {
 
     request(`${serverConnections.blogServer.address}/article/${req.query.name}?server=${serverConnections.blogServer.position}${queryString}`, (err, body) => {
         // res.send(body.body)
-        res.render('article', {article: JSON.parse(body.body)})
+        if (body.body == 'Article does not exist') {
+            res.redirect('/404')
+        } else {
+            res.render('article', {article: JSON.parse(body.body)})
+        }
     });
 })
