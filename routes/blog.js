@@ -7,7 +7,7 @@ const { app } = require('./search.js');
 
 app.get('/blog', async function(req, res) {
     logger.log(req)
-    request(`${serverConnections.blogServer.address}/attributes?server=${serverConnections.blogServer.position}`, (err, body) => {
+    request(`${serverConnections.blogServer.address}/attributes?server=${serverConnections.blogServer.position}&sort=date-1`, (err, body) => {
         let articleAttributes = JSON.parse(body.body);
         res.render('blog', {articleAttributes: articleAttributes.articles})
         // res.send(articleAttributes)
