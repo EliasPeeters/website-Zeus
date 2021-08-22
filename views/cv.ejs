@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="assets/cv-style.css">
+        <link rel="stylesheet" href="assets/css/cv-style.css">
         
         <%- include ("partials/header") %>
         
@@ -13,26 +13,29 @@
        
         <script>
             
-            window.addEventListener("resize", (event) => {
-                let leftContent = document.getElementById('contentLeft');
+            // window.addEventListener("resize", (event) => {
+            //     let leftContent = document.getElementById('contentLeft');
                     
-                if (window.innerWidth > 600) {
+            //     if (window.innerWidth > 600) {
 
-                    let rightContent = document.getElementById('contentRight');
-                    leftContent.style.width = (rightContent.offsetWidth / 60) * 40
-                } else {
-                    leftContent.style.width = '100%'
-                }
-            });  
+            //         let rightContent = document.getElementById('contentRight');
+            //         leftContent.style.width = (rightContent.offsetWidth / 60) * 40
+            //     } else {
+            //         leftContent.style.width = '100%'
+            //     }
+            // });  
         </script> 
-        <div id="content">
+        <div class="content">
             
-            <div id="contentLeft">
-                <img src="assets/portrait.png">
+            <div class="contentLeft">
+                <div class="imageWrapper">
+                    <img src="assets/portrait.png">
+                </div>
+                
                 <h1>Elias Peeters</h1>
             </div>
             
-            <div id="contentRight">
+            <div class="contentRight">
                 <h1>CV</h1>
                 
                 <h3 class="scrollFade">Education</h3>

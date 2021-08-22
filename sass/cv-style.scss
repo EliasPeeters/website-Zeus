@@ -1,0 +1,206 @@
+@import "utilities/variables.scss";
+
+.content {
+    padding-top: 100px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    
+    h1 {
+        text-align: center;
+        font-size: 50px;
+    }
+    
+    .contentLeft {
+        width: 40%;
+        height: 100%;
+
+        @include mobile {
+            position: absolute;
+            float: none;
+            width: 100%;
+            z-index: -1;
+            height: 540px;
+            visibility: hidden;
+        }
+
+        .imageWrapper {
+            display: flex;
+
+            img {
+                width: 80%;
+                max-width: 300px;
+                position: relative;
+                margin: 0 auto;
+            }
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-top: 13px;
+        }
+    }
+
+    .contentRight {
+        width: 60%;
+
+        @include mobile {
+            width: 100%;
+            margin-left: 0px;
+            margin-top: -0px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            float: inherit;
+            clear: both;
+        }
+    }
+    
+
+}
+
+.greenLine2 {
+    width: 5px;
+    background-color: #81B29A;
+    height: 30px;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.redLine2 {
+    width: 5px;
+    background-color: #E07A5F;
+    height: 30px;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.cvBlockHeadingBlock {
+    min-height: 35px;
+    margin-bottom: 10px;
+    border-radius: 15px 15px 0 0;
+    padding-bottom: 5px;
+}
+
+.cvBlock p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cvBlockHeadingBlock p {
+    color: white;
+    font-size: 17px;
+    padding-top: 8px;
+    margin-left: 10px;
+}
+
+.cvBlock {
+    width: 70%;
+    margin-left: 15%;
+    min-height: 60px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    background-color: #FCFBF6;
+    transition: 300ms;
+    transition: box-shadow 10s;
+}
+
+.cvRed {
+    border: #E07A5F 3px solid;
+}
+
+.cvRedHeading {
+    background-color: #E07A5F;
+}
+
+.cvGreen {
+    border: #81B29A 3px solid;
+}
+
+.cvGreenHeading {
+    background-color: #81B29A;
+}
+
+.cvDescrip {
+    color: rgba(0,0,0,0.6);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.cvTime {
+    margin-top: 10px;
+}
+
+.scrollFade {
+    opacity: 0;
+    transition: 100ms;
+    transition: box-shadow 200ms, opacity 300ms;
+}
+
+.languageCard {
+    border: 3px solid #3D405B;
+    height: 70px;
+    width: calc(50% - 30px);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: #3D405B;
+    text-align: center;
+    color: white;
+    padding-top: 25px;
+    font-size: 20px;
+}
+
+#languageCardsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    margin-bottom: 35px;
+}
+
+.languageDescrip {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+.languageCardHeading {
+    min-height: 26px;
+    max-height: 40px;
+    width: 100%;
+    background-color: #3D405B;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    color: white;
+    padding-top: 4px;
+    
+}
+
+#languageCardsDiv {
+    width: 70%;
+    margin-left: 15%;
+    height: 200px;
+}
+
+#spacer {
+    height: 150px;
+    width: 100%;
+   
+}
+
+@media only screen and (max-width: 600px) {
+    .cvBlock {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #languageCardsDiv {
+        width: 90%;
+        margin-left: 5%;
+    }
+  }
