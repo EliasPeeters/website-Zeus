@@ -125,10 +125,10 @@ connection.createQueryStringFromObject = function(inputObject) {
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
-
 app.use(express.static('blog'));
+app.use('/static', express.static('public'));
+app.use('/paper', express.static('paper'));
 
-app.use('/static', express.static('public'))
 app.use(express.urlencoded());
 
 //routes
