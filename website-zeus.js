@@ -153,7 +153,8 @@ let Page404 = require('./routes/404.js');
 let sitemapCreator = require('./sitemapCreator.js')
 sitemapCreator.createSitemap();
 
-let port = 8081
+let port = 8081;
+
 app.listen(port, () => {
     console.log(`Running on ${port}`)
 })

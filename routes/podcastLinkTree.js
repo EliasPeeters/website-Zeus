@@ -1,27 +1,29 @@
+let url = process.env.ENV=="LOCAL"? '':'https://eliaspeeters.de';
+
 let data = [
     {
         name: "Apple Podcast",
         link: "https://podcasts.apple.com/de/podcast/scharf-angebraten/id1570645760",
         type: '1',
-        image: "/assets/podcastAssets/apple_podcasts.jpg"
+        image: url + "/assets/podcastAssets/apple_podcasts.jpg"
     },
     {
         name: "Spotify",
         link: "https://open.spotify.com/show/0mo6ncfrpp516Zb1Z8jtUu",
         type: '1',
-        image: "/assets/podcastAssets/spotify.png"
+        image: url + "/assets/podcastAssets/spotify.png"
     },
     {
         name: "Google Podcast",
         link: "https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2FjNzU2NWQ5LWJhMjAtNGM4Mi04ODUxLTkzM2NkYTNhYjVkZA%3D%3D",
         type: '1',
-        image: "/assets/podcastAssets/google.png"
+        image: url + "/assets/podcastAssets/google.png"
     },
     {
         name: "Radio Public",
         link: "https://radiopublic.com/scharf-angebraten-6BBAbR",
         type: '1',
-        image: "/assets/podcastAssets/radio_public.jpg"
+        image: url + "/assets/podcastAssets/radio_public.jpg"
     },
     {
         name: "🎧 Spotify Playlist",

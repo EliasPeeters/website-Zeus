@@ -26,6 +26,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-status-monitor": "^1.2.3",
+    "express-subdomain": "^1.0.5",
     "fs": "^0.0.1-security",
     "fuse.js": "^6.4.6",
     "fuzzy-search": "^3.2.1",
