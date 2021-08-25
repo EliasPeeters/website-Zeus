@@ -43,6 +43,6 @@ let data = [
 ]
 
 app.get('/tree', (req, res) => {
-    res.render('podcastLinktree', {data})
+    res.render('podcastLinktree', {data: data, url: url})
 });
 

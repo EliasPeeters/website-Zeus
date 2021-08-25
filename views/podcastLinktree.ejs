@@ -1,15 +1,27 @@
 <html>  
     <head>
-        <link href="/assets/css/podcastLinktree.css" rel="stylesheet">
+        <link href="<%= url %>/assets/css/podcastLinktree.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
         <title>Elias Peeters</title>
     </head>
 
-    <body>
+    <body> 
+
+        <style>
+            @font-face {
+                font-family: beon;
+                src: url("<%= url %>/assets/podcastAssets/beon-webfont.woff");
+            }
+
+            body {
+                background-image: url("<%= url %>/assets/podcastAssets/Background\ High.jpg");
+            }
+
+        </style>
 
         <div class="bodyWrapperWrapper">
             <div class="bodyWrapper">
-                <img class="headingImage" src="/assets/podcastAssets/Scharf Angebraten (Schrift).png">
+                <img class="headingImage" src="<%= url %>/assets/podcastAssets/Scharf Angebraten (Schrift).png">
 
                 <script>
                     function openPage(url) {
@@ -29,7 +41,7 @@
                     </button>
                 <% }) %>
 
-                <img class="bottomImage" src="/assets/podcastAssets/Scharf Angebraten (Zeichnung).png">
+                <img class="bottomImage" src="<%= url %>/assets/podcastAssets/Scharf Angebraten (Zeichnung).png">
             </div>
         </div>
         
