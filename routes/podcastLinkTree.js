@@ -26,6 +26,12 @@ let data = [
         image: url + "/assets/podcastAssets/radio_public.jpg"
     },
     {
+        name: "Castro",
+        link: "https://castro.fm/podcast/0342db65-30e6-4d72-972e-04d850b4a310",
+        type: '1',
+        image: url + "/assets/podcastAssets/castro.jpg"
+    },
+    {
         name: "🎧 Spotify Playlist",
         link: "https://open.spotify.com/playlist/64ICmGcJSe5FeoWM9D3i7S?si=rwOyO5ghSVuaWiewILXggQ&dl_branch=1",
         type: '2'
