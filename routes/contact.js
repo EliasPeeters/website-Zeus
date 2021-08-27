@@ -27,12 +27,13 @@ app.post('/contact', async function(req, res){
 
     let data = {
         table: 'message',
-        message_firstName: contactResult.firstName,
-        message_lastName: contactResult.lastName,
-        message_Mail: contactResult.mail,
-        message_message: contactResult.message,
-        message_subject: contactResult.subject,
-        message_success: true
+        msg_firstName: contactResult.firstName,
+        msg_lastName: contactResult.lastName,
+        msg_Mail: contactResult.mail,
+        msg_message: contactResult.message,
+        msg_subject: contactResult.subject,
+        msg_success: true,
+        msg_time: new Date()
     }
 
     let query = connection.createQueryStringFromObject(data);

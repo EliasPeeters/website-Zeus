@@ -6,6 +6,8 @@ const path = require('path')
 const fs = require('fs')
 var https = require('https');
 var request = require('request');
+let credentialsLoader = require('./getCredentials');
+let mysqlSetup = require('./mysqlSetup');
 const checkConnections = require('./connections/checkConnections')
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
@@ -53,74 +55,9 @@ console.table(serverConnections)
 
 checkConnections.checkAllConnections();
 
-
-
 app = express();
-
-connection = mysql.createConnection({
-	host: serverConnections.database.address,
-	user: 'root',
-	password: 'TXvyjXz9AoNPbDg',
-	database: 'website'
-});
-
-
-connection.connect((err) => {
-	if (err) {
-        console.log('\x1b[33m%s\x1b[0m', `NOT CONNECTED TO DATABASE!`);
-        return false
-	} else {
-		console.log('\x1b[36m%s\x1b[0m', 'Conntected to Database');
-        return true
-	}
-});
-
-connection.asyncquery = util2.promisify(connection.query).bind(connection);
-
-async function checkMYSQLConnection() {
-    let result = await connection.asyncquery('SHOW DATABASES;')
-    if (result != undefined) {
-        return true
-    } else {
-        return false
-    }
-}
-
-connection.removeTableNameFromArray = function(inputArray) {
-    for (let i = 0; i < inputArray.length; i++) {
-        if (inputArray[i] == 'table') {
-            inputArray.splice(i, 1)
-        }
-    }
-    return inputArray
-}
-
-connection.createQueryStringFromObject = function(inputObject) {
-    let allKeys = connection.removeTableNameFromArray(Object.keys(inputObject));
-
-    let query = '';
-    query += 'INSERT INTO ';
-    query += inputObject.table;
-    query += ' ('
-    for (let i = 0; i < allKeys.length; i++) {
-        if (i == allKeys.length - 1) {
-            query += allKeys[i] + ')'
-        } else {
-            query += allKeys[i] + ', '
-        }
-    }
-    query += ' VALUES '
-    query += '('
-    for (let i = 0; i < allKeys.length; i++) {
-        if (i == allKeys.length - 1) {
-            query += mysql.escape(inputObject[allKeys[i]]) + ')'
-        } else {
-            query += mysql.escape(inputObject[allKeys[i]]) + ', '
-        }
-    }
-    return query
-}
-
+credentials = credentialsLoader.getCredentials();
+connection = mysqlSetup.getConnection();
 
 
 app.set('view engine', 'ejs');
@@ -160,4 +97,4 @@ app.listen(port, () => {
 })
 
 
-module.exports = {connection, checkMYSQLConnection}
+module.exports = {connection}
