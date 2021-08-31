@@ -15,6 +15,7 @@
     .contentLeft {
         width: 40%;
         height: 100%;
+        position: fixed;
 
         @include mobile {
             position: absolute;
@@ -44,6 +45,7 @@
 
     .contentRight {
         width: 60%;
+        margin-left: 40%;
 
         @include mobile {
             width: 100%;
