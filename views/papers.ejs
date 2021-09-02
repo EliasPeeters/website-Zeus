@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="assets/css/blogStyle.css">
+                
+        <%- include ("partials/header") %>
+    </head>
+    
+    <body>
+        <%- include ("partials/animation") %>                
+        <%- include ("partials/navBar") %>
+        
+        
+        <div id="content">
+            
+            <h1>Papers</h1>
+
+            <div id="articles">
+
+                
+                <% for (paper in papers) { %>
+                    <div class="article scrollFade scrollFocus">
+                        <div class="articleHeaderWrapper">
+                            <h2><%= papers[paper].heading %> </h2>
+                        </div>
+                        
+                        <div class="artcileImageWrapper">
+                            <img src="<%= papers[paper].image %>">
+                        </div>
+                        
+                        <div class="articleText">
+                            <p class="articleDate"><%= papers[paper].date%></p>
+                            <p class="articleDescription line-clamp"><%=  papers[paper].description%></p>
+                            
+                        </div>
+                        <div class="button secondButton buttonReading" onmousedown="window.location = '/onepaper?name=<%= paper %>'">Continue Reading</div>
+                    </div>
+
+                <% } %>
+            </div>
+        </div>
+        
+        <%- include ("partials/footer") %>
+        
+        <script src="assets/config.js"></script>
+        <script src="assets/fade.js"></script>
+    </body>
+    
+    
+</html> 

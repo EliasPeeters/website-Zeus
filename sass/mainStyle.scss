@@ -102,3 +102,10 @@
         margin-bottom: 40px;
     }
 }
+
+.paperItem {
+    display: none;
+    .paperVisible {
+        display: block;
+    }
+}

@@ -1,0 +1,138 @@
+#content {
+    padding: 40px;
+    padding-top: 100px;
+    width: calc(100% - 80px);
+    margin: 0 auto;
+    max-width: 1200px;
+    max-width: 700px;
+    position: relative;
+    padding: 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    
+    h1 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+
+    h3 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    img {
+        width: 70%;
+        margin-left: 15%;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    p {
+        background-color: #FCFBF6;
+        margin-bottom: 10px;
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    .date {
+        width: 100%;
+        text-align: center;
+        font-style: italic;
+        color: rgba(0,0,0,0.6);
+    } 
+
+    b {
+        font-weight: 500;
+        cursor: pointer;
+    }
+}
+
+#content p h1 h2 h3 h4 {
+    background-color: #FCFBF6;
+}
+
+@media only screen and (max-width: 600px) {
+    #content {
+        padding: 20px;
+        padding-top: 100px;
+        width: calc(100% - 50px);
+    }
+    
+    #articles {
+        z-index: -1;
+        padding: 0;
+        grid-template-columns: auto;
+    }
+
+    .article {
+        min-width: 0;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        min-height: 230px;
+        margin-bottom: 5px;
+        
+    }
+    .article img {
+        height: 100px;
+        width: 200px;
+    }
+
+    .articleHeader {
+        padding: 0;
+        padding-left: 10px;
+        
+    }
+
+    .articleHeader h2 {
+        font-size: 18px;
+    }
+
+    .article .buttonReading {
+        width: 90%;
+        right: 5%;
+    }
+
+    .articleText {
+        padding-top: 15px;
+        margin-top: 0;
+    }
+
+    .articleDescription {
+        height: 60px;
+    }
+  }
+
+.paperPopUp {
+    width: 225px;
+    position: absolute;
+    display: none;
+    height: auto;
+
+    .popUp {
+        background-color: #FCFBF6;
+        box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+        padding: 10px;
+        border-radius: 10px;
+        width: 200px;
+        margin-top: 25px;
+    }
+
+    .popupCloser {
+        height: 25px;
+        width: 200px;
+        position: absolute;
+        right: 0;
+    }
+
+}
