@@ -26,21 +26,22 @@
             <div class="paperPopUp" onmouseleave="closePaperPopUp(true)">
                 <div class="popupCloser" onmouseover="closePaperPopUp(true)"></div>
                 <div class="popUp">
-                    <p class="paperPopUpTitle">Title</p>
-                    <p>Author</p>
-                    <p>url</p>
+                    <div class="popTitle">
+                        <p class="paperPopUpTitle">Title</p>
+                    </div>
+                    <div class="popUpContent">
+                        
+                    </div>
+                    
                 </div>
             </div>
             <div onclick="closePaperPopUp()">
                 <%- paper.paper %>
             </div>
-            
         </article>
        
-
         <%- include ("partials/footer") %>
         
-
         <script src="assets/config.js"></script>
         <script src="assets/fade.js"></script>
         <script src="/assets/js/paperPopUp.js"></script>

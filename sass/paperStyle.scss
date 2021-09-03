@@ -1,3 +1,5 @@
+@import "utilities/variables.scss";
+
 #content {
     padding: 40px;
     padding-top: 100px;
@@ -114,7 +116,7 @@
   }
 
 .paperPopUp {
-    width: 225px;
+    width: 325px;
     position: absolute;
     display: none;
     height: auto;
@@ -122,15 +124,55 @@
     .popUp {
         background-color: #FCFBF6;
         box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
-        padding: 10px;
         border-radius: 10px;
-        width: 200px;
+        width: 300px;
         margin-top: 25px;
+        border: 4px solid $blueColor;
+    }
+
+    .popUpContent {
+        padding: 10px;
+        p {
+            text-align: left !important;
+        }
+
+        .buttonPopUp {
+            width: 280px;
+            background-color: #FCFBF6;
+            margin-right: 10px;
+            text-align: center;
+            border-radius: 100px;
+            font-size: 15px;
+            padding-top: 10px;
+            margin-bottom: 10px;
+            transition: 300ms;
+            border: 3px #3D405B solid;
+            padding: 10px;
+            
+            &:hover {
+                background-color: #3D405B;
+                color: white;
+                cursor: pointer;
+            }
+        } 
+        
+    }
+
+    .popTitle {
+        background-color: $blueColor;
+        color: white;
+        width: calc(100% - 20px);
+        padding: 3px 10px;
+        .paperPopUpTitle {
+            margin-top: 5px;
+            background-color: $blueColor !important;
+            text-align: left !important;
+        }
     }
 
     .popupCloser {
         height: 25px;
-        width: 200px;
+        width: 300px;
         position: absolute;
         right: 0;
     }
