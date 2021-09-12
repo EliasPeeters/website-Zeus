@@ -183,3 +183,18 @@
     }
 
 }
+
+.scrollIndicator {
+    width: 100%;
+    height: 3px;
+    position: fixed;
+    z-index: 100;
+    top: 50px;
+
+    .scrollIndicatorFill {
+        background-color: $blueColor;
+        width: 0%;
+        height: 100%;
+
+    }
+}
