@@ -6,10 +6,21 @@
     margin: 0 auto;
     max-width: 1200px;
     display: flex;
+
+
+    @include mobile {
+        display: block;
+    }
     
     h1 {
         text-align: center;
         font-size: 50px;
+    }
+
+    .desktopHeading {
+        @include mobile {
+            display: none;
+        }
     }
     
     .contentLeft {
@@ -18,28 +29,46 @@
         position: fixed;
 
         @include mobile {
-            position: absolute;
-            float: none;
+            position: static;
             width: 100%;
-            z-index: -1;
-            height: 540px;
-            visibility: hidden;
         }
 
         .imageWrapper {
             display: flex;
 
-            img {
+            .desktopImage {
                 width: 80%;
                 max-width: 300px;
+                position: relative;
+                margin: 0 auto;
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            .mobileImage {
+                display: none;
+                @include mobile {
+                    display: inline;
+                }
+                width: 90%;
                 position: relative;
                 margin: 0 auto;
             }
         }
 
-        h1 {
+        .desktopHeading {
             font-size: 30px;
-            margin-top: 13px;
+            margin-top: 20px;
+        }
+
+
+        .mobileHeading {
+            display: none;
+            margin-bottom: 20px;
+            @include mobile {
+                display: block;
+            }
         }
     }
 

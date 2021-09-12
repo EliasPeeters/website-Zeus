@@ -11,32 +11,19 @@
         <%- include ("partials/animation") %>                
         <%- include ("partials/navBar") %>
        
-        <script>
-            
-            // window.addEventListener("resize", (event) => {
-            //     let leftContent = document.getElementById('contentLeft');
-                    
-            //     if (window.innerWidth > 600) {
-
-            //         let rightContent = document.getElementById('contentRight');
-            //         leftContent.style.width = (rightContent.offsetWidth / 60) * 40
-            //     } else {
-            //         leftContent.style.width = '100%'
-            //     }
-            // });  
-        </script> 
         <div class="content">
             
             <div class="contentLeft">
+                <h1 class="mobileHeading">CV</h1>
                 <div class="imageWrapper">
-                    <img src="assets/images/portraits/withCap.png">
+                    <img class="imageCVPortrait desktopImage" src="assets/images/portraits/withCap.png">
                 </div>
                 
-                <h1>Elias Peeters</h1>
+                <h1 class="desktopHeading">Elias Peeters</h1>
             </div>
             
             <div class="contentRight">
-                <h1>CV</h1>
+                <h1 class="desktopHeading">CV</h1>
                 
                 <h3 class="scrollFade">Education</h3>
                 
@@ -227,6 +214,7 @@
         <%- include ("partials/footer") %>
         
         <script src="assets/config.js"></script>
+        <script src="assets/js/frontFileLoaderCV.js"></script>
         <script src="assets/fade.js"></script>
     </body>
     
