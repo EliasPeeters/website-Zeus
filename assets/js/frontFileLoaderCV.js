@@ -25,12 +25,12 @@ function getState() {
     }
 }
 
-window.onresize = function() {
+window.addEventListener('resize', () => {
     let newState = getState();
     if (newState != mobileState) {
         loadImages(newState);
         mobileState = newState;
     }
-}
+});
 
 loadImages(getState());

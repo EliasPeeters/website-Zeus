@@ -83,7 +83,7 @@
         }
     }
 
-    window.onresize = function() {
+    window.addEventListener('resize', () => {
         showDropDown();
 
         if (window.innerWidth < 600) {
@@ -93,7 +93,8 @@
         if (window.innerWidth > 750) {
             document.getElementById('navBar').style.height = '50px'
         }
-    }
+    });
+
 
     let dropDownState = 0
     // 0 = closed
