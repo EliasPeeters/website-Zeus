@@ -17,4 +17,13 @@ app.get('/search/:text', urlencodedparser, function(req, res) {
     });
 })
 
+app.get('/suggestion', urlencodedparser, function(req, res) {
+    request(`${serverConnections.hermes.address}/suggestion`, (err, result, body) => {
+        if (err) { 
+            return console.log(err); 
+        }
+        res.send(body)
+    });
+})
+
 module.exports = {app}

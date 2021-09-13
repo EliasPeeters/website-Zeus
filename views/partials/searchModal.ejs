@@ -37,6 +37,7 @@
             blackBox.style.pointerEvents = 'inherit';
             searchBox.style.opacity = '1';
             searchBox.style.pointerEvents = 'inherit';
+            inputSend()
             if (window.innerWidth < 600) {
                 searchBox.style.width = '98%';
                 searchBox.style.height = 'none';
@@ -72,10 +73,13 @@
     
     function inputSend(e) {
         // enter Key == 13
-        if (e.keyCode == 13) {
+        if (e != undefined) {
+            if (e.keyCode == 13) {
             let page = document.getElementsByClassName('selected')[0].getAttribute('page');
             window.location = page
         }
+        }
+        
 
     	let searchString = document.getElementById('searchBar').value;
         let outputObject = document.getElementById('output');
@@ -83,7 +87,13 @@
         if (searchString == '') {
             document.getElementById('searchBoxLine').style.opacity = '0';
             document.getElementById('output').style.padding = '0';
-            outputObject.innerHTML = ''
+            
+            let url = '/suggestion' + searchString;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", url, false);
+            xmlHttp.send(null);
+            outputObject.style.padding = '0 20px 20px 20px';
+            outputObject.innerHTML = xmlHttp.responseText;
         } else {
             document.getElementById('searchBoxLine').style.opacity = '1';
             document.getElementById('output').style.padding = '0 20px 20px 20px';
