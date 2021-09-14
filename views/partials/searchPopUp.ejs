@@ -1,0 +1,17 @@
+<div class="searchPopUp">
+    <p class="closeButton">x</p>
+    <p class="description">Did you know, that my website has a powerful search?</p>
+</div>
+
+<script>
+    if (window.innerWidth > 600) {
+        let showPopUp = Math.random() > 0.25;
+        if (showPopUp) {
+            document.getElementsByClassName('searchPopUp')[0].classList.add('visiblePopUp');
+        }   
+    }
+
+    document.getElementsByClassName('closeButton')[0].addEventListener('click', () => {
+        document.getElementsByClassName('searchPopUp')[0].classList.remove('visiblePopUp');
+    })
+</script>
