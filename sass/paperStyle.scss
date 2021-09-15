@@ -5,8 +5,10 @@
     padding-top: 100px;
     width: calc(100% - 80px);
     margin: 0 auto;
-    max-width: 1200px;
-    max-width: 700px;
+    max-width: 1100px;
+    @media (max-width: 1000px) {
+        max-width: 700px;
+    }
     position: relative;
     padding: 0;
     padding-top: 100px;
@@ -61,6 +63,73 @@
     b {
         font-weight: 500;
         cursor: pointer;
+    }
+
+    .headingsAndPaperDiv {
+        display: flex;
+        justify-content: space-around;
+        @media (max-width: 1000px) {
+            display: block;
+        }
+
+        
+        .headings {
+            width: calc(30% - 20px);
+            padding: 20px;
+
+            @media (max-width: 1000px) {
+                width: calc(100% - 20px);
+            }
+
+            @include mobile {
+                padding: 0;
+                width: 100%;
+            }
+            p {
+                text-align: left;
+                &:hover {
+                    background-color: $backgroundColorSecond;
+                    border-radius: 20px;
+                    transition: 300ms;
+                    cursor: pointer;
+                }
+            }
+
+            margin-top: 35px;
+
+            .section {
+                font-weight: bold;
+                font-size: 17px;
+                margin-top: 20px;
+                padding: 5px;
+                padding-left: 15px;
+                @include mobile {
+                    padding-left: 5px;
+                }
+                @media (max-width: 1000px) {
+                    margin-top: 0px;
+                }
+            }
+
+            .subSection {
+                margin-left: 30px;
+                @include mobile {
+                    margin-left: 20px;
+                }
+                margin-bottom: 0;
+                padding: 5px;
+                padding-left: 15px;
+                border-left: solid $backgroundColorSecond;
+            }
+        }
+
+        .paper {
+            width: 70%;
+            @media (max-width: 1000px) {
+                width: 100%;
+            }
+            max-width: 700px;
+        }
     }
 }
 

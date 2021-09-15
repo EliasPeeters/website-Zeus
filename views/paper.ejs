@@ -29,10 +29,6 @@
             <p class="author"><%= paper.authors.join(', ')  %></p>
             <h1><%= paper.heading %></h1>
 
-            
-            
-
-
             <div class="paperPopUp" onmouseleave="closePaperPopUp(true)">
                 <div class="popupCloser" onmouseover="closePaperPopUp(true)"></div>
                 <div class="popUp">
@@ -46,7 +42,17 @@
                 </div>
             </div>
             <div onclick="closePaperPopUp()">
-                <%- paper.paper %>
+                <div class="headingsAndPaperDiv">
+                    <div class="headings">
+                        <%- paper.headings %>
+                    </div>
+
+                    <div class="paper">
+                        <%- paper.paper %>
+                    </div>
+                </div>
+                
+                
             </div>
         </article>
        
