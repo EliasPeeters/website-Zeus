@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/cv-style.css">
+        
+        <%- include ("partials/header") %>
+        
+    </head>
+    
+    <body id="body">
+        <%- include ("partials/animation") %>                
+        <%- include ("partials/navBar") %>
+       
+        <div class="content">
+            
+            <div class="contentLeft">
+                <h1 class="mobileHeading">CV</h1>
+                <div class="imageWrapper">
+                    <img class="imageCVPortrait desktopImage" src="assets/images/portraits/withCap.png">
+                </div>
+                
+                <h1 class="desktopHeading">Elias Peeters</h1>
+            </div>
+            
+            <div class="contentRight">
+
+                <h1 class="desktopHeading">CV</h1>
+                
+                <div class="cvSwitch switchLeft">
+                    <div class="switchMover"></div>
+                    <div class="switchItem switchItemLeft">Sorted</div>
+                    <div class="switchItem switchItemRight">Time</div>
+                </div>
+
+                <div class="cvSortedByCategory visible">
+                    <% CVDataKeys.forEach(cvKey => { %>
+                        <h3 class="scrollFade"><%= cvKey %></h3>
+                        <% if (CVDataByCategory[cvKey][0].categoryType == 'Block') { %>
+                            <% for(let i = 0; i < CVDataByCategory[cvKey].length; i++) { %>
+                                <div class="scrollFade">
+                                    <div class="cvBlock cv<%= CVDataByCategory[cvKey][i].color %>  scrollFocus">
+                                        <div class="cvBlockHeadingBlock cvHeading">
+                                            <p><%= CVDataByCategory[cvKey][i].heading %></p>
+                                        </div>
+                                        <p><%= CVDataByCategory[cvKey][i].timeString %></p>
+                                        <p class="cvDescrip"><%- CVDataByCategory[cvKey][i].description %></p>
+                                        
+                                    </div>
+                                    <% if (i != CVDataByCategory[cvKey].length - 1) { %>
+                                    <div class="cvLine"></div>
+                                    <% } %>
+                                </div>
+                            
+                            <% } %> 
+                        <% } else { %>
+                            <div id="languageCardsDiv">
+                            <% for(let i = 0; i < CVDataByCategory[cvKey].length; i++) { %>
+                                <div class="languageCard scrollFade scrollFocus">
+                                    <p><%= CVDataByCategory[cvKey][i].heading %></p>
+                                <p class="languageDescrip"><%- CVDataByCategory[cvKey][i].description %></p>
+                            </div> 
+                            <% } %>
+                            </div>
+                        <% } %>
+                    
+                    <% }); %> 
+
+                    <div id="spacer"></div>
+                </div>
+
+
+                <div class="sortedByTime">
+                    <% for(let i = 0; i < CVDataByTimeKeys.length; i++) { %>
+                        <div class="blockYear <%= CVDataByTimeKeys[i]  %> ">
+                            <div class="yearPart scrollFade border">
+                                <p><%= CVDataByTimeKeys[i]  %></p>
+                            </div>
+                            
+                            <div class="cvPart">
+                            <% for(let ii = 0; ii < CVDataByTime[CVDataByTimeKeys[i]].length; ii++) { %>
+                                <div class="scrollFade">
+                                    <div class="cvBlock cv<%= CVDataByTime[CVDataByTimeKeys[i]][ii].color %>  scrollFocus">
+                                        <div class="cvBlockHeadingBlock cvHeading">
+                                            <p><%= CVDataByTime[CVDataByTimeKeys[i]][ii].heading %></p>
+                                        </div>
+                                        <p><%= CVDataByTime[CVDataByTimeKeys[i]][ii].timeString %></p>
+                                        <p class="cvDescrip"><%- CVDataByTime[CVDataByTimeKeys[i]][ii].description %></p>
+                                        <div class="cvLineVertical"></div>
+                                        
+                                    </div>
+                                    <% if (ii == CVDataByTime[CVDataByTimeKeys[i]].length - 1) { %>
+                                        <div class="cvTimeSpacer"></div>
+                                    <% } %>
+                                </div>
+                            <% } %>   
+                            </div>
+                        </div> 
+                    <% } %> 
+                    <div class="blockYear">
+                        <div class="yearPart scrollFade">
+                            <p>Present</p>
+                        </div>
+                        
+                        <div class="cvPart">
+      
+                        </div>
+                    </div> 
+
+                </div>
+                
+                <div id="spacer"></div>
+                
+            </div>
+            
+        </div>
+
+
+        <%- include ("partials/footer") %>
+        
+        <script src="assets/config.js"></script>
+        <script src="assets/js/frontFileLoaderCV.js"></script>
+        <script src="assets/fade.js"></script>
+        <script src="/assets/js/cvSwitch.js"></script>
+    </body>
+    
+    
+</html> 

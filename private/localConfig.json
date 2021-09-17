@@ -1,6 +1,6 @@
 {
     "blogServer": "external",
     "hera": "external",
-    "hermes": "internal",
-    "ares": "internal"
+    "hermes": "external",
+    "ares": "external"
 }
