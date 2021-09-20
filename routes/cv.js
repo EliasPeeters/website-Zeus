@@ -1,8 +1,15 @@
 let logger = require('../logger.js')
 
 app.get('/cv', async function(req,  res){
-    res.render('cv');
-    logger.log(req)
+    let cvContent = await connection.asyncquery('SELECT c.name as heading, c.*, CVCategories.color, CVCategories.type as categoryType  FROM CV c JOIN CVCategories on c.category = CVCategories.name;');
+    let cvContentWithTimeString = createTimeString(cvContent);
+    
+    let CVDataByCategory = sortCVByCategory(cvContentWithTimeString);
+    let CVDataByTime = sortCVByTime(cvContentWithTimeString);
+    let CVDataByTimeKeys = Object.keys(CVDataByTime);
+    //let CVDateByTime = cvContentWithTimeString.sort((a, b) => (a.begin > b.begin) ? 1 : -1);
+    let CVDataKeys = await getKeys();
+    res.render('cvNew', {CVDataKeys, CVDataByCategory, CVDataByTime, CVDataByTimeKeys})
 });
 
 function createTimeString(data) {
@@ -57,15 +64,3 @@ async function getKeys() {
     }
    return cvKeys;
 }
-
-app.get('/cv2', async function(req, res) {
-    let cvContent = await connection.asyncquery('SELECT c.name as heading, c.*, CVCategories.color, CVCategories.type as categoryType  FROM CV c JOIN CVCategories on c.category = CVCategories.name;');
-    let cvContentWithTimeString = createTimeString(cvContent);
-    
-    let CVDataByCategory = sortCVByCategory(cvContentWithTimeString);
-    let CVDataByTime = sortCVByTime(cvContentWithTimeString);
-    let CVDataByTimeKeys = Object.keys(CVDataByTime);
-    //let CVDateByTime = cvContentWithTimeString.sort((a, b) => (a.begin > b.begin) ? 1 : -1);
-    let CVDataKeys = await getKeys();
-    res.render('cvNew', {CVDataKeys, CVDataByCategory, CVDataByTime, CVDataByTimeKeys})
-})
