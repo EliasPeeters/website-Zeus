@@ -384,7 +384,7 @@
             text-align: right;
             font-size: 30px;
             &.border {
-                border-right: 5px solid $backgroundColorSecond;
+                border-right: 3px solid $backgroundColorSecond;
             }
             position: relative;
 
@@ -393,7 +393,7 @@
             }
             p {
                 padding: 5px;
-                border: 5px solid $backgroundColorSecond;
+                border: 3px solid $backgroundColorSecond;
                 border-radius: 20px;
                 margin-right: -45px;
                 background-color: $backgroundColor;
