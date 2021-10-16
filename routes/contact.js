@@ -2,6 +2,7 @@ let logger = require('../logger.js')
 const mysql = require('mysql');
 const main = require('../website-zeus.js');
 const bodyparser = require('body-parser');
+const request = require('request');
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
 
@@ -20,8 +21,8 @@ function sendError(errorType, res, req) {
 
 app.post('/contact', async function(req, res){
     let contactResult = req.body;
-    if (contactResult.firstName === '') {sendError('firstname', res, req); return}
-    if (contactResult.lastName === '') {sendError('lastname', res, req); return}
+    if (contactResult.firstName === '') {sendError('first name', res, req); return}
+    if (contactResult.lastName === '') {sendError('last name', res, req); return}
     if (contactResult.subject === '') {sendError('subject', res, req); return}
     if (contactResult.message === '') {sendError('message', res, req); return}
 
@@ -35,6 +36,9 @@ app.post('/contact', async function(req, res){
         msg_success: true,
         msg_time: new Date()
     }
+    
+    request(serverConnections.apollon.address + `/contactForm?subject=${contactResult.subject}&message=${contactResult.message}&time=${data.msg_time}&name=${data.msg_firstName} ${data.msg_lastName}&mail=${data.msg_Mail}`, (err, res, body) => {
+    });
 
     let query = connection.createQueryStringFromObject(data);
 
