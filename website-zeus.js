@@ -8,6 +8,7 @@ var https = require('https');
 var request = require('request');
 let credentialsLoader = require('./getCredentials');
 let mysqlSetup = require('./mysqlSetup');
+const requestSync = require('sync-request');
 const checkConnections = require('./connections/checkConnections')
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
@@ -96,6 +97,18 @@ let port = 8081;
 app.listen(port, () => {
     console.log(`Running on ${port}`)
 })
+
+// Start Script
+function startUp() {
+    // send start message to Apollon;
+    let message = 'Zeus started...';
+    requestSync('GET', encodeURI(`${serverConnections.apollon.address}/message?pswd=${credentials.telegram.pswd}&message=🖥 ${message}`));
+    
+    
+    console.log('Finised startUp');
+}
+startUp();
+
 
 
 module.exports = {connection}

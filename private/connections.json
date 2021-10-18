@@ -12,6 +12,7 @@
         "database": "server.eliaspeeters.de",
         "hera": "https://hera.eliaspeeters.de",
         "hermes": "https://hermes.eliaspeeters.de",
-        "ares": "http://ares.eliaspeeters.de"
+        "ares": "http://ares.eliaspeeters.de",
+        "apollon": "http://eliaspeeters.de:8089"
     }
 }

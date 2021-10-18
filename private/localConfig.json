@@ -3,5 +3,5 @@
     "hera": "external",
     "hermes": "external",
     "ares": "external",
-    "apollon": "internal"
+    "apollon": "external"
 }

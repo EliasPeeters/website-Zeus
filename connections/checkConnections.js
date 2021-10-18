@@ -42,6 +42,19 @@ function checkAllConnections() {
             }
         }
     });
+
+    // Apollon Connection
+    request(serverConnections.apollon.address, (err, res, body) => {
+        if (err) { 
+            console.log('\x1b[33m%s\x1b[0m', `NOT CONNECTED TO TELEGRAM (APOLLON)!`)
+        } else {
+            if (res.statusCode == 200) {
+                console.log('\x1b[36m%s\x1b[0m', `Connected to telegram (apollon)`)
+            } else {
+                console.log('\x1b[33m%s\x1b[0m', `NOT CONNECTED TO TELEGRAM (APOLLON)!`)
+            }
+        }
+    });
 }
 
 module.exports = {checkAllConnections}
