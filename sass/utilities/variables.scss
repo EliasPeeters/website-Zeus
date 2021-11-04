@@ -9,3 +9,9 @@ $greenColor: #81B29A;
         @content;
     }
 }
+
+@mixin mobilePodcast {
+    @media (max-width: 920px) {
+        @content;
+    }
+}

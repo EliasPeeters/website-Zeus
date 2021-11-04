@@ -14,44 +14,47 @@
         
         <div class="contentWrapper">
             <div class="content">
-                <h1>Podcast</h1>
+
+                <div class="headingImageWrapper">
+                    <img class="headingImage" src="/assets/images/podcast/Scharf Angebraten (Schrift).png">
+                </div>
+                
     
                 <div class="contentLeft">
-                    <img src="/assets/images/podcastLogoRund.png">
+                    <img class="podcastLogo" src="/assets/images/podcast/Logo Circle.png">
+                    <div class="podcastLinkImagesWrapperWrapper">
+                        <div class="podcastLinkImagesWrapper">
+                            <img onclick="openLink('apple')" class="podcastLinkImages" src="/assets/images/podcast/apple.png" >
+                            <img onclick="openLink('spotify')" class="podcastLinkImages" src="/assets/images/podcast/spotify.png" >
+                            <img onclick="openLink('google')" class="podcastLinkImages" src="/assets/images/podcast/google.png" >
+                            <img onclick="openLink('castro')" class="podcastLinkImages" src="/assets/images/podcast/castro.png" >
+                        </div>
+                    </div>
+                    
+                    
                 </div>
                 
                 <div class="contentRight">
-                    <iframe class="podcastPlayer" id="player" style="border:none;max-width:100%;width:1px;min-width:100%;min-height:320px;" height="100%" scrolling="no" src="https://redcircle.com/embedded-show-webplayer/ac7565d9-ba20-4c82-8851-933cda3ab5dd?bgColor=%23fcfbf6">
-                        
-                    </iframe>
-    
-                    <script>
-                        let myiFrame = document.getElementById("player");
-                        let doc = myiFrame.contentDocument
-                        console.log(myiFrame);
-                        console.log(myiFrame.contentDocument);
-                        doc.body.innerHTML = doc.body.innerHTML + '<style>background-color: red</style>';
-    
-                        
-                    </script>
-                    <style>
-                        
-                        .redcircle-link:link {
-                            color: #ea404d;
-                            text-decoration: none;
-                        }
-                        .redcircle-link:hover {
-                            color: #ea404d;
-                        }
-                        .redcircle-link:active {
-                            color: #ea404d;
-                        }
-                        .redcircle-link:visited {
-                            color: #ea404d;
-                        }
-                    </style>
-                    <p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+                    <iframe class="podcastiFrame" id="iframe" src='https://widget.justcast.com/widget?rss=https://feeds.redcircle.com/ac7565d9-ba20-4c82-8851-933cda3ab5dd&primaryBackgroundColor=292761primaryButtonColor=f7f8f9&primaryTextColor=f7f8f9&progressBarFilledColor=f7f8f9&progressBarBackgroundColor=8A8175&playlistBackgroundColor=30343c&playlistTextColor=f7f8f9&chapterBackgroundColor=30343c&chapterTextColor=f7f8f9' height='100vh' frameborder='0' scrolling='yes' seamless='true' style="display: block; border:none; width: 100%;"></iframe>
                 </div>
+
+                <script>
+                    function openLink(name) {
+                        if (name == 'apple') {
+                            openInNewTab('https://podcasts.apple.com/de/podcast/scharf-angebraten/id1570645760');
+                        } else if (name == 'spotify') {
+                            openInNewTab('https://open.spotify.com/show/0mo6ncfrpp516Zb1Z8jtUu')
+                        } else if (name == 'google') {
+                            openInNewTab('https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2FjNzU2NWQ5LWJhMjAtNGM4Mi04ODUxLTkzM2NkYTNhYjVkZA%3D%3D')
+                        } else if (name == 'castro') {
+                            openInNewTab('https://castro.fm/podcast/0342db65-30e6-4d72-972e-04d850b4a310')
+                        }
+                    }
+
+                    function openInNewTab(url) {
+                        window.open(url, '_blank').focus();
+                    }
+                </script>
     
             </div>
         </div>
@@ -59,7 +62,7 @@
         
         <%- include ("partials/footer") %>
         
-        <script src="assets/config.js"></script>
+        <script src="assets/configPodcast.js"></script>
         <script src="assets/fade.js"></script>
         <script>hljs.highlightAll();</script>
     </body>

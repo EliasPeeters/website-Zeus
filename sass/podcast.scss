@@ -1,5 +1,9 @@
 @import "utilities/variables.scss";
 
+body {
+    background-color: #292761 !important;
+}
+
 .embedded-showplayer {
     background-color: aqua !important;
 }
@@ -16,10 +20,26 @@
         max-width: 1200px;
         float: left;
         
+        .headingImageWrapper {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+
+            .headingImage {
+                width: 50%;
+
+                @include mobilePodcast {
+                    width: 100%;
+                    max-width: 500px;
+                }
+            }
+        }
+
         h1 {
             text-align: center;
             font-size: 40px;
             margin-bottom: 30px;
+            color: white;
         }
     
         h2 {
@@ -27,18 +47,22 @@
             margin-top: 30px;
         }
     
-        img {
+        .podcastLogo {
             width: 70%;
             margin-left: 15%;
             margin-bottom: 15px;
             margin-top: 15px;
+
+            @include mobilePodcast {
+                display: none;
+            }
         }
     
         p {
             background-color: #FCFBF6;
         }
     
-        @include mobile {
+        @include mobilePodcast {
             padding: 20px;
             padding-top: 100px;
             width: calc(100% - 50px);
@@ -47,21 +71,50 @@
         .contentLeft {
             width: 40%;
             float: left;
-            @include mobile {
+            @include mobilePodcast {
                 width: 100%;
             }
+
+            .podcastLinkImagesWrapperWrapper {
+                display: flex;
+                justify-content: space-around;
+
+                .podcastLinkImagesWrapper {
+                    padding-left: 25%;
+                    padding-right: 25%;
+                    
+                    @include mobilePodcast {
+                        padding-left: 5%;
+                        padding-right: 5%;
+                        width: 90%;
+                        max-width: 400px;
+                    }
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr);
+                    @include mobilePodcast {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    
+                    gap: 5px;
+                    
+                    .podcastLinkImages {
+                        width: 100%;
+                        
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            
+            
         }
     
         .contentRight {
             width: 60%;
             float: left;
     
-            @include mobile {
+            @include mobilePodcast {
                 width: 100%;
-            }
-    
-            iframe {
-                height: 400px;
             }
     
             .embedded-showplayer {
@@ -72,9 +125,24 @@
             body {
                 background-color: rgba(0,0,0,0);
             }
+
+            
             
     
         }
     }
     
+}
+
+
+.podcastiFrame {
+    height: 700px;
+
+    @media (max-width: 553px) {
+        height: 1500px;
+    }
+}
+
+#footer {
+    color: white;
 }
