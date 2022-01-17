@@ -100,6 +100,7 @@
     height: 30px;
     margin: 0 auto;
     z-index: -1;
+    background-color: rgba(226, 224, 205, 0.8) !important;
 }
 
 .cvLineVertical {
@@ -147,11 +148,8 @@
     margin-bottom: 10px;
     border-radius: 15px 15px 0 0;
     padding-bottom: 5px;
-}
-
-.cvBlock p {
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 .cvBlockHeadingBlock p {
@@ -160,6 +158,44 @@
     padding-top: 8px;
     margin-left: 10px;
 }
+
+@keyframes openMoreLarge {
+    100% {
+        margin-left: -45%;
+        width: 900px;
+        min-height: 300px;
+    }
+}
+
+@keyframes closeMoreLarge {
+    0% {
+        margin-left: -45%;
+        width: 900px;
+        min-height: 300px;
+    }
+    100% {
+        margin-left: 15%;
+        width: 70%;
+        min-height: none;
+    }
+}
+
+@keyframes openMoreSmall {
+    100% {
+        padding-bottom: 200px;
+    }
+}
+
+@keyframes closeMoreSmall {
+    0% {
+        padding-bottom: 200px;
+    }
+    100% {
+        padding-bottom: 60px;
+    }
+}
+
+
 
 .cvBlock {
     width: 70%;
@@ -170,10 +206,132 @@
     background-color: #FCFBF6;
     transition: 300ms;
     position: relative;
+    padding-bottom: 60px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    animation-fill-mode: forwards;
+
+    .cvBlockContent {
+        transition: opacity 0.3s ease-in-out;
+        opacity: 1;
+        &.hidden {
+            opacity: 0;
+        }
+
+        .dateString {
+            color: rgba(0,0,0,0.6);
+            margin-top: 5px;
+            font-style: italic;
+            padding-top: 0 !important;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+    }
+    
+    & p {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 5px;
+        padding-bottom: 0;
+    }
+    &.cvBlockOpen {
+        // position: fixed;
+        
+        // width: 700px;
+        
+        // position: absolute;
+        // margin-left: -40%;
+
+        p {
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-top: 10px;
+        }
+
+        .cvBlockHeadingBlock p {
+            padding-left: 5px;
+            margin-top: 0px;
+        }
+
+        .cvMoreButton p {
+            margin-top: 0px;
+        }
+    }
+
+    &.cvBlockOpen2 {
+        z-index: 100;
+    }
+
+    .moreContent {
+        visibility: hidden;
+        transition: visibility 0s, opacity 0.5s linear;
+        opacity: 0;
+        &.visible {
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 1s, opacity 0.5s linear;
+        }
+
+    }
+
+    .cvMoreButton {
+        width: 130px;
+        background-color: rgba(226, 224, 205, 0.4);
+        height: 30px;
+        
+        border-radius: 100px;
+        text-align: center;
+        font-size: 15px;
+        
+        transition: 300ms;
+        padding: 0;
+        padding-top: 10px;
+        margin-left: 0;
+
+        position: absolute;
+        right: 10px;
+        bottom: 1px;
+
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    
+        p {
+            padding: 0;
+        }
+    
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .buttonMoreContent {
+        background-color: rgba(226, 224, 205, 0.4);
+        position: relative;
+        clear: both;
+        display: block;
+        float: none;
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        margin-bottom: 20px;
+
+        transition: 300ms;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+        }
+        
+    }
 }
 
 .cvRed {
-    border: $redColor 3px solid;
+    // border: $redColor 3px solid;
 
     .cvHeading {
         background-color: $redColor;
@@ -186,6 +344,10 @@
     .cvLineVertical {
         background-color: $redColor;
     }
+
+    .cvMoreButton:hover {
+        background-color: $redColor;
+    }
 }
 
 .cvRedHeading {
@@ -193,7 +355,7 @@
 }
 
 .cvGreen {
-    border: $greenColor 3px solid;
+    // border: $greenColor 3px solid;
     
     .cvHeading {
         background-color: $greenColor;
@@ -206,6 +368,14 @@
     .cvLineVertical {
         background-color: $greenColor;
     }
+
+    .cvMoreButton:hover {
+        background-color: $greenColor;
+    }
+
+    .buttonMoreContent:hover {
+        background-color: $greenColor;
+    }
 }
 
 .cvGreenHeading {
@@ -213,7 +383,7 @@
 }
 
 .cvBlue {
-    border: $blueColor 3px solid;
+    // border: $blueColor 3px solid;
 
     .cvHeading {
         background-color: $blueColor;
@@ -226,16 +396,25 @@
     .cvLineVertical {
         background-color: $blueColor;
     }
+
+    .cvMoreButton:hover {
+        background-color: $blueColor;
+    }
+
+    
 }
 
 .cvDescrip {
     color: rgba(0,0,0,0.6);
     margin-top: 5px;
+    margin-bottom: 0 !important;
     font-style: italic;
+    padding-top: 0 !important;
 }
 
 .cvTime {
-    margin-top: 10px;
+    // margin-top: 10px;
+    margin-bottom: 0 !important;
 }
 
 .scrollFade {
@@ -451,4 +630,21 @@
 
 .visible {
     display: block;
+}
+
+
+.blackBackground {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    z-index: 99;
+    top: -100%;
+    transition: opacity 600ms;
+    -webkit-transition: opacity 600ms ease-in-out;
+    opacity: 0;
+    &.visible {
+        top: 0;
+        opacity: 1;
+    }
 }

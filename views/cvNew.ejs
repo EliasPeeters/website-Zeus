@@ -10,7 +10,9 @@
     <body id="body">
         <%- include ("partials/animation") %>                
         <%- include ("partials/navBar") %>
-       
+        <div class="blackBackground" onclick="closeMoreModal()"></div>
+
+
         <div class="content">
             
             <div class="contentLeft">
@@ -33,8 +35,10 @@
                 </div>
 
                 <div class="cvSortedByCategory visible">
-                    <% CVDataKeys.forEach(cvKey => { %>
+                    <% let counter = 0 %> 
+                    <% CVDataKeys.forEach((cvKey, index) => { %>
                         <h3 class="scrollFade"><%= cvKey %></h3>
+                        <h3 class="scrollFade"><%= cvDataPrintNames[index] %></h3>
                         <% if (CVDataByCategory[cvKey][0].categoryType == 'Block') { %>
                             <% for(let i = 0; i < CVDataByCategory[cvKey].length; i++) { %>
                                 <div class="scrollFade">
@@ -42,15 +46,24 @@
                                         <div class="cvBlockHeadingBlock cvHeading">
                                             <p><%= CVDataByCategory[cvKey][i].heading %></p>
                                         </div>
-                                        <p><%= CVDataByCategory[cvKey][i].timeString %></p>
-                                        <p class="cvDescrip"><%- CVDataByCategory[cvKey][i].description %></p>
+                                        <div class="cvBlockContent">
+                                            <p class="cvTime"><%= CVDataByCategory[cvKey][i].timeString %></p>
+                                            <p class="cvDescrip"><%- CVDataByCategory[cvKey][i].description %></p>    
+                                        </div>
+                                        
+                                        <!-- The More Content Button -->
+                                        <% if (CVDataByCategory[cvKey][i].hasMoreContent == 1) { %>
+                                            <div class="cvMoreButton " onclick="openMoreModal(<%= counter %>, `<h3><%= CVDataByCategory[cvKey][i].moreContentHeading %></h3><p class='dateString'><%= CVDataByCategory[cvKey][i].timeString %></p><%= CVDataByCategory[cvKey][i].moreContent %>`)">
+                                                <p class="cvMoreButtonText cvMoreButtonText<%= counter %> ">More</p>
+                                            </div>
+                                        <% } %>
                                         
                                     </div>
                                     <% if (i != CVDataByCategory[cvKey].length - 1) { %>
                                     <div class="cvLine"></div>
                                     <% } %>
                                 </div>
-                            
+                                <% counter++ %> 
                             <% } %> 
                         <% } else { %>
                             <div id="languageCardsDiv">
@@ -121,6 +134,7 @@
         <script src="assets/js/frontFileLoaderCV.js"></script>
         <script src="assets/fade.js"></script>
         <script src="/assets/js/cvSwitch.js"></script>
+        <script src="/assets/js/cv/openMoreModal.js"></script>
     </body>
     
     

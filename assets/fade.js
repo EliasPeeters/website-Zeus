@@ -2,6 +2,8 @@ function isVisible() {
     console.log(window.innerHeight)
 }
 
+let shadowString = '0px 0px 15px rgba(0,0,0,0.7)';
+let noFadeShadow = '0px 0px 15px rgba(0,0,0,0.2)'
 
 
 function fadeAllElements(scroll) {
@@ -28,12 +30,12 @@ function fadeAllElements(scroll) {
     let used = false;
     for (let i = 0; i < focusElements.length; i++) {
         var rect = focusElements[i].getBoundingClientRect();
-        focusElements[i].style.boxShadow = 'none';
+        focusElements[i].style.boxShadow = noFadeShadow;
         if (rect.top > 50 && !used) {
-            focusElements[i].style.boxShadow = '5px 5px 5px rgba(0,0,0,0.4)';
+            focusElements[i].style.boxShadow = shadowString;
             used = true;
             if (focusElements[i + 1].getBoundingClientRect().top == rect.top) {
-                focusElements[i + 1].style.boxShadow = '5px 5px 5px rgba(0,0,0,0.4)';
+                focusElements[i + 1].style.boxShadow = shadowString;
                 i++;
             }
         }  

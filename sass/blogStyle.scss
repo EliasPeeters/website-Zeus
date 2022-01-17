@@ -1,3 +1,5 @@
+@import "utilities/variables.scss";
+
 #content {
     padding: 40px;
     padding-top: 100px;
@@ -44,7 +46,9 @@
 
     .article {
         min-height: 300px;
-        border: 3px solid #3D405B;
+        // border: 3px solid #3D405B;
+
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.7);
         border-radius: 20px;
         background-color: #FCFBF6;
         float: left;
@@ -75,7 +79,7 @@
                 width: calc(100% - 10px);
                 height: 230px;
                 object-fit: cover;
-                margin: 10px;
+                margin: 15px;
                 float: left;
                 border-radius: 15px;
             }
@@ -88,12 +92,22 @@
             right: 10%;
             bottom: 20px;
             position: absolute;
+            background-color: rgba(226, 224, 205, 0.4);
+
+            padding: 3px;
+            padding-top: 14px;
+
+            &:hover {
+                background-color: $blueColor;
+                color: white;
+                cursor: pointer;
+            }
         }
         
         .articleText {
             margin-top: 10px;
             padding-right: 20px;
-            width: calc(55% - 40px);
+            width: calc(55% - 50px);
             float: left;
             padding: 20px;
             position: relative;
