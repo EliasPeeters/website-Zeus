@@ -14,14 +14,15 @@ app.get('/blog', async function(req, res) {
     });
 })
 
-app.get('/article', urlencodedparser, async function(req, res) {
-    logger.log(req)
+app.get('/blog/:article', async function(req, res) {
+    console.log(req.params.article)
+
     let queryString = ''
-    for (element in req.query) {
-        queryString += `&${element}=${req.query[element]}`;
+    for (element in req.params) {
+        queryString += `&${element}=${req.params[element]}`;
     }
 
-    request(`${serverConnections.blogServer.address}/article/${req.query.name}?server=${serverConnections.blogServer.position}${queryString}`, (err, body) => {
+    request(`${serverConnections.blogServer.address}/article/${req.params.article}?server=${serverConnections.blogServer.position}${queryString}`, (err, body) => {
         // res.send(body.body)
         if (body.body == 'Article does not exist') {
             res.redirect('/404')

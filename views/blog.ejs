@@ -2,7 +2,7 @@
 <html>
     <head>
         
-        <link rel="stylesheet" href="assets/css/blogStyle.css">
+        <link rel="stylesheet" href="/assets/css/blogStyle.css">
                 
         <%- include ("partials/header") %>
     </head>
@@ -36,7 +36,7 @@
                             <p class="articleDescription line-clamp"><%=  articleAttributes[article].description%></p>
                             
                         </div>
-                        <div class="button buttonReading" onmousedown="window.location = '/article?name=<%= articleAttributes[article].name %>'">Continue Reading</div>
+                        <div class="button buttonReading" onmousedown="window.location = '/blog/<%= articleAttributes[article].name %>'">Continue Reading</div>
                     </div>
 
                 <% } %>

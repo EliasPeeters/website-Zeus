@@ -49,7 +49,7 @@ function getArticles() {
     let articles = []
     for (let i = 0; i < articleAttributes.length; i++) {
         articles.push({
-            url: url + '/article?name=' + articleAttributes[i].name,
+            url: url + '/blog/' + articleAttributes[i].name,
             lastUpdate: date
         })
     }
