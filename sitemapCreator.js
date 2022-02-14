@@ -63,7 +63,7 @@ function getPapers() {
     let papers = []
     for (element in paperAttributes) {
         papers.push({
-            url: url + '/onepaper?name=' + paperAttributes[element].name,
+            url: url + '/papers/' + paperAttributes[element].name,
             lastUpdate: date
         })
     }

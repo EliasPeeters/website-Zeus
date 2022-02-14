@@ -2,7 +2,7 @@
 <html>
     <head>
         
-        <link rel="stylesheet" href="assets/css/blogStyle.css">
+        <link rel="stylesheet" href="/assets/css/blogStyle.css">
                 
         <%- include ("partials/header") %>
     </head>
@@ -34,7 +34,7 @@
                             <p class="articleDescription line-clamp"><%=  papers[paper].description%></p>
                             
                         </div>
-                        <div class="button secondButton buttonReading" onmousedown="window.location = '/onepaper?name=<%= paper %>'">Continue Reading</div>
+                        <div class="button secondButton buttonReading" onmousedown="window.location = '/papers/<%= paper %>'">Continue Reading</div>
                     </div>
 
                 <% } %>
@@ -43,8 +43,8 @@
         
         <%- include ("partials/footer") %>
         
-        <script src="assets/config.js"></script>
-        <script src="assets/fade.js"></script>
+        <script src="/assets/config.js"></script>
+        <script src="/assets/fade.js"></script>
     </body>
     
     
