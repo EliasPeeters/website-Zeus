@@ -2,12 +2,9 @@ let logger = require('../logger.js')
 
 app.get('/', function(req,  res){
     //console.log(req);
-    analytics.page();
-    
-    analytics.track('test', {
-        price: 20
-    })
 
-    res.render('main');
+    let image = Math.round(Math.random() * 3) + 1
+
+    res.render('main', {image});
     logger.log(req)
 });

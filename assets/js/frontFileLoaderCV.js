@@ -9,7 +9,9 @@ function loadImages(state) {
         cvImage.classList.remove('desktopImage')
     } else {
         // desktop
-        cvImage.src = 'assets/images/portraits/withCap.png';
+        let image = Math.round(Math.random() * 3) + 1
+
+        cvImage.src = `/assets/images/portraits/portrait${image}.png`;
         cvImage.classList.add('desktopImage')
         cvImage.classList.remove('mobileImage')
     }

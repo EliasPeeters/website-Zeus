@@ -1,11 +1,13 @@
 let logger = require('../logger.js')
 
 app.get('/cv', async function(req,  res){
+
     let cvContent = await connection.asyncquery('SELECT c.name as heading, c.*, CVCategories.color, CVCategories.type as categoryType  FROM CV c JOIN CVCategories on c.category = CVCategories.name  ORDER BY begin DESC ;');
     let cvContentWithTimeString = createTimeString(cvContent);
-    
-    let CVDataByCategory = await sortCVByCategory(cvContentWithTimeString);
+
     let CVDataByTime = sortCVByTime(cvContentWithTimeString);
+    let CVDataByCategory = await sortCVByCategory(cvContentWithTimeString);
+    
     let CVDataByTimeKeys = Object.keys(CVDataByTime);
     //let CVDateByTime = cvContentWithTimeString.sort((a, b) => (a.begin > b.begin) ? 1 : -1);
     let cvDataOutput = await getKeys();

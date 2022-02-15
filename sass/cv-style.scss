@@ -200,7 +200,7 @@
 
 .cvBlock {
     width: 70%;
-    margin-left: 15%;
+    margin-left: 16%;
     min-height: 60px;
     padding-bottom: 10px;
     border-radius: 20px;
@@ -435,8 +435,9 @@
 }
 
 .cvContentHeading {
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 0 !important;
+    text-decoration: underline;
 }
 
 .cvContentSpacer {
@@ -627,7 +628,7 @@
                 margin-bottom: 20px;
 
                 @include mobile {
-                    margin-left: 10%;
+                    margin-left: 11%;
 
                 }
 
