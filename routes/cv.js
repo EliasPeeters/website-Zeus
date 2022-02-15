@@ -11,7 +11,6 @@ app.get('/cv', async function(req,  res){
     let cvDataOutput = await getKeys();
     let CVDataKeys = cvDataOutput.cvKeys;
     let cvDataPrintNames = cvDataOutput.printNames;
-    console.log(cvDataPrintNames)
     res.render('cvNew', {CVDataKeys, CVDataByCategory, CVDataByTime, CVDataByTimeKeys, cvDataPrintNames})
 });
 
@@ -52,8 +51,12 @@ async function sortCVByCategory(data) {
     for (element in cvMerge) {
         // search for the two objects in the data
         let element1;
-        let element2;
+        let elementsMerge = cvMerge[element].cvElementMerge.split(',');
 
+        // create ints
+        elementsMerge = elementsMerge.map(x => parseInt(x))
+        elementsMergeFound = []
+        
         for (i in data) {
             if (data[i].id == cvMerge[element].cvElement1ID) {
                 element1 = i
@@ -61,13 +64,30 @@ async function sortCVByCategory(data) {
             } else if (data[i].id == cvMerge[element].cvElement2Id) {
                 element2 = i
                 data[i].content[0].heading = data[i].heading
+                break; 
             }
         }
 
-        data[element1].content.push(...data[element2].content)
+        for (i in elementsMerge) {
+            for (p in data) {
+                if (data[p].id == elementsMerge[i]) {
+                    data[p].content[0].heading = data[p].heading
+                    elementsMergeFound.push(parseInt(p))
+                    break; 
+                }
+            }
+        } 
         data[element1].heading = cvMerge[element].name
 
-        data.splice(parseInt(element2), 1)
+        for (i in elementsMergeFound) {
+            data[element1].content.push(...data[elementsMergeFound[i]].content)
+        }
+        //data[element1].content.push(...data[element2].content)
+        
+        for (i in elementsMergeFound) {
+            data.splice(elementsMergeFound[i], 1)
+        }
+        // data.splice(parseInt(element2), 1)
 
     }
 
@@ -80,7 +100,6 @@ async function sortCVByCategory(data) {
         }
     }
     
-    console.log(cvMerge)
     return newDataSortedByCategory;
 }
 
