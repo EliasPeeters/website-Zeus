@@ -57,10 +57,10 @@ async function sortCVByCategory(data) {
         for (i in data) {
             if (data[i].id == cvMerge[element].cvElement1ID) {
                 element1 = i
-                data[i].content[0].heading = cvMerge[element].cvElement1Heading
+                data[i].content[0].heading = data[i].heading
             } else if (data[i].id == cvMerge[element].cvElement2Id) {
                 element2 = i
-                data[i].content[0].heading = cvMerge[element].cvElement2Heading
+                data[i].content[0].heading = data[i].heading
             }
         }
 
