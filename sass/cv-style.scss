@@ -150,13 +150,14 @@
     padding-bottom: 5px;
     padding-top: 5px;
     padding-left: 5px;
-}
-
-.cvBlockHeadingBlock p {
-    color: white;
-    font-size: 17px;
-    padding-top: 8px;
-    margin-left: 10px;
+    
+    p {
+        color: white;
+        font-size: 17px;
+        padding-top: 8px;
+        margin-left: 10px;
+        text-align: center;
+    }
 }
 
 @keyframes openMoreLarge {
