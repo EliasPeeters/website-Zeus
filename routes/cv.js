@@ -86,8 +86,12 @@ async function sortCVByCategory(data) {
         }
         //data[element1].content.push(...data[element2].content)
         
-        for (i in elementsMergeFound) {
-            data.splice(elementsMergeFound[i], 1)
+        for (i in elementsMerge) {
+            for (p in data) {
+                if (data[p].id == elementsMerge[i]) {
+                    data.splice(p, 1)        
+                }
+            }
         }
         // data.splice(parseInt(element2), 1)
 
