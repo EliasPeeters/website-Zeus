@@ -4,7 +4,7 @@ app.get('/cv', async function(req,  res){
     let cvContent = await connection.asyncquery('SELECT c.name as heading, c.*, CVCategories.color, CVCategories.type as categoryType  FROM CV c JOIN CVCategories on c.category = CVCategories.name  ORDER BY begin DESC ;');
     let cvContentWithTimeString = createTimeString(cvContent);
     
-    let CVDataByCategory = sortCVByCategory(cvContentWithTimeString);
+    let CVDataByCategory = await sortCVByCategory(cvContentWithTimeString);
     let CVDataByTime = sortCVByTime(cvContentWithTimeString);
     let CVDataByTimeKeys = Object.keys(CVDataByTime);
     //let CVDateByTime = cvContentWithTimeString.sort((a, b) => (a.begin > b.begin) ? 1 : -1);
@@ -34,7 +34,43 @@ function createTimeString(data) {
     return data;
 }
 
-function sortCVByCategory(data) {
+async function sortCVByCategory(data) {
+
+    // make array from description and timeString
+    for (element in data) {
+        data[element].content = [
+            {
+                time: data[element].timeString,
+                description: data[element].description
+            }
+        ]
+    }
+
+    let cvMerge = await connection.asyncquery(`SELECT * From CVMerge`);
+
+    // merge the cv blocks
+    for (element in cvMerge) {
+        // search for the two objects in the data
+        let element1;
+        let element2;
+
+        for (i in data) {
+            if (data[i].id == cvMerge[element].cvElement1ID) {
+                element1 = i
+                data[i].content[0].heading = cvMerge[element].cvElement1Heading
+            } else if (data[i].id == cvMerge[element].cvElement2Id) {
+                element2 = i
+                data[i].content[0].heading = cvMerge[element].cvElement2Heading
+            }
+        }
+
+        data[element1].content.push(...data[element2].content)
+        data[element1].heading = cvMerge[element].name
+
+        data.splice(parseInt(element2), 1)
+
+    }
+
     let newDataSortedByCategory = {}
     for (element in data) {
         if (newDataSortedByCategory[data[element].category] == undefined) {
@@ -43,6 +79,8 @@ function sortCVByCategory(data) {
             newDataSortedByCategory[data[element].category].push(data[element])
         }
     }
+    
+    console.log(cvMerge)
     return newDataSortedByCategory;
 }
 

@@ -53,9 +53,15 @@
                                                 </div>
 
                                                 <div class="cvBlockContentWrapper_Right">
-                                                    <p class="cvTime"><%= CVDataByCategory[cvKey][i].timeString %></p>
-                                                    <p class="cvDescrip"><%- CVDataByCategory[cvKey][i].description %></p>    
-        
+                                                    <% CVDataByCategory[cvKey][i].content.forEach((content, counter) => { %>
+                                                        <p class="cvContentHeading"><%= content.heading %></p>
+                                                        <p class="cvTime"><%= content.time %></p>
+                                                        <p class="cvDescrip"><%- content.description %></p> 
+
+                                                        <% if (counter+1 != CVDataByCategory[cvKey][i].content.length) { %>
+                                                            <div class="cvContentSpacer"></div>
+                                                        <% } %>
+                                                    <% }) %>
                                                 </div>
                                             </div>
                                             
