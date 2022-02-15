@@ -2,8 +2,8 @@ function isVisible() {
     console.log(window.innerHeight)
 }
 
-let shadowString = '0px 0px 15px rgba(0,0,0,0.7)';
-let noFadeShadow = '0px 0px 15px rgba(0,0,0,0.2)'
+let shadowString = '5px 5px 15px rgba(0,0,0,0.7)';
+let noFadeShadow = '5px 5px 15px rgba(0,0,0,0.2)'
 
 
 function fadeAllElements(scroll) {

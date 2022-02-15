@@ -47,8 +47,19 @@
                                             <p><%= CVDataByCategory[cvKey][i].heading %></p>
                                         </div>
                                         <div class="cvBlockContent">
-                                            <p class="cvTime"><%= CVDataByCategory[cvKey][i].timeString %></p>
-                                            <p class="cvDescrip"><%- CVDataByCategory[cvKey][i].description %></p>    
+                                            <div class="cvBlockContentWrapper">
+                                                <div class="cvBlockContentWrapper_Left">
+                                                    <img src="/assets/images/cvIcons/<%= CVDataByCategory[cvKey][i].icon %>">
+                                                </div>
+
+                                                <div class="cvBlockContentWrapper_Right">
+                                                    <p class="cvTime"><%= CVDataByCategory[cvKey][i].timeString %></p>
+                                                    <p class="cvDescrip"><%- CVDataByCategory[cvKey][i].description %></p>    
+        
+                                                </div>
+                                            </div>
+                                            
+                                            
                                         </div>
                                         
                                         <!-- The More Content Button -->
