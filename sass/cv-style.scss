@@ -214,27 +214,29 @@
 
     transition: box-shadow 600ms, opacity 300ms !important;
 
+    .cvBlockContentWrapper {
+        display: flex;
+        .cvBlockContentWrapper_Left {
+            width: 15%;
+
+            img {
+                width: 80%;
+                margin-left: 20%;
+            }
+        }
+
+        .cvBlockContentWrapper_Right {
+            width: 85%;
+        }
+    }
+    
     .cvBlockContent {
         transition: opacity 0.3s ease-in-out;
         opacity: 1;
         &.hidden {
             opacity: 0;
         }
-        .cvBlockContentWrapper {
-            display: flex;
-            .cvBlockContentWrapper_Left {
-                width: 15%;
-
-                img {
-                    width: 80%;
-                    margin-left: 20%;
-                }
-            }
-
-            .cvBlockContentWrapper_Right {
-                width: 85%;
-            }
-        }
+        
         .dateString {
             color: rgba(0,0,0,0.6);
             margin-top: 5px;

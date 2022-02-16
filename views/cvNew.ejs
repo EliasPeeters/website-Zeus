@@ -51,7 +51,6 @@
                                                 <div class="cvBlockContentWrapper_Left">
                                                     <img src="/assets/images/cvIcons/<%= CVDataByCategory[cvKey][i].icon %>">
                                                 </div>
-
                                                 <div class="cvBlockContentWrapper_Right">
                                                     <% CVDataByCategory[cvKey][i].content.forEach((content, counter) => { %>
                                                         <p class="cvContentHeading"><%= content.heading %></p>
@@ -113,8 +112,17 @@
                                         <div class="cvBlockHeadingBlock cvHeading">
                                             <p><%= CVDataByTime[CVDataByTimeKeys[i]][ii].heading %></p>
                                         </div>
-                                        <p><%= CVDataByTime[CVDataByTimeKeys[i]][ii].timeString %></p>
-                                        <p class="cvDescrip"><%- CVDataByTime[CVDataByTimeKeys[i]][ii].description %></p>
+                                        <div class="cvBlockContentWrapper">
+                                            <div class="cvBlockContentWrapper_Left">
+                                                <img src="/assets/images/cvIcons/<%= CVDataByTime[CVDataByTimeKeys[i]][ii].icon %>">
+                                            </div>
+                                            <div class="cvBlockContentWrapper_Right">
+                                                    <p class="cvTime"><%= CVDataByTime[CVDataByTimeKeys[i]][ii].timeString %></p>
+                                                    <p class="cvDescrip"><%- CVDataByTime[CVDataByTimeKeys[i]][ii].description %></p> 
+                                            </div>
+                                        </div>
+                                        <!-- <p><%= CVDataByTime[CVDataByTimeKeys[i]][ii].timeString %></p>
+                                        <p class="cvDescrip"><%- CVDataByTime[CVDataByTimeKeys[i]][ii].description %></p> -->
                                         <div class="cvLineVertical"></div>
                                         
                                     </div>
