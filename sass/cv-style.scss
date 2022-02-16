@@ -110,7 +110,7 @@
     z-index: -1;
     background-color: $backgroundColorSecond;
     position: absolute;
-    left: -23%;
+    left: -15%;
     top: 50%;
 
     @include mobile {
@@ -587,7 +587,7 @@
             margin-top: 30px;
         }
         .yearPart {
-            width: 30%;
+            width: 10%;
             text-align: right;
             font-size: 30px;
             &.border {
@@ -606,9 +606,9 @@
                 background-color: $backgroundColor;
                 width: 115px;
                 position: absolute;
-                right: -24px;
+                right: -85px;
                 text-align: center;
-                top: -25px;
+                top: -31px;
 
                 @include mobile {
                     top: -55px;
@@ -617,7 +617,9 @@
         }
 
         .cvPart {
-            width: 70%;
+            width: 90%;
+            padding-top: 40px;
+            padding-bottom: 30px;
 
             @include mobile {
                 padding-top: 15px;
@@ -626,6 +628,7 @@
             .cvBlock {
                 position: relative;
                 margin-bottom: 20px;
+                margin-left: 10%;
 
                 @include mobile {
                     margin-left: 11%;
