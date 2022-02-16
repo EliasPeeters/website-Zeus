@@ -8,7 +8,9 @@
     "sass2": "sass ./sass:./assets/css/",
     "start-local": "npm run sass2; LOGGER=false ENV=LOCAL node website-zeus.js",
     "start-live": "git reset --hard; git pull; npm i; npm run sass2; LOGGER=true ENV=LIVE forever restart website-zeus.js",
-    "start-live-test": "npm run sass2; LOGGER=false ENV=LIVE node website-zeus.js"
+    "start-live-test": "npm run sass2; LOGGER=false ENV=LIVE node website-zeus.js",
+    "start-develop": "git reset --hard; git pull; npm i; npm run sass2; LOGGER=false ENV=DEVELOP forever restart zeusDevelop",
+    "start-develop-test": "npm i; npm run sass2; LOGGER=false ENV=DEVELOP node website-zeus.js"
   },
   "repository": {
     "type": "git",
