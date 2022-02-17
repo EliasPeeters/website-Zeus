@@ -114,7 +114,7 @@
     top: 50%;
 
     @include mobile {
-        left: -13%;
+        left: -14%;
     }
     // &.range {
     //     left: -28%;
@@ -510,6 +510,10 @@
         margin-left: 5%;
     }
 
+    .sortedByTime .cvBlock {
+        width: 80%;
+    }
+
     #languageCardsDiv {
         width: 90%;
         margin-left: 5%;
@@ -586,7 +590,7 @@
         position: relative;
 
         @include mobile {
-            margin-top: 30px;
+            margin-top: 18px;
         }
         .yearPart {
             width: 10%;
@@ -597,9 +601,6 @@
             }
             position: relative;
 
-            @include mobile {
-                width: 20%;
-            }
             p {
                 padding: 5px;
                 border: 3px solid $backgroundColorSecond;
@@ -612,9 +613,7 @@
                 text-align: center;
                 top: -31px;
 
-                @include mobile {
-                    top: -55px;
-                }
+                
             }
         }
 
@@ -624,7 +623,7 @@
             padding-bottom: 30px;
 
             @include mobile {
-                padding-top: 15px;
+                padding-top: 40px;
             }
             
             .cvBlock {
