@@ -6,16 +6,18 @@ jobs:
     steps:
       - run: echo 'Hello Wordl!'
   
-  ssh-test:
+ssh-test:
+  runs-on: ubuntu-latest
+  steps:
     - name: multiple command
-    uses: appleboy/ssh-action@master
-    with:
-      host: ${{ secrets.CONTABO_HOST }}
-      username: root
-      key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
-      port: 22
-      script: |
-        ls -al
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.CONTABO_HOST }}
+        username: root
+        key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
+        port: 22
+        script: |
+          ls -al
       
   ssh:
     runs-on: ubuntu-latest
