@@ -8,7 +8,7 @@ jobs:
   
   develop:
     name: Develop
-    enviroment: Develop
+    environment: Develop
     runs-on: ubuntu-latest
     steps:
       - name: multiple command
