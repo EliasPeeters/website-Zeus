@@ -19,7 +19,6 @@ jobs:
           target_branch: develop
           github_token: ${{ secrets.GITHUB }}
   
-
 develop-Start:
     name: Develop
     runs-on: ubuntu-latest
@@ -34,7 +33,7 @@ develop-Start:
           port: 22
           script: |
             cd develop/website-Zeus/
-            npm run start-develop
+
   
   live:
     name: Live
