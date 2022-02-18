@@ -18,13 +18,7 @@ jobs:
           type: now
           target_branch: develop
           github_token: ${{ secrets.GITHUB }}
-  
-develop-Start:
-    name: Develop-Start
-    runs-on: ubuntu-latest
-    needs: develop-Merge
-    steps:
-      - name: multiple command
+      - name: run ssh
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.CONTABO_HOST }}
@@ -33,6 +27,21 @@ develop-Start:
           port: 22
           script: |
             cd develop/website-Zeus
+  
+# develop-Start:
+#     name: Develop-Start
+#     runs-on: ubuntu-latest
+#     needs: develop-Merge
+#     steps:
+#       - name: multiple command
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.CONTABO_HOST }}
+#           username: root
+#           key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
+#           port: 22
+#           script: |
+#             cd develop/website-Zeus
             
   live-Merge:
     name: Live
