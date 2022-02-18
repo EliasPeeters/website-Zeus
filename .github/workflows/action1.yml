@@ -17,7 +17,7 @@ jobs:
         with:
           type: now
           target_branch: develop
-          github_token: ${{ secrets.token }}
+          github_token: ${{ secrets.GITHUB }}
     
       - name: multiple command
         uses: appleboy/ssh-action@master
