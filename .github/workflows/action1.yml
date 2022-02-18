@@ -33,7 +33,7 @@ develop-Start:
           port: 22
           script: |
             cd develop/website-Zeus
-            npm run start-develop
+            
   live-Merge:
     name: Live
     environment: Live
