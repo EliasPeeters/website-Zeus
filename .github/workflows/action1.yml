@@ -32,10 +32,10 @@ develop-Start:
           key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
           port: 22
           script: |
-            cd develop/website-Zeus/
+            cd develop/website-Zeus
+            npm run start-develop
 
-  
-  live:
+  live-Merge:
     name: Live
     environment: Live
     runs-on: ubuntu-latest
