@@ -39,7 +39,7 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          target_branch: develop
+          target_branch: live
           github_token: ${{ secrets.GITHUB }}
       - name: run ssh
         uses: appleboy/ssh-action@master
