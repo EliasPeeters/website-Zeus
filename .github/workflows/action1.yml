@@ -1,0 +1,54 @@
+name: first-github-action
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hello Wordl!'
+  
+  develop:
+    name: Develop
+    runs-on: ubuntu-latest
+    needs: test
+    environment: Develop
+    steps:
+      - name: Merge to Develop
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB }}
+      - name: run ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.CONTABO_HOST }}
+          username: root
+          key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
+          port: 22
+          script: |
+            cd develop/website-Zeus
+            npm run start-develop
+            
+  live:
+    name: Live
+    environment: Live
+    runs-on: ubuntu-latest
+    needs: develop
+    steps:
+      steps:
+      - name: Merge to Live
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB }}
+      - name: run ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.CONTABO_HOST }}
+          username: root
+          key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
+          port: 22
+          script: |
+            cd website-Zeus
+            npm run start-live
