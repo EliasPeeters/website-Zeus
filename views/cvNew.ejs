@@ -85,6 +85,7 @@
                             <div id="languageCardsDiv">
                             <% for(let i = 0; i < CVDataByCategory[cvKey].length; i++) { %>
                                 <div class="languageCard scrollFade scrollFocus">
+                                    <img class="languageCardImage" src="/assets/images/cvIcons/<%=CVDataByCategory[cvKey][i].icon %>">
                                     <p><%= CVDataByCategory[cvKey][i].heading %></p>
                                 <p class="languageDescrip"><%- CVDataByCategory[cvKey][i].description %></p>
                             </div> 
