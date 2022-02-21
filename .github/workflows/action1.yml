@@ -35,7 +35,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: develop
     steps:
-      steps:
       - name: Merge to Live
         uses: devmasx/merge-branch@master
         with:
