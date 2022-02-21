@@ -8,9 +8,9 @@ app.post('/heraCreatePdf', (req, res) => {
     for (element in req.body) {
         queryString += `${element}=${req.body[element]}&`
     }
-    console.log(queryString)
+    // console.log(queryString)
     var result = JSON.parse(request('GET', `${serverConnections.hera.address}/createpdf${queryString}`).getBody('utf-8'));
-    res.redirect(`/article?name=${req.query.name}&task=${result.task}&solution=${result.solution}`)
+    res.redirect(`/blog/${req.query.name}?task=${result.task}&solution=${result.solution}`)
 })
 
 app.get('/pdfModal', (req, res) => {
