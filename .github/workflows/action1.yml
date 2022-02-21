@@ -29,13 +29,20 @@ jobs:
             cd develop/website-Zeus
             npm run start-develop
             
-  live-Merge:
+  live:
     name: Live
     environment: Live
     runs-on: ubuntu-latest
     needs: develop
     steps:
-      - name: multiple command
+      steps:
+      - name: Merge to Live
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB }}
+      - name: run ssh
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.CONTABO_HOST }}
@@ -43,4 +50,5 @@ jobs:
           key: ${{ secrets.CONTABO_SSH_PRIVATE_KEY}}
           port: 22
           script: |
-            ls -al
+            cd website-Zeus
+            npm run start-live
