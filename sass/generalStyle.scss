@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #FCFBF6;
+    background-color: $backgroundColor;
 }
 
 canvas {
@@ -20,13 +20,16 @@ canvas {
 }
 
 #navBar {
-    background-color: #FCFBF6;
+    background-color: $backgroundColor;
     position: fixed;
-    width: 100%;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-top: 20px;
     height: 50px;
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
     transition: 300ms;
     z-index: 101;
+    border-radius: 20px;
     
     #navBarTitle {
         background-color: aqua
@@ -107,7 +110,8 @@ canvas {
         border-radius: 10px;
         transition: 300ms;
         &:hover {
-            background-color: $backgroundColorSecond;
+            background-color: $redColorLight;
+            color: white;
         }
     }
 }
@@ -189,11 +193,46 @@ canvas {
     cursor: pointer;
 }
 
+.newButton {
+    background-color: $blueColor;
+    color: white;
+    border: $blueColor 3px solid;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+
+    &:hover{
+        background-color: rgba(0,0,0,0);
+        border: $blueColor 3px solid;
+        color: $blueColor;
+    }
+}
+
+.newButtonRed {
+    background-color: $redColor;
+    border: $redColor 3px solid;
+    &:hover {
+        border: $redColor 3px solid;
+        color: $redColor;
+    }
+}
+
+.newButtonGreen {
+    background-color: $greenColor;
+    border: $greenColor 3px solid;
+    &:hover {
+        border: $greenColor 3px solid;
+        color: $greenColor;
+    }
+}
+
 #footer {
-    width: 90%;
+    width: calc(100% - 40px);
     height: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-left: 20px;
+    background-color: $backgroundColor;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding-top: 10px;
+    margin-top: -5px;
 }
 
 #footerLine {
