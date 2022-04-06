@@ -1,8 +1,9 @@
 $backgroundColorSecond: #e2e0cd;
-$backgroundColor: #FCFBF6;
-$blueColor: #3D405B;
-$redColor: #E07A5F;
-$greenColor: #81B29A;
+$backgroundColor: white;
+$blueColor: rgb(132, 141, 223);
+$redColor: rgb(141, 31, 73);
+$redColorLight: rgba(141, 31, 73, 0.6);
+$greenColor: rgb(241, 162, 88);
 
 @mixin mobile {
     @media (max-width: 600px) {

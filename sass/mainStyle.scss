@@ -24,6 +24,7 @@
             width: 300px;
             transition: 300ms;
             clip-path: circle(150px at center);
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
             
             @include mobile {
                 float: inherit;
@@ -48,12 +49,29 @@
         align-items: center;
 
         .contentRightWrapper {
+            background-color: white;
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
+            padding: 30px;
+            border-radius: 30px;
             margin-left: 20px;
+
             h1 {
                 font-size: 50px;
                 margin-bottom: 20px;
+                text-align: center;
             }
             
+            .introductionHeading {
+                text-align: center;
+            }
+
+            .introductionWrapper {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
             p {
                 margin-top: 5px;
                 max-width: 300px;
