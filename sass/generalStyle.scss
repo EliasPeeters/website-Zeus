@@ -69,7 +69,8 @@ canvas {
             cursor: pointer;
 
             &:hover {
-                background-color: $backgroundColorSecond;
+                background-color: $redColor;
+                color: white;
             }
 
             img {
@@ -110,7 +111,7 @@ canvas {
         border-radius: 10px;
         transition: 300ms;
         &:hover {
-            background-color: $redColorLight;
+            background-color: $redColor;
             color: white;
         }
     }
@@ -148,6 +149,14 @@ canvas {
     margin-right: 10px !important;
 }
 
+input {
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
 
 .button {
     width: 130px;
@@ -159,7 +168,10 @@ canvas {
     font-size: 15px;
     padding-top: 10px;
     margin-bottom: 10px;
-    transition: 300ms
+    transition: 300ms;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .firstButton {
