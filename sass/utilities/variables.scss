@@ -1,9 +1,9 @@
 $backgroundColorSecond: #e2e0cd;
 $backgroundColor: white;
-$blueColor: rgb(132, 141, 223);
-$redColor: rgb(141, 31, 73);
+$blueColor: #B8285F;
+$redColor: #3D405B;
 $redColorLight: rgba(141, 31, 73, 0.6);
-$greenColor: rgb(241, 162, 88);
+$greenColor: #3E5C41;
 
 @mixin mobile {
     @media (max-width: 600px) {
@@ -13,6 +13,12 @@ $greenColor: rgb(241, 162, 88);
 
 @mixin mobilePodcast {
     @media (max-width: 920px) {
+        @content;
+    }
+}
+
+@mixin mobileMain {
+    @media (max-width: 850px) {
         @content;
     }
 }
