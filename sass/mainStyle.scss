@@ -4,122 +4,96 @@
     min-height: 600px;
     padding-top: 50px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
-    @include mobile {
+    @include mobileMain {
         display: block;
     }
-
-    #contentLeft {
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content:  flex-end;
-       
-        @include mobile {
-            min-height: 0;
-            justify-content:  center;
-        }
+    .imagePortrait {
+        width: 300px;
+        transition: 300ms;
+        clip-path: circle(150px at center);
+        margin-left: 20px;
+        margin-bottom: 30px;
         
-        img {
-            width: 300px;
-            transition: 300ms;
-            clip-path: circle(150px at center);
-            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
-            
-            @include mobile {
-                float: inherit;
-                width: 60%;
-                margin-left: 20%;
-                margin-top: 30px;
-                transform: none;
-                -webkit-transform: none;
-            }
-        }
-
-        @include mobile {
+        @include mobileMain {
             float: inherit;
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    .contentRight {    
-        width: 50%;
-        display: flex;
-        align-items: center;
-
-        .contentRightWrapper {
-            background-color: white;
-            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
-            padding: 30px;
-            border-radius: 30px;
-            margin-left: 20px;
-
-            h1 {
-                font-size: 50px;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-            
-            .introductionHeading {
-                text-align: center;
-            }
-
-            .introductionWrapper {
-                display: flex;
-                justify-content: center;
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
-
-            p {
-                margin-top: 5px;
-                max-width: 300px;
-                margin-bottom: 20px;
-                background-color: #FCFBF6;
-    
-                @include mobile {
-                    width: 100%;
-                    margin: 0;
-                    max-width: none;
-                    margin-bottom: 30px;
-                }
-            }
-        }
-        
-        
-
-        @include mobile {
-            width: calc(100% - 10%);
-            padding-right: 5%;
-            padding-left: 5%;
-            height: 400px;
-            text-align: center;
+            width: 60%;
+            margin-left: 20%;
             margin-top: 30px;
             transform: none;
             -webkit-transform: none;
-
-            .introduction {
-                font-size: 15px;
-            }
-
-            .nameHeading {
-                font-size: 40px;
-            }
-            
-            .buttonMain {
-                width: 70% !important;
-                margin-left: 15%;
-                float: none;
-            }
         }
     }
 
-    @include mobile {
+    @include mobileMain {
+        float: inherit;
+        width: 100%;
         height: auto;
-        margin-bottom: 40px;
+    }
+
+    .contentRightWrapper {
+        background-color: white;
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
+        padding: 30px;
+        border-radius: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 30px;
+        height: auto;
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .introductionHeading {
+            text-align: center;
+        }
+
+        .introductionWrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-top: 5px;
+            max-width: 300px;
+            margin-bottom: 20px;
+            background-color: $backgroundColor;
+
+            @include mobileMain {
+                width: 100%;
+                margin: 0;
+                max-width: none;
+                margin-bottom: 30px;
+            }
+        }
+
+        @include mobileMain {
+            width: calc(100% - 100px);
+        }
+
+        .mainButtonWrapper {
+            display: flex;
+            align-items: center;
+
+            @include mobile {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 80%;
+                max-width: 300px;
+            }
+        }
     }
 }
+
 
 .paperItem {
     display: none;
