@@ -15,12 +15,23 @@
         <div class="contentWrapper">
             <div class="content">
 
-                <div class="headingImageWrapper">
+                <div class="podcastBox">
+                    <img class="headingImage" src="/assets/images/podcast/Logo.png">
+
+                    <div class="podcastLinkImagesWrapper">
+                        <img onclick="openLink('apple')" class="podcastLinkImages" src="/assets/images/podcast/apple.png" >
+                        <img onclick="openLink('spotify')" class="podcastLinkImages" src="/assets/images/podcast/spotify.png" >
+                        <img onclick="openLink('google')" class="podcastLinkImages" src="/assets/images/podcast/google.png" >
+                        <img onclick="openLink('castro')" class="podcastLinkImages" src="/assets/images/podcast/castro.png" >
+                    </div>
+                </div>
+
+                <!-- <div class="headingImageWrapper">
                     <img class="headingImage" src="/assets/images/podcast/Scharf Angebraten (Schrift).png">
                 </div>
                 
-    
-                <div class="contentLeft">
+     -->
+                <!-- <div class="contentLeft">
                     <img class="podcastLogo" src="/assets/images/podcast/Logo Circle.png">
                     <div class="podcastLinkImagesWrapperWrapper">
                         <div class="podcastLinkImagesWrapper">
@@ -33,11 +44,8 @@
                     
                     
                 </div>
-                
-                <div class="contentRight">
-                    <iframe class="podcastiFrame" id="iframe" src='https://widget.justcast.com/widget?rss=https://feeds.redcircle.com/ac7565d9-ba20-4c82-8851-933cda3ab5dd&primaryBackgroundColor=292761primaryButtonColor=f7f8f9&primaryTextColor=f7f8f9&progressBarFilledColor=f7f8f9&progressBarBackgroundColor=8A8175&playlistBackgroundColor=30343c&playlistTextColor=f7f8f9&chapterBackgroundColor=30343c&chapterTextColor=f7f8f9' height='100vh' frameborder='0' scrolling='yes' seamless='true' style="display: block; border:none; width: 100%;"></iframe>
-                </div>
-
+                 -->
+            
                 <script>
                     function openLink(name) {
                         if (name == 'apple') {
@@ -62,7 +70,7 @@
         
         <%- include ("partials/footer") %>
         
-        <script src="assets/configPodcast.js"></script>
+        <script src="assets/config.js"></script>
         <script src="assets/fade.js"></script>
         <script>hljs.highlightAll();</script>
     </body>
