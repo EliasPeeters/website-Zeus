@@ -42,7 +42,7 @@
     }
 
     p {
-        background-color: #FCFBF6;
+        background-color: $backgroundColor;
         margin-bottom: 10px;
         text-align: justify;
         line-height: 1.6;
@@ -196,23 +196,23 @@
     height: auto;
 
     .popUp {
-        background-color: #FCFBF6;
-        box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+        background-color: $backgroundColor;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
         border-radius: 10px;
         width: 300px;
         margin-top: 25px;
-        border: 4px solid $blueColor;
+        // border: 4px solid $blueColor;
     }
 
     .popUpContent {
-        padding: 10px;
+        padding: 14px;
         p {
             text-align: left !important;
         }
 
         .buttonPopUp {
             width: 280px;
-            background-color: #FCFBF6;
+            background-color: $buttonColor;
             margin-right: 10px;
             text-align: center;
             border-radius: 100px;
@@ -220,7 +220,8 @@
             padding-top: 10px;
             margin-bottom: 10px;
             transition: 300ms;
-            border: 3px #3D405B solid;
+            border: none;
+            // border: 3px #3D405B solid;
             padding: 10px;
             
             &:hover {
@@ -237,6 +238,7 @@
         color: white;
         width: calc(100% - 20px);
         padding: 3px 10px;
+        border-radius:  10px 10px 0 0;
         .paperPopUpTitle {
             margin-top: 5px;
             background-color: $blueColor !important;

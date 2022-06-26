@@ -61,6 +61,21 @@
         .desktopHeading {
             font-size: 30px;
             margin-top: 20px;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        .desktopDesription {
+            font-size: 17px;
+            color: rgba(0,0,0,0.5);
+            font-weight: normal;
+            margin-top: 10px;
+
+            @include mobile {
+                display: none;
+            }
         }
 
 
