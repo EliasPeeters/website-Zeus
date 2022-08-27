@@ -1,6 +1,5 @@
 {
     "internal": {
-        "blogServer": "http://localhost:8083",
         "database": "server.eliaspeeters.de",
         "hera": "http://localhost:8084",
         "hermes": "http://localhost:8086",
@@ -8,7 +7,6 @@
         "apollon": "http://localhost:8089"
     },
     "external": {
-        "blogServer": "https://hades.eliaspeeters.de",
         "database": "server.eliaspeeters.de",
         "hera": "https://hera.eliaspeeters.de",
         "hermes": "https://hermes.eliaspeeters.de",

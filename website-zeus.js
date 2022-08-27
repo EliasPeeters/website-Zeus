@@ -10,8 +10,6 @@ let credentialsLoader = require('./getCredentials');
 let mysqlSetup = require('./mysqlSetup');
 const requestSync = require('sync-request');
 const checkConnections = require('./connections/checkConnections');
-const Analytics = require('analytics').default;
-const googleAnalytics =  require('@analytics/google-analytics').default
 // import googleAnalytics from '@analytics/google-analytics';
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
@@ -63,16 +61,6 @@ app = express();
 credentials = credentialsLoader.getCredentials();
 connection = mysqlSetup.getConnection();
 
-
-// analytics
-analytics = Analytics({
-    app: 'eliaspeeters.de',
-    plugings: [
-        googleAnalytics({
-            trackingId: 'G-0K1GCBP7BV'
-        })
-    ]
-})
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));

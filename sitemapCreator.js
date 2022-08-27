@@ -42,20 +42,6 @@ function removeOldSitemap() {
     }
 }
 
-function getArticles() {
-    let urlAttributes = `${serverConnections.blogServer.address}/attributes?server=${serverConnections.blogServer.position}`;
-    let articleAttributes = JSON.parse(requestSync('GET', urlAttributes).getBody('utf8')).articles;
-    
-    let articles = []
-    for (let i = 0; i < articleAttributes.length; i++) {
-        articles.push({
-            url: url + '/blog/' + articleAttributes[i].name,
-            lastUpdate: date
-        })
-    }
-    return articles;
-}
-
 function getPapers() {
     let urlAttributes = `${serverConnections.ares.address}/attributes`;
     let paperAttributes = JSON.parse(requestSync('GET', urlAttributes).getBody('utf8'));
@@ -79,10 +65,6 @@ async function createSitemap() {
     let expressRoutes = await getExpressRoutes();
     let expressRoutesString = createSitemapStringFormArray(expressRoutes);
     xml += expressRoutesString;
-
-    let articlesRoutes = getArticles();
-    let articlesRoutesString = createSitemapStringFormArray(articlesRoutes);
-    xml += articlesRoutesString;
 
     let paperRoutes = getPapers();
     let paperRoutesString = createSitemapStringFormArray(paperRoutes);
