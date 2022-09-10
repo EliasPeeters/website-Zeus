@@ -1,0 +1,75 @@
+@import "utilities/variables.scss";
+
+.postWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .post {
+        margin-bottom: 50px;
+        max-width: 800px;
+        border-radius: 20px;
+        // background-color: red;
+        box-shadow: $shadow;
+        background-color: white;
+        transition: 300ms;
+
+        .headingWrapper {
+            background-color: $redColor;
+            border-radius: 20px 20px 0 0;
+            color: white;
+            padding: 10px 20px;
+            
+            h2 {
+                font-size: 25px;
+                text-align: center;
+            }
+            
+        }
+
+        .postContent {
+            display: flex;
+
+            .imageWrapper {
+                width: 60%;
+                display: flex;
+                padding: 20px 0;
+
+                img {
+                    align-self: center;
+                    width: calc(100% - 20px);
+                    
+                    margin-left: 10px;
+                }
+            }
+
+            .textWrapper {
+                width: 40%;
+
+                .date {
+                    text-align: center;
+                    color: rgba($color: #000000, $alpha: 0.5);
+                    margin-top: 20px;
+                    font-size: 14px;
+                    font-weight: normal;
+                }
+
+                p {
+                    margin: 20px;
+                    width: calc(100% - 40px);
+                    
+                    white-space: pre-line;
+                }
+
+                .button {
+                    margin: 20px;
+                    margin-bottom: 40px;
+                    width: calc(100% - 60px);
+                }
+            }
+        }
+    }
+
+}

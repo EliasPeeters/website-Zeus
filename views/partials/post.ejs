@@ -1,0 +1,27 @@
+
+<div class="postWrapper">
+
+
+    <% for (post of posts) { %>
+        <div class="post scrollFocus scrollFade">
+            <div class="headingWrapper">
+                <h2><%= post.heading %></h2>
+            </div>
+            
+            <!-- <h3><%= post.postdate %></h3> -->
+            <div class="postContent">
+                <div class="imageWrapper">
+                    <img src="/assets/images/posts/<%=  post.images %>">
+                </div>
+                <div class="textWrapper">
+                    <h2 class="date">26. August 2022</h2>
+                    <p class="text"><%- post.descriptionText %></p>
+
+                    <div class="button firstButton newButton newButtonRed" onclick="window.location =`/post/test/<%= post.id %>`">Open</div>
+                </div>
+            </div>
+            
+        </div>
+    <% } %>
+
+</div>

@@ -75,7 +75,7 @@ app.use(express.urlencoded());
 let home = require('./routes/home')
 let cv = require('./routes/cv.js');
 let contact = require('./routes/contact.js');
-let blog = require('./routes/blog.js');
+let blog = require('./routes/posts.js');
 let imprint = require('./routes/impressum.js');
 let podcast = require('./routes/podcast.js');
 let linktree = require('./routes/podcastLinkTree');

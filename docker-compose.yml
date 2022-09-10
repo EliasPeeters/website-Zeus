@@ -1,0 +1,19 @@
+version: '3'
+services:
+  website:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '8081:8081'
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'website'
+      MYSQL_DATABASE: 'website'
+      MYSQL_USER: 'website'
+      MYSQL_PASSWORD: 'uHVy93yhwUKrsoKpALwnDSzb8sYMGBBr'
+    volumes:
+      - ./data:/var/lib/mysql
