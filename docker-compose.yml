@@ -9,7 +9,7 @@ services:
     image: 'jc21/mariadb-aria:latest'
     restart: unless-stopped
     ports:
-      - 3306:3306
+      - 3306:3307
     environment:
       MYSQL_ROOT_PASSWORD: 'website'
       MYSQL_DATABASE: 'website'
