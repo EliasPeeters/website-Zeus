@@ -104,8 +104,6 @@ app.listen(port, () => {
 function startUp() {
     // send start message to Apollon;
     let message = 'Zeus started...';
-    requestSync('GET', encodeURI(`${serverConnections.apollon.address}/message?pswd=${credentials.telegram.pswd}&message=🖥 ${message}`));
-    
     
     console.log('Finised startUp');
 }
