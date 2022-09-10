@@ -1,6 +1,6 @@
 {
     "internal": {
-        "database": "server.eliaspeeters.de",
+        "database": "localhost",
         "hera": "https://hera.eliaspeeters.de",
         "hermes": "https://hermes.eliaspeeters.de",
         "ares": "http://ares.eliaspeeters.de",
