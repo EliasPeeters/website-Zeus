@@ -9,7 +9,7 @@ function getConnection() {
         user: 'website',
         password: credentials.mysqlDatabase.user.website,
         database: 'website',
-        port: 3306
+        port: 3307
     });
     
     connection.connect((err) => {
