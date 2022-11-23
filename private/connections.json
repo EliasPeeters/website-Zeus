@@ -1,11 +1,11 @@
 {
     "internal": {
-        "database": "194.163.166.97",
+        "database": "localhost",
         "hermes": "http://194.163.166.97:8086",
         "ares": "http://194.163.166.97:8088"
     },
     "external": {
-        "database": "194.163.166.97",
+        "database": "http://eliaspeeters.de",
         "hermes": "http://194.163.166.97:8086",
         "ares": "http://194.163.166.97:8088"
     }
