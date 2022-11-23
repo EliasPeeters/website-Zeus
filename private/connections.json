@@ -1,16 +1,12 @@
 {
     "internal": {
-        "database": "localhost",
-        "hera": "https://hera.eliaspeeters.de",
-        "hermes": "https://hermes.eliaspeeters.de",
-        "ares": "http://ares.eliaspeeters.de",
-        "apollon": "http://eliaspeeters.de:8089"
+        "database": "194.163.166.97",
+        "hermes": "http://194.163.166.97:8086",
+        "ares": "http://194.163.166.97:8088"
     },
     "external": {
-        "database": "server.eliaspeeters.de",
-        "hera": "https://hera.eliaspeeters.de",
-        "hermes": "https://hermes.eliaspeeters.de",
-        "ares": "http://ares.eliaspeeters.de",
-        "apollon": "http://eliaspeeters.de:8089"
+        "database": "194.163.166.97",
+        "hermes": "http://194.163.166.97:8086",
+        "ares": "http://194.163.166.97:8088"
     }
 }
