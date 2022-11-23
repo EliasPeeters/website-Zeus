@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --exit",
     "sass2": "sass ./sass:./assets/css/",
+    "start": "node website-zeus.js",
     "start-local": "npm run sass2; LOGGER=false ENV=LOCAL node website-zeus.js",
     "start-live": "git reset --hard; git pull; npm i; npm run sass2; pm2 restart zeusLive",
     "start-live-test": "npm run sass2; LOGGER=false ENV=LIVE node website-zeus.js",
@@ -35,7 +36,6 @@
     "mochawesome": "^6.2.2",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
-    "puppeteer": "^11.0.0",
     "request": "^2.88.2",
     "sass": "^1.39.0",
     "sync-request": "^6.1.0",

@@ -1,18 +1,12 @@
 {
     "internal": {
-        "blogServer": "http://localhost:8083",
-        "database": "server.eliaspeeters.de",
-        "hera": "http://localhost:8084",
-        "hermes": "http://localhost:8086",
-        "ares": "http://localhost:8088",
-        "apollon": "http://localhost:8089"
+        "database": "194.163.166.97",
+        "hermes": "http://194.163.166.97:8086",
+        "ares": "http://194.163.166.97:8088"
     },
     "external": {
-        "blogServer": "https://hades.eliaspeeters.de",
-        "database": "server.eliaspeeters.de",
-        "hera": "https://hera.eliaspeeters.de",
-        "hermes": "https://hermes.eliaspeeters.de",
-        "ares": "http://ares.eliaspeeters.de",
-        "apollon": "http://eliaspeeters.de:8089"
+        "database": "194.163.166.97",
+        "hermes": "http://194.163.166.97:8086",
+        "ares": "http://194.163.166.97:8088"
     }
 }

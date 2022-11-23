@@ -10,8 +10,6 @@ let credentialsLoader = require('./getCredentials');
 let mysqlSetup = require('./mysqlSetup');
 const requestSync = require('sync-request');
 const checkConnections = require('./connections/checkConnections');
-const Analytics = require('analytics').default;
-const googleAnalytics =  require('@analytics/google-analytics').default
 // import googleAnalytics from '@analytics/google-analytics';
 
 urlencodedparser = bodyparser.urlencoded({extended: false});
@@ -64,16 +62,6 @@ credentials = credentialsLoader.getCredentials();
 connection = mysqlSetup.getConnection();
 
 
-// analytics
-analytics = Analytics({
-    app: 'eliaspeeters.de',
-    plugings: [
-        googleAnalytics({
-            trackingId: 'G-0K1GCBP7BV'
-        })
-    ]
-})
-
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 app.use(express.static('blog'));
@@ -87,12 +75,11 @@ app.use(express.urlencoded());
 let home = require('./routes/home')
 let cv = require('./routes/cv.js');
 let contact = require('./routes/contact.js');
-let blog = require('./routes/blog.js');
+let blog = require('./routes/posts.js');
 let imprint = require('./routes/impressum.js');
 let podcast = require('./routes/podcast.js');
 let linktree = require('./routes/podcastLinkTree');
 let papers = require('./routes/papers');
-let heraConnection = require('./routes/heraConnection');
 let expressRoutes = require('./routes/expressRoutes');
 
 
@@ -116,8 +103,6 @@ app.listen(port, () => {
 function startUp() {
     // send start message to Apollon;
     let message = 'Zeus started...';
-    requestSync('GET', encodeURI(`${serverConnections.apollon.address}/message?pswd=${credentials.telegram.pswd}&message=🖥 ${message}`));
-    
     
     console.log('Finised startUp');
 }

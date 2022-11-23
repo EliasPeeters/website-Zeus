@@ -12,22 +12,6 @@
         font-size: 40px;
         margin-bottom: 30px;
     }
-
-    h2 {
-        margin-bottom: 15px;
-        margin-top: 30px;
-    }
-
-    img {
-        width: 70%;
-        margin-left: 15%;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-
-    p {
-        background-color: $backgroundColor;
-    }
 }
 
 
@@ -62,14 +46,6 @@
             border-radius: 10px 10px 0 0px;
             padding: 10px;
 
-            h2 {
-                color: white;
-                font-size: 23px;
-                font-weight: 500;
-                padding: 5px;
-                margin-top: 0 !important;
-                margin-bottom: 0 !important;
-            }
         }
         
         .artcileImageWrapper {
@@ -170,9 +146,6 @@
         
     }
 
-    .articleHeader h2 {
-        font-size: 18px;
-    }
 
     .article .buttonReading {
         width: 90%;
