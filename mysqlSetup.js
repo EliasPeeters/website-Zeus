@@ -5,11 +5,11 @@ let util2 = require('util2');
 function getConnection() {
     
     let connection = mysql.createConnection({
-        host: credentials.mysqlDatabase.url,
+        host: 'db',
         user: 'website',
-        password: credentials.mysqlDatabase.user.website,
+        password: 'uHVy93yhwUKrsoKpALwnDSzb8sYMGBBr',
         database: 'website',
-        port: 3307
+        port: 3306
     });
     
     connection.connect((err) => {

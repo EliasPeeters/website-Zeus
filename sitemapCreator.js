@@ -42,20 +42,6 @@ function removeOldSitemap() {
     }
 }
 
-function getPapers() {
-    let urlAttributes = `${serverConnections.ares.address}/attributes`;
-    let paperAttributes = JSON.parse(requestSync('GET', urlAttributes).getBody('utf8'));
-    // https://eliaspeeters.de/onepaper?name=socialMedia
-    let papers = []
-    for (element in paperAttributes) {
-        papers.push({
-            url: url + '/papers/' + paperAttributes[element].name,
-            lastUpdate: date
-        })
-    }
-    return papers;
-}
-
 
 async function createSitemap() {
     removeOldSitemap();
@@ -66,9 +52,6 @@ async function createSitemap() {
     let expressRoutesString = createSitemapStringFormArray(expressRoutes);
     xml += expressRoutesString;
 
-    let paperRoutes = getPapers();
-    let paperRoutesString = createSitemapStringFormArray(paperRoutes);
-    xml += paperRoutesString;
 
     xml += '</urlset>'
     fs.appendFileSync(sitemapPath, xml)

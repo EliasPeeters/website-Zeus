@@ -1,36 +1,50 @@
-<% if (blogSearch.length > 0) { %>
-    <h3>Blog</h3>
-    <% blogSearch.forEach(function(item, index) { %>
-        <div class="searchItem">
-            <p onmousedown="openPage('<%= item.item.url %>')"><%= item.item.title %></p>
+<% if (topHit != undefined && inCV.length == 0) { %>
+    <h3>Top Hit</h3>
+
+    <div onclick="openPage('<%= topHit.page %>')" page="<%= topHit.page %>" class="searchItem searchTopHit selected">
+        <% if (topHit.icon) { %>
+            <div class="searchItem_Icon">
+                <img src="assets/images/cvIcons/<%= topHit.icon %>">
+            </div>
+        <% } %>
+        <div>
+            <p class="searchName"><%= topHit.name %></p>
+
+            <p class="searchDescription"><%- topHit.description %></p>
         </div>
-    <% });  %> 
+    </div>
 <% } %>
 
+<% if (inCV.length != 0) { %>
+    <h3>in the year <%= searchTerm %> I did</h3>
 
-<% if (pagesSearch.length > 0) { %>
-    <h3>Pages</h3>
-    <% pagesSearch.forEach(function(item, index) { %>
-        <div class="searchItem">
-            <p onmousedown="openPage('<%= item.item.url %>')"><%= item.item.page %></p>
+    <% inCV.forEach(function(item, index) { %>
+        <div onclick="openPage('<%= item.page %>')" page="<%= item.page %>" class="searchItem searchTopHit">
+            <div class="searchItem_Icon">
+                <img src="assets/images/cvIcons/<%= item.icon %>">
+            </div>
+
+            <div>
+                <p class="searchName"><%= item.name %></p>
+                <p class="searchDescription"><%- item.description %></p>
+            </div>
+
         </div>
-    <% });  %> 
+    <% });  %>
 <% } %>
 
-<% if (cvSearch.length > 0) { %>
-    <h3>CV</h3>
-    <% cvSearch.forEach(function(item, index) { %>
-        <div class="searchItem">
-            <p onmousedown="openPage('<%= item.item.url %>')"><%= item.item.element %></p>
-        </div>
-    <% });  %> 
-<% } %>
-
-<% if (contentSearch.length > 0) { %>
-    <h3>In articles</h3>
-    <% contentSearch.forEach(function(item, index) { %>
-        <div class="searchItem">
-            <p onmousedown="openPage('<%= item.item.url %>')">In <%= item.item.name %></p>
-        </div>
-    <% });  %> 
-<% } %>
+<% search.forEach(function(item) { %>
+    <% if (item.data.length > 0) { %>
+        <h3><%= item.name %></h3>
+        <% item.data.forEach(function(item, index) { %>
+            <div class="searchItem">
+                <% if (item.item.icon) { %>
+                    <div class="searchItem_Icon">
+                        <img src="assets/images/cvIcons/<%= item.item.icon %>">
+                    </div>
+                <% } %>
+                <p class="searchName" style="margin-top: 14px" onclick="openPage('<%= item.item.page %>')"><%= item.item.name %></p>
+            </div>
+        <% });  %>
+    <% } %>
+<%  }); %>

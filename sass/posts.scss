@@ -32,21 +32,32 @@
         .postContent {
             display: flex;
 
+            @include mobile {
+                flex-direction: column;
+            }
+
             .imageWrapper {
                 width: 60%;
                 display: flex;
                 padding: 20px 0;
 
+                @include mobile {
+                    width: 100%;
+                }
+
                 img {
                     align-self: center;
                     width: calc(100% - 20px);
-                    
                     margin-left: 10px;
                 }
             }
 
             .textWrapper {
                 width: 40%;
+
+                @include mobile {
+                    width: 100%;
+                }
 
                 .date {
                     text-align: center;

@@ -16,8 +16,6 @@ urlencodedparser = bodyparser.urlencoded({extended: false});
 
 let logger = require('./logger.js')
 
-serverConnectionsAll = JSON.parse(fs.readFileSync('./private/connections.json'))
-
 function clone(obj) {
     if (null == obj || "object" != typeof obj) return obj;
     var copy = obj.constructor();
@@ -26,36 +24,6 @@ function clone(obj) {
     }
     return copy;
 }
-
-if (process.env.ENV=="LOCAL") {
-    let localConfig = JSON.parse(fs.readFileSync('./private/localConfig.json'))
-    serverConnections = clone(serverConnectionsAll.external)
-
-    for (connection in serverConnections) {
-        serverConnections[connection] = {address: serverConnections[connection]}
-    }
-
-    for (connection in localConfig) {
-        serverConnections[connection] = {
-            address: serverConnectionsAll[localConfig[connection]][connection],
-            position: localConfig[connection]
-        }
-        console.log('\x1b[33m%s\x1b[0m', `Using ${connection} ${localConfig[connection]}`)
-    }
-    
-} else {
-    serverConnections = serverConnectionsAll.internal;   
-    for (connection in serverConnections) {
-        serverConnections[connection] = {
-            address: serverConnections[connection],
-            position: 'external'
-        }
-    }
-}
-
-console.table(serverConnections)
-
-checkConnections.checkAllConnections();
 
 app = express();
 credentials = credentialsLoader.getCredentials();

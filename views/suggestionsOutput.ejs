@@ -1,0 +1,7 @@
+<h3>Search Suggestions</h3>
+<% suggestions.forEach(function(item, index) { %>
+    <div class="searchItem suggestion">
+        <p class="searchName" onclick="document.getElementById('searchBar').value = '<%= item.name %>'; inputSend()"><%= item.name %></p>
+    </div>
+<% });  %> 
+
