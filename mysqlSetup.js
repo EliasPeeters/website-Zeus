@@ -4,12 +4,19 @@ let util2 = require('util2');
 
 function getConnection() {
     
+    // let connection = mysql.createConnection({
+    //     host: 'db',
+    //     user: 'website',
+    //     password: 'uHVy93yhwUKrsoKpALwnDSzb8sYMGBBr',
+    //     database: 'website',
+    //     port: 3306
+    // });
     let connection = mysql.createConnection({
-        host: 'db',
+        host: '138.2.161.174',
         user: 'website',
         password: 'uHVy93yhwUKrsoKpALwnDSzb8sYMGBBr',
         database: 'website',
-        port: 3306
+        port: 3307
     });
     
     connection.connect((err) => {

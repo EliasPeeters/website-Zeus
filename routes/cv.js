@@ -1,4 +1,9 @@
 let logger = require('../logger.js')
+let ejs = require("ejs");
+let pdf = require("html-pdf");
+let path = require("path");
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
 
 app.get('/cv', async function(req,  res){
 
@@ -15,6 +20,20 @@ app.get('/cv', async function(req,  res){
     let cvDataPrintNames = cvDataOutput.printNames;
     res.render('cvNew', {CVDataKeys, CVDataByCategory, CVDataByTime, CVDataByTimeKeys, cvDataPrintNames})
 });
+
+app.get('/cv-pdf', async function(req, res) {
+    const doc = new PDFDocument();
+
+    let cvContent = await connection.asyncquery('SELECT c.name as heading, c.*, CVCategories.color, CVCategories.type as categoryType  FROM CV c JOIN CVCategories on c.category = CVCategories.name  ORDER BY begin DESC ;');
+    let cvContentWithTimeString = createTimeString(cvContent);
+
+    let CVDataByCategory = await sortCVByCategory(cvContentWithTimeString);
+
+    let cvDataOutput = await getKeys();
+    let CVDataKeys = cvDataOutput.cvKeys;
+
+    res.render('cvPdf', {CVDataByCategory, CVDataKeys})
+})
 
 function createTimeString(data) {
     data.forEach(element => {

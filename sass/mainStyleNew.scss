@@ -1,0 +1,72 @@
+@import "utilities/variables.scss";
+
+#content {
+
+
+    height: 100%;
+    width: 100%;
+
+    #person {
+        position: fixed;
+        height: 70%;
+        animation: fadeInUp 2s;
+        z-index: 100;
+
+    }
+
+    #firstName {
+        position: fixed;
+        font-size: 80px;
+        color: white;
+        text-align: right;
+        right: 50%;
+        margin-right: 50px;
+        animation: fadeInDown 2s;
+    }
+
+    #lastName {
+        position: fixed;
+        font-size: 80px;
+        color: white;
+        left: 50%;
+        text-align: left;
+        margin-left: 80px;
+        animation: fadeInDown 2s;
+    }
+
+
+}
+
+#footer {
+    position: fixed;
+}
+
+body {
+    background-image: url('/assets/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        margin-top: -100px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        margin-top: 100px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}

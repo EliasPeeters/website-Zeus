@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="assets/css/cv-style.css">
-        
+
         <%- include ("partials/header") %>
         
     </head>
@@ -24,9 +24,11 @@
                 <h1 class="desktopHeading">Elias Peeters</h1>
                 <h1 class="desktopDesription">20 years old</h1>
                 <h1 class="desktopDesription">from Hamburg</h1>
+
+                <div style="margin: 20px auto" class="button newButton" onclick="openPage('/cv-pdf')">Download CV</div>
             </div>
             
-            <div class="contentRight">
+            <div id="cv" class="contentRight">
 
                 <h1 class="desktopHeading">CV</h1>
                 
@@ -163,6 +165,7 @@
         <script src="assets/fade.js"></script>
         <script src="/assets/js/cvSwitch.js"></script>
         <script src="/assets/js/cv/openMoreModal.js"></script>
+
     </body>
     
     

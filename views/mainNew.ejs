@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="assets/css/mainStyle.css">
+    <link rel="stylesheet" href="assets/css/searchStyle.css">
+    <link rel="stylesheet" href="assets/css/mainStyleNew.css">
+    <link rel="stylesheet" href="assets/css/fallingLeaves.css">
+
+    <%- include ("partials/header") %>
+</head>
+
+<body id="body">
+<%- include ("partials/navBar") %>
+
+<%- include ("partials/searchPopUp") %>
+
+<div id="content">
+    <h1 id="firstName">Elias</h1>
+    <h1 id="lastName">Peeters</h1>
+
+    <img id="person" src="assets/images/person.png">
+
+    <section>
+        <div class="set">
+            <% for (let i = 0; i < 20; i++) { %>
+                <div><img src="/assets/images/leaves/leaves1.png"></div>
+                <div><img src="/assets/images/leaves/leaves2.png"></div>
+                <div><img src="/assets/images/leaves/leaves3.png"></div>
+                <div><img src="/assets/images/leaves/leaves4.png"></div>
+            <% } %>
+        </div>
+
+        <div class="set set2">
+            <% for (let i = 0; i < 20; i++) { %>
+                <div><img src="/assets/images/leaves/leaves1.png"></div>
+                <div><img src="/assets/images/leaves/leaves2.png"></div>
+                <div><img src="/assets/images/leaves/leaves3.png"></div>
+                <div><img src="/assets/images/leaves/leaves4.png"></div>
+            <% } %>
+        </div>
+
+        <div class="set set3">
+            <% for (let i = 0; i < 20; i++) { %>
+                <div><img src="/assets/images/leaves/leaves1.png"></div>
+                <div><img src="/assets/images/leaves/leaves2.png"></div>
+                <div><img src="/assets/images/leaves/leaves3.png"></div>
+                <div><img src="/assets/images/leaves/leaves4.png"></div>
+            <% } %>
+        </div>
+
+    </section>
+</div>
+
+<%- include ("partials/footer") %>
+</body>
+</html>

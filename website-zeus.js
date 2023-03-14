@@ -58,7 +58,7 @@ let sitemap = require('./routes/sitemap.js');
 let Page404 = require('./routes/404.js');
 
 let sitemapCreator = require('./sitemapCreator.js')
-sitemapCreator.createSitemap();
+// sitemapCreator.createSitemap();
 
 
 let port = process.env.ENV == 'DEVELOP' ? 8093:8081;
@@ -75,7 +75,3 @@ function startUp() {
     console.log('Finised startUp');
 }
 startUp();
-
-
-
-module.exports = {connection}

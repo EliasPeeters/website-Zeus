@@ -1,0 +1,78 @@
+<html>
+    <head>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+        <link rel="stylesheet" href="assets/css/cvPdf.css">
+        <link rel="stylesheet" href="assets/css/cv-style.css">
+
+        <%- include ("partials/header") %>
+    </head>
+
+    <body>
+
+        <div id="prompt">
+            <h3>My CV is generated and the download will start very soon.</h3>
+        </div>
+        <div id="cv">
+            <div id="header">
+                <div>
+                    <h1 style="text-align: center">Elias Peeters</h1>
+                    <p>Business Informatics Student</p>
+                </div>
+
+                <img src="assets/images/portraits/portrait3.png">
+            </div>
+
+            <% for (let y = 0; y < CVDataKeys.length; y += 2) { %>
+                <div class="page <%= y==0?'page1':'' %>">
+                    <div class="halfPage">
+                        <h1 style="text-align: center"><%= CVDataKeys[y] %></h1>
+                            <% for(let i = 0; i < CVDataByCategory[CVDataKeys[y]].length; i++) { %>
+                                    <div class="cvExportBlock <%= CVDataByCategory[CVDataKeys[y]][i].color %>">
+                                        <img src="/assets/images/cvIcons/<%= CVDataByCategory[CVDataKeys[y]][i].icon %>">
+                                        <div class="cvExportBlock_content <%= CVDataByCategory[CVDataKeys[y]][i].color %>">
+                                            <p class="blockHeading"><%= CVDataByCategory[CVDataKeys[y]][i].heading %></p>
+                                            <% if (CVDataByCategory[CVDataKeys[y]][0].categoryType !== 'Block') { %>
+                                                <p><%= CVDataByCategory[CVDataKeys[y]][i].description %></p>
+                                            <% } %>
+                                            <% CVDataByCategory[CVDataKeys[y]][i].content.forEach((content, counter) => { %>
+                                                <p class="heading"><%= content.heading %></p>
+                                                <p class="time"><%= content.time %></p>
+                                            <% }) %>
+                                        </div>
+                                    </div>
+                            <% } %>
+                    </div>
+
+
+                    <div class="halfPage">
+                        <% if (CVDataByCategory[CVDataKeys[y+1]]) { %>
+                            <h1 style="text-align: center"><%= CVDataKeys[y+1] %></h1>
+                            <% for(let i = 0; i < CVDataByCategory[CVDataKeys[y+1]].length; i++) { %>
+                                <div class="cvExportBlock <%= CVDataByCategory[CVDataKeys[y+1]][i].color %>">
+                                    <img src="/assets/images/cvIcons/<%= CVDataByCategory[CVDataKeys[y+1]][i].icon %>">
+                                    <div class="cvExportBlock_content <%= CVDataByCategory[CVDataKeys[y+1]][i].color %>">
+                                        <p class="blockHeading"><%= CVDataByCategory[CVDataKeys[y+1]][i].heading %></p>
+                                        <% if (CVDataByCategory[CVDataKeys[y+1]][0].categoryType !== 'Block') { %>
+                                            <p class="blockHeading"><%= CVDataByCategory[CVDataKeys[y+1]][i].description %></p>
+                                        <% } %>
+                                        <% CVDataByCategory[CVDataKeys[y+1]][i].content.forEach((content, counter) => { %>
+                                            <p class="heading"><%= content.heading %></p>
+                                            <p class="time"><%= content.time %></p>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+
+        </div>
+
+
+        <script src="/assets/js/cv/exportToPdf.js"></script>
+    </body>
+
+</html>
