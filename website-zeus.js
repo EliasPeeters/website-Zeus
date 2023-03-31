@@ -58,7 +58,9 @@ let sitemap = require('./routes/sitemap.js');
 let Page404 = require('./routes/404.js');
 
 let sitemapCreator = require('./sitemapCreator.js')
-// sitemapCreator.createSitemap();
+sitemapCreator.createSitemap().then(r => {
+    console.log('Sitemap has been updated')
+});
 
 
 let port = process.env.ENV == 'DEVELOP' ? 8093:8081;

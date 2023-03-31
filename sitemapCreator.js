@@ -56,7 +56,6 @@ async function createSitemap() {
     xml += '</urlset>'
     fs.appendFileSync(sitemapPath, xml)
     //fs.writeFileSync('public/sitemap.xml', xml)
-    console.log('Sitemap has been updated')
 }
 
 module.exports = {createSitemap, getExpressRoutes}
